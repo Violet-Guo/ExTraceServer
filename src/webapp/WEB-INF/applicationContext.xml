@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:util="http://www.springframework.org/schema/util" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:jaxrs="http://cxf.apache.org/jaxrs"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/util  
+     http://www.springframework.org/schema/util/spring-util-4.0.xsd 
+     http://www.springframework.org/schema/context
+     http://www.springframework.org/schema/context/spring-context-4.0.xsd
+     http://www.springframework.org/schema/tx
+     http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+	http://cxf.apache.org/jaxrs http://cxf.apache.org/schemas/jaxrs.xsd">
+
+	<import resource="classpath:META-INF/cxf/cxf.xml" />
+	<import resource="classpath:META-INF/cxf/cxf-servlet.xml" />
+
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<property name="configLocation" value="classpath:ExTrace.cfg.xml">
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">
+					org.hibernate.dialect.MySQLDialect
+				</prop>
+				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.format_sql">true</prop>
+				<!--prop key="hibernate.current_session_context_class">org.springframework.orm.hibernate4.SpringSessionContext</prop -->
+			</props>
+		</property>
+
+		<property name="packagesToScan">	<!--涓嶇煡閬撲负浜嗕粈涔�,杩欓噷蹇呴』瑕佹湁 -->
+			<list>
+				<value>ts.model</value>
+				<value>ts.daoBase</value>
+				<value>ts.daoImpl</value>
+			</list>
+		</property>
+	</bean>
+
+	<!-- 閰嶇疆浜嬪姟绠＄悊鍣� -->
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<tx:annotation-driven transaction-manager="transactionManager"
+		proxy-target-class="true" />
+
+	<bean id="userInfoDao" class="ts.daoImpl.UserInfoDao">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="transNodeDao" class="ts.daoImpl.TransNodeDao">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="regionDao" class="ts.daoImpl.RegionDao">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="customerInfoDao" class="ts.daoImpl.CustomerInfoDao">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+		<property name="regionDao" ref="regionDao"></property>
+	</bean>
+	<bean id="expressSheetDao" class="ts.daoImpl.ExpressSheetDao">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+		<property name="regionDao" ref="regionDao"></property>
+	</bean>
+	<bean id="transPackageDao" class="ts.daoImpl.TransPackageDao">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="transHistoryDao" class="ts.daoImpl.TransHistoryDao">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="transPackageContentDao" class="ts.daoImpl.TransPackageContentDao">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+
+	<!-- REST鏈嶅姟鐨勬敞瑙ｄ緥瀛� -->
+	<jaxrs:server id="Service" address="/REST">
+		<jaxrs:serviceBeans>
+			<bean class="ts.serviceImpl.MiscService">
+				<property name="transNodeDao" ref="transNodeDao"></property>	<!-- 閰嶇疆MiscService涓殑灞炴�ao -->
+				<property name="regionDao" ref="regionDao"></property>
+				<property name="customerInfoDao" ref="customerInfoDao"></property>
+			</bean>
+			<bean class="ts.serviceImpl.DomainService">
+				<property name="expressSheetDao" ref="expressSheetDao"></property>	<!-- 閰嶇疆DomainService涓殑灞炴�ao -->
+				<property name="transPackageDao" ref="transPackageDao"></property>
+				<property name="transHistoryDao" ref="transHistoryDao"></property>
+				<property name="transPackageContentDao" ref="transPackageContentDao"></property>
+				<property name="userInfoDao" ref="userInfoDao"></property>
+			</bean>
+		</jaxrs:serviceBeans>
+
+		<jaxrs:extensionMappings>
+			<entry key="json" value="application/json" />
+			<entry key="xml" value="application/xml" />
+		</jaxrs:extensionMappings>
+
+		<jaxrs:providers>
+			<ref bean="jsonProvider" />
+			<bean class="ts.serviceException.InvokeFaultExceptionMapper" />
+		</jaxrs:providers>
+		<jaxrs:languageMappings>
+			<entry key="en" value="en-gb" />
+		</jaxrs:languageMappings>
+	</jaxrs:server>
+
+	<!-- JsonProvider鐨勫睘鎬ц鏄�: 1. dropRootElement 榛樿涓篺alse锛屽垯Json鏍煎紡浼氬皢绫诲悕浣滀负绗竴涓妭鐐癸紝濡倇Customer:{"id":123,"name":"John"}}锛屽鏋滈厤缃负true锛屽垯Json鏍煎紡涓簕"id":123,"name":"John"}锛岃�孏son绛塉son鍖呬細瑙ｆ瀽鏍煎紡涓哄悗鑰呫�� 
+		2. dropCollectionWrapperElement灞炴�ч粯璁や负false锛屽垯褰撻亣鍒癈ollection鏃讹紝Json浼氬湪闆嗗悎涓皢瀹瑰櫒涓被鍚嶄綔涓轰竴涓妭鐐癸紝姣斿{"Customer":{{"id":123,"name":"John"}}}锛岃�岃缃负false锛屽垯JSon鏍煎紡涓簕{"id":123,"name":"John"}} 
+		3. serializeAsArray灞炴�ч粯璁や负false锛屽垯褰撻亣鍒癈ollecion鏃讹紝鏍煎紡涓簕{"id":123,"name":"John"}}锛屽鏋滆缃负true锛屽垯鏍煎紡涓篬{"id":123,"name":"john"}]锛岃�孏son绛夎В鏋愪负鍚庤�呫�� -->
+	<util:list id="jsonKeys">
+		<value>app</value>
+		<value>comment</value>
+	</util:list>
+
+	<util:list id="jsonTypes">
+		<value>application/json</value>
+		<value>application/jettison</value>
+	</util:list>
+	<bean id="jsonProvider" class="org.apache.cxf.jaxrs.provider.json.JSONProvider">
+		<!-- <property name="dropRootElement" value="true" /> <property name="dropCollectionWrapperElement" 
+			value="true" /> <property name="serializeAsArray" value="true" /> -->
+		<property name="serializeAsArray" value="true" />
+		<property name="arrayKeys" ref="jsonKeys" />
+		<property name="produceMediaTypes" ref="jsonTypes" />
+		<property name="consumeMediaTypes" ref="jsonTypes" />
+		<property name="ignoreNamespaces" value="true" />
+		<property name="dropRootElement" value="true" />
+		<property name="dropCollectionWrapperElement" value="true" />
+		<property name="ignoreMixedContent" value="true" />
+		<property name="supportUnwrapped" value="true" />
+		<property name="attributesToElements" value="true" />
+	</bean>
+
+</beans>
