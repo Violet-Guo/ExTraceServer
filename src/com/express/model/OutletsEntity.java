@@ -3,18 +3,19 @@ package com.express.model;
 import javax.persistence.*;
 
 /**
- * Created by violet on 2016/3/28.
+ * Created by violet on 2016/4/6.
  */
 @Entity
 @Table(name = "outlets", schema = "", catalog = "express")
 public class OutletsEntity {
     private int id;
     private String name;
+    private int regionId;
     private String address;
     private Integer type;
 
     @Id
-    @Column(name = "ID")
+    @Column(name = "ID", nullable = false, insertable = true, updatable = true)
     public int getId() {
         return id;
     }
@@ -24,7 +25,7 @@ public class OutletsEntity {
     }
 
     @Basic
-    @Column(name = "Name")
+    @Column(name = "Name", nullable = true, insertable = true, updatable = true, length = 255)
     public String getName() {
         return name;
     }
@@ -34,7 +35,17 @@ public class OutletsEntity {
     }
 
     @Basic
-    @Column(name = "Address")
+    @Column(name = "RegionID", nullable = false, insertable = true, updatable = true)
+    public int getRegionId() {
+        return regionId;
+    }
+
+    public void setRegionId(int regionId) {
+        this.regionId = regionId;
+    }
+
+    @Basic
+    @Column(name = "Address", nullable = true, insertable = true, updatable = true, length = 255)
     public String getAddress() {
         return address;
     }
@@ -44,7 +55,7 @@ public class OutletsEntity {
     }
 
     @Basic
-    @Column(name = "type")
+    @Column(name = "type", nullable = true, insertable = true, updatable = true)
     public Integer getType() {
         return type;
     }
@@ -61,6 +72,7 @@ public class OutletsEntity {
         OutletsEntity that = (OutletsEntity) o;
 
         if (id != that.id) return false;
+        if (regionId != that.regionId) return false;
         if (name != null ? !name.equals(that.name) : that.name != null) return false;
         if (address != null ? !address.equals(that.address) : that.address != null) return false;
         if (type != null ? !type.equals(that.type) : that.type != null) return false;
@@ -72,6 +84,7 @@ public class OutletsEntity {
     public int hashCode() {
         int result = id;
         result = 31 * result + (name != null ? name.hashCode() : 0);
+        result = 31 * result + regionId;
         result = 31 * result + (address != null ? address.hashCode() : 0);
         result = 31 * result + (type != null ? type.hashCode() : 0);
         return result;

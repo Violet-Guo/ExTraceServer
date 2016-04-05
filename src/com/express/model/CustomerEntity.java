@@ -3,7 +3,7 @@ package com.express.model;
 import javax.persistence.*;
 
 /**
- * Created by violet on 2016/3/28.
+ * Created by violet on 2016/4/6.
  */
 @Entity
 @Table(name = "customer", schema = "", catalog = "express")
@@ -14,7 +14,7 @@ public class CustomerEntity {
     private String password;
 
     @Id
-    @Column(name = "ID")
+    @Column(name = "ID", nullable = false, insertable = true, updatable = true)
     public int getId() {
         return id;
     }
@@ -24,7 +24,7 @@ public class CustomerEntity {
     }
 
     @Basic
-    @Column(name = "Name")
+    @Column(name = "Name", nullable = true, insertable = true, updatable = true, length = 50)
     public String getName() {
         return name;
     }
@@ -34,7 +34,7 @@ public class CustomerEntity {
     }
 
     @Basic
-    @Column(name = "Telephone")
+    @Column(name = "Telephone", nullable = true, insertable = true, updatable = true, length = 11)
     public String getTelephone() {
         return telephone;
     }
@@ -44,7 +44,7 @@ public class CustomerEntity {
     }
 
     @Basic
-    @Column(name = "Password")
+    @Column(name = "Password", nullable = true, insertable = true, updatable = true, length = 25)
     public String getPassword() {
         return password;
     }

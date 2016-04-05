@@ -1,10 +1,10 @@
 package com.express.model;
 
 import javax.persistence.*;
-import java.sql.Time;
+import java.sql.Timestamp;
 
 /**
- * Created by violet on 2016/3/28.
+ * Created by violet on 2016/4/6.
  */
 @Entity
 @Table(name = "position", schema = "", catalog = "express")
@@ -12,10 +12,11 @@ public class PositionEntity {
     private int id;
     private Double x;
     private Double y;
-    private Time time;
+    private Timestamp time;
+    private int packageId;
 
     @Id
-    @Column(name = "ID")
+    @Column(name = "ID", nullable = false, insertable = true, updatable = true)
     public int getId() {
         return id;
     }
@@ -25,7 +26,7 @@ public class PositionEntity {
     }
 
     @Basic
-    @Column(name = "X")
+    @Column(name = "X", nullable = true, insertable = true, updatable = true, precision = 0)
     public Double getX() {
         return x;
     }
@@ -35,7 +36,7 @@ public class PositionEntity {
     }
 
     @Basic
-    @Column(name = "Y")
+    @Column(name = "Y", nullable = true, insertable = true, updatable = true, precision = 0)
     public Double getY() {
         return y;
     }
@@ -45,13 +46,23 @@ public class PositionEntity {
     }
 
     @Basic
-    @Column(name = "Time")
-    public Time getTime() {
+    @Column(name = "Time", nullable = true, insertable = true, updatable = true)
+    public Timestamp getTime() {
         return time;
     }
 
-    public void setTime(Time time) {
+    public void setTime(Timestamp time) {
         this.time = time;
+    }
+
+    @Basic
+    @Column(name = "PackageID", nullable = false, insertable = true, updatable = true)
+    public int getPackageId() {
+        return packageId;
+    }
+
+    public void setPackageId(int packageId) {
+        this.packageId = packageId;
     }
 
     @Override
@@ -62,6 +73,7 @@ public class PositionEntity {
         PositionEntity that = (PositionEntity) o;
 
         if (id != that.id) return false;
+        if (packageId != that.packageId) return false;
         if (x != null ? !x.equals(that.x) : that.x != null) return false;
         if (y != null ? !y.equals(that.y) : that.y != null) return false;
         if (time != null ? !time.equals(that.time) : that.time != null) return false;
@@ -75,6 +87,7 @@ public class PositionEntity {
         result = 31 * result + (x != null ? x.hashCode() : 0);
         result = 31 * result + (y != null ? y.hashCode() : 0);
         result = 31 * result + (time != null ? time.hashCode() : 0);
+        result = 31 * result + packageId;
         return result;
     }
 }

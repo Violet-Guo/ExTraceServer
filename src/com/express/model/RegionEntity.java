@@ -3,7 +3,7 @@ package com.express.model;
 import javax.persistence.*;
 
 /**
- * Created by violet on 2016/3/28.
+ * Created by violet on 2016/4/6.
  */
 @Entity
 @Table(name = "region", schema = "", catalog = "express")
@@ -14,7 +14,7 @@ public class RegionEntity {
     private String area;
 
     @Id
-    @Column(name = "ID")
+    @Column(name = "ID", nullable = false, insertable = true, updatable = true)
     public int getId() {
         return id;
     }
@@ -24,7 +24,7 @@ public class RegionEntity {
     }
 
     @Basic
-    @Column(name = "Province")
+    @Column(name = "Province", nullable = true, insertable = true, updatable = true, length = 20)
     public String getProvince() {
         return province;
     }
@@ -34,7 +34,7 @@ public class RegionEntity {
     }
 
     @Basic
-    @Column(name = "City")
+    @Column(name = "City", nullable = true, insertable = true, updatable = true, length = 20)
     public String getCity() {
         return city;
     }
@@ -44,7 +44,7 @@ public class RegionEntity {
     }
 
     @Basic
-    @Column(name = "Area")
+    @Column(name = "Area", nullable = true, insertable = true, updatable = true, length = 20)
     public String getArea() {
         return area;
     }

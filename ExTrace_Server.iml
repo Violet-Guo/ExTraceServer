@@ -13,9 +13,13 @@
     </facet>
     <facet type="hibernate" name="Hibernate">
       <configuration>
-        <datasource-map />
+        <datasource-map>
+          <unit-entry name="a.xml" value="10f7d4e7-4813-4a97-8636-6c7cc162dc7e" />
+          <unit-entry name="hibernate.cfg.xml" value="10f7d4e7-4813-4a97-8636-6c7cc162dc7e" />
+          <unit-entry name="sessionFactory" />
+        </datasource-map>
         <naming-strategy-map />
-        <deploymentDescriptor name="hibernate.cfg.xml" url="file://$MODULE_DIR$/src/main/java/hibernate.cfg.xml" />
+        <deploymentDescriptor name="hibernate.cfg.xml" url="file://$MODULE_DIR$/src/hibernate.cfg.xml" />
       </configuration>
     </facet>
     <facet type="Spring" name="Spring">
@@ -40,6 +44,32 @@
           <file>file://D:/jar/apache-cxf-3.1.5/apache-cxf-3.1.5/lib/cxf-tools-java2ws-3.1.5.jar</file>
           <file>jar://D:/jar/apache-cxf-3.1.5/apache-cxf-3.1.5/lib/cxf-rt-databinding-sdo-3.1.5.jar!/META-INF/cxf/java2wsbeans.xml</file>
           <file>file://D:/jar/apache-cxf-3.1.5/apache-cxf-3.1.5/lib/cxf-rt-databinding-sdo-3.1.5.jar</file>
+          <file>file://$MODULE_DIR$/src/webapp/WEB-INF/applicationContext.xml</file>
+        </fileset>
+        <fileset id="fileset2" name="Spring Application Context (2)" removed="false">
+          <file>file://$MODULE_DIR$/src/applicationContext.xml</file>
+          <file>jar://$MODULE_DIR$/web/WEB-INF/lib/cxf-2.7.10.jar!/META-INF/cxf/cxf-all.xml</file>
+          <file>jar://$MODULE_DIR$/web/WEB-INF/lib/cxf-2.7.10.jar!/META-INF/cxf/cxf-extension-addr.xml</file>
+          <file>jar://$MODULE_DIR$/web/WEB-INF/lib/cxf-2.7.10.jar!/META-INF/cxf/cxf-extension-corba.xml</file>
+          <file>jar://$MODULE_DIR$/web/WEB-INF/lib/cxf-2.7.10.jar!/META-INF/cxf/cxf-extension-http-jetty.xml</file>
+          <file>jar://$MODULE_DIR$/web/WEB-INF/lib/cxf-2.7.10.jar!/META-INF/cxf/cxf-extension-http.xml</file>
+          <file>jar://$MODULE_DIR$/web/WEB-INF/lib/cxf-2.7.10.jar!/META-INF/cxf/cxf-extension-javascript-client.xml</file>
+          <file>jar://$MODULE_DIR$/web/WEB-INF/lib/cxf-2.7.10.jar!/META-INF/cxf/cxf-extension-jaxws.xml</file>
+          <file>jar://$MODULE_DIR$/web/WEB-INF/lib/cxf-2.7.10.jar!/META-INF/cxf/cxf-extension-jms.xml</file>
+          <file>jar://$MODULE_DIR$/web/WEB-INF/lib/cxf-2.7.10.jar!/META-INF/cxf/cxf-extension-local.xml</file>
+          <file>jar://$MODULE_DIR$/web/WEB-INF/lib/cxf-2.7.10.jar!/META-INF/cxf/cxf-extension-management.xml</file>
+          <file>jar://$MODULE_DIR$/web/WEB-INF/lib/cxf-2.7.10.jar!/META-INF/cxf/cxf-extension-object-binding.xml</file>
+          <file>jar://$MODULE_DIR$/web/WEB-INF/lib/cxf-2.7.10.jar!/META-INF/cxf/osgi/cxf-extension-osgi.xml</file>
+          <file>jar://$MODULE_DIR$/web/WEB-INF/lib/cxf-2.7.10.jar!/META-INF/cxf/cxf-extension-policy.xml</file>
+          <file>jar://$MODULE_DIR$/web/WEB-INF/lib/cxf-2.7.10.jar!/META-INF/cxf/cxf-extension-rm.xml</file>
+          <file>jar://$MODULE_DIR$/web/WEB-INF/lib/cxf-2.7.10.jar!/META-INF/cxf/cxf-extension-soap.xml</file>
+          <file>jar://$MODULE_DIR$/web/WEB-INF/lib/cxf-2.7.10.jar!/META-INF/cxf/cxf-extension-ws-security.xml</file>
+          <file>jar://$MODULE_DIR$/web/WEB-INF/lib/cxf-2.7.10.jar!/META-INF/cxf/cxf-extension-wstx-msv-validation.xml</file>
+          <file>jar://$MODULE_DIR$/web/WEB-INF/lib/cxf-2.7.10.jar!/META-INF/cxf/cxf-extension-xml.xml</file>
+          <file>jar://$MODULE_DIR$/web/WEB-INF/lib/cxf-2.7.10.jar!/META-INF/cxf/cxf-servlet.xml</file>
+          <file>jar://$MODULE_DIR$/web/WEB-INF/lib/cxf-2.7.10.jar!/META-INF/cxf/cxf.xml</file>
+          <file>jar://$MODULE_DIR$/web/WEB-INF/lib/cxf-2.7.10.jar!/META-INF/cxf/java2wsbeans.xml</file>
+          <file>file://$MODULE_DIR$/web/WEB-INF/lib/cxf-2.7.10.jar</file>
         </fileset>
       </configuration>
     </facet>
@@ -51,8 +81,7 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="Hibernate" level="project" />
-    <orderEntry type="library" name="JAX-RS" level="project" />
-    <orderEntry type="library" name="spring-aop-4.2.5.RELEASE-javadoc" level="project" />
+    <orderEntry type="library" name="mysql-connector-java-5.1.36-bin" level="project" />
+    <orderEntry type="library" name="ExTraceLib" level="project" />
   </component>
 </module>

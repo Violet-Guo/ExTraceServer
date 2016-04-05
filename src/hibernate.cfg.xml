@@ -1,36 +1,37 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version="1.0" encoding="utf-8" ?>
 <!DOCTYPE hibernate-configuration PUBLIC
-    "-//Hibernate/Hibernate Configuration DTD//EN"
-    "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
-  <session-factory>
-    <property name="connection.url">jdbc:mysql://localhost:3306/express</property>
-    <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
-    <mapping class="com.express.model.AddressEntity"/>
-    <mapping resource="com/express/model/AddressEntity.hbm.xml"/>
-    <mapping class="com.express.model.CustomerEntity"/>
-    <mapping resource="com/express/model/CustomerEntity.hbm.xml"/>
-    <mapping class="com.express.model.EmployeesEntity"/>
-    <mapping resource="com/express/model/EmployeesEntity.hbm.xml"/>
-    <mapping class="com.express.model.ExpressEntity"/>
-    <mapping resource="com/express/model/ExpressEntity.hbm.xml"/>
-    <mapping class="com.express.model.ExpressandpackageEntity"/>
-    <mapping resource="com/express/model/ExpressandpackageEntity.hbm.xml"/>
-    <mapping class="com.express.model.MyexpressEntity"/>
-    <mapping resource="com/express/model/MyexpressEntity.hbm.xml"/>
-    <mapping class="com.express.model.OutletsEntity"/>
-    <mapping resource="com/express/model/OutletsEntity.hbm.xml"/>
-    <mapping class="com.express.model.PackageEntity"/>
-    <mapping resource="com/express/model/PackageEntity.hbm.xml"/>
-    <mapping class="com.express.model.PackagehistoryEntity"/>
-    <mapping resource="com/express/model/PackagehistoryEntity.hbm.xml"/>
-    <mapping class="com.express.model.PackandpackEntity"/>
-    <mapping resource="com/express/model/PackandpackEntity.hbm.xml"/>
-    <mapping class="com.express.model.PositionEntity"/>
-    <mapping resource="com/express/model/PositionEntity.hbm.xml"/>
-    <mapping class="com.express.model.RegionEntity"/>
-    <mapping resource="com/express/model/RegionEntity.hbm.xml"/>
-    <!-- DB schema will be updated if needed -->
-    <!-- <property name="hbm2ddl.auto">update</property> -->
-  </session-factory>
+    <session-factory>
+        <!-- properties -->
+        <property name="dialect">org.hibernate.dialect.MySQL5Dialect</property>
+        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="connection.url">jdbc:mysql://localhost:3306/express</property>
+        <property name="connection.username">root</property>
+        <property name="connection.password">root</property>
+        <property name="hibernate.connection.provider_class">org.hibernate.c3p0.internal.C3P0ConnectionProvider</property>
+        <property name="hibernate.c3p0.acquire_increment">1</property>
+        <property name="hibernate.c3p0.idle_test_period">0</property>
+        <property name="hibernate.c3p0.min_size">1</property>
+        <property name="hibernate.c3p0.max_size">200</property>
+        <property name="hibernate.c3p0.timeout">1</property>
+        <property name="show_sql">true</property>
+        <property name="query.substitutions">true 1, false 0, yes 'Y', no 'N'</property>
+
+        <!-- mapping files -->
+        <mapping class="com.express.model.AddressEntity"/>
+        <mapping class="com.express.model.CustomerEntity"/>
+        <mapping class="com.express.model.EmployeesEntity"/>
+        <mapping class="com.express.model.ExpressEntity"/>
+        <mapping class="com.express.model.ExpressandpackageEntity"/>
+        <mapping class="com.express.model.OutletsEntity"/>
+        <mapping class="com.express.model.PackageEntity"/>
+        <mapping class="com.express.model.PackagehistoryEntity"/>
+        <mapping class="com.express.model.PackandpackEntity"/>
+        <mapping class="com.express.model.PositionEntity"/>
+        <mapping class="com.express.model.RegionEntity"/>
+
+
+    </session-factory>
 </hibernate-configuration>

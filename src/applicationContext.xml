@@ -18,7 +18,7 @@
 
 	<bean id="sessionFactory"
 		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
-		<property name="configLocation" value="classpath:ExTrace.cfg.xml">
+		<property name="configLocation" value="classpath:hibernate.cfg.xml">
 		</property>
 		<property name="hibernateProperties">
 			<props>
@@ -31,16 +31,16 @@
 			</props>
 		</property>
 
-		<property name="packagesToScan">	<!--涓嶇煡閬撲负浜嗕粈涔�,杩欓噷蹇呴』瑕佹湁 -->
+		<property name="packagesToScan">	<!--不知道为了什么,这里必须要有 -->
 			<list>
-				<value>ts.model</value>
-				<value>ts.daoBase</value>
-				<value>ts.daoImpl</value>
+				<value>com.express.model</value>
+				<value>com.express.daoBase</value>
+				<value>com.express.daoImpl</value>
 			</list>
 		</property>
 	</bean>
 
-	<!-- 閰嶇疆浜嬪姟绠＄悊鍣� -->
+    <!-- 配置事务管理器 -->
 	<bean id="transactionManager"
 		class="org.springframework.orm.hibernate4.HibernateTransactionManager">
 		<property name="sessionFactory" ref="sessionFactory" />
@@ -48,67 +48,50 @@
 	<tx:annotation-driven transaction-manager="transactionManager"
 		proxy-target-class="true" />
 
-	<bean id="userInfoDao" class="ts.daoImpl.UserInfoDao">
+	<bean id="AddressDao" class="com.express.daoImpl.AddressDao">
+        <property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="CustomerDao" class="com.express.daoImpl.CustomerDao">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
-	<bean id="transNodeDao" class="ts.daoImpl.TransNodeDao">
+	<bean id="EmployeesDao" class="com.express.daoImpl.EmployeesDao">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
-	<bean id="regionDao" class="ts.daoImpl.RegionDao">
+	<bean id="ExpressDao" class="com.express.daoImpl.ExpressDao">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
-	<bean id="customerInfoDao" class="ts.daoImpl.CustomerInfoDao">
-		<property name="sessionFactory" ref="sessionFactory"></property>
-		<property name="regionDao" ref="regionDao"></property>
-	</bean>
-	<bean id="expressSheetDao" class="ts.daoImpl.ExpressSheetDao">
-		<property name="sessionFactory" ref="sessionFactory"></property>
-		<property name="regionDao" ref="regionDao"></property>
-	</bean>
-	<bean id="transPackageDao" class="ts.daoImpl.TransPackageDao">
+	<bean id="PackageDao" class="com.express.daoImpl.PackageDao">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
-	<bean id="transHistoryDao" class="ts.daoImpl.TransHistoryDao">
+	<bean id="PositionDao" class="com.express.daoImpl.PositionDao">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
-	<bean id="transPackageContentDao" class="ts.daoImpl.TransPackageContentDao">
+	<bean id="RegionDao" class="com.express.daoImpl.RegionDao">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
 
-	<!-- REST鏈嶅姟鐨勬敞瑙ｄ緥瀛� -->
+    <!-- REST服务的注解例子 -->
 	<jaxrs:server id="Service" address="/REST">
-		<jaxrs:serviceBeans>
-			<bean class="ts.serviceImpl.MiscService">
-				<property name="transNodeDao" ref="transNodeDao"></property>	<!-- 閰嶇疆MiscService涓殑灞炴�ao -->
-				<property name="regionDao" ref="regionDao"></property>
-				<property name="customerInfoDao" ref="customerInfoDao"></property>
-			</bean>
-			<bean class="ts.serviceImpl.DomainService">
-				<property name="expressSheetDao" ref="expressSheetDao"></property>	<!-- 閰嶇疆DomainService涓殑灞炴�ao -->
-				<property name="transPackageDao" ref="transPackageDao"></property>
-				<property name="transHistoryDao" ref="transHistoryDao"></property>
-				<property name="transPackageContentDao" ref="transPackageContentDao"></property>
-				<property name="userInfoDao" ref="userInfoDao"></property>
-			</bean>
-		</jaxrs:serviceBeans>
+
+        <jaxrs:serviceBeans>
+            <bean class="com.express.serviceImpl.MiscService">
+            </bean>
+        </jaxrs:serviceBeans>
 
 		<jaxrs:extensionMappings>
 			<entry key="json" value="application/json" />
 			<entry key="xml" value="application/xml" />
 		</jaxrs:extensionMappings>
 
-		<jaxrs:providers>
-			<ref bean="jsonProvider" />
-			<bean class="ts.serviceException.InvokeFaultExceptionMapper" />
-		</jaxrs:providers>
 		<jaxrs:languageMappings>
 			<entry key="en" value="en-gb" />
 		</jaxrs:languageMappings>
 	</jaxrs:server>
 
-	<!-- JsonProvider鐨勫睘鎬ц鏄�: 1. dropRootElement 榛樿涓篺alse锛屽垯Json鏍煎紡浼氬皢绫诲悕浣滀负绗竴涓妭鐐癸紝濡倇Customer:{"id":123,"name":"John"}}锛屽鏋滈厤缃负true锛屽垯Json鏍煎紡涓簕"id":123,"name":"John"}锛岃�孏son绛塉son鍖呬細瑙ｆ瀽鏍煎紡涓哄悗鑰呫�� 
-		2. dropCollectionWrapperElement灞炴�ч粯璁や负false锛屽垯褰撻亣鍒癈ollection鏃讹紝Json浼氬湪闆嗗悎涓皢瀹瑰櫒涓被鍚嶄綔涓轰竴涓妭鐐癸紝姣斿{"Customer":{{"id":123,"name":"John"}}}锛岃�岃缃负false锛屽垯JSon鏍煎紡涓簕{"id":123,"name":"John"}} 
-		3. serializeAsArray灞炴�ч粯璁や负false锛屽垯褰撻亣鍒癈ollecion鏃讹紝鏍煎紡涓簕{"id":123,"name":"John"}}锛屽鏋滆缃负true锛屽垯鏍煎紡涓篬{"id":123,"name":"john"}]锛岃�孏son绛夎В鏋愪负鍚庤�呫�� -->
+    <!-- JsonProvider的属性说明:
+            1. dropRootElement 默认为false，则Json格式会将类名作为第一个节点，如{Customer:{"id":123,"name":"John"}}，如果配置为true，则Json格式为{"id":123,"name":"John"}，而Gson等Json包会解析格式为后者。
+            2. dropCollectionWrapperElement属性默认为false，则当遇到Collection时，Json会在集合中将容器中类名作为一个节点，比如{"Customer":{{"id":123,"name":"John"}}}，而设置为false，则JSon格式为{{"id":123,"name":"John"}}
+            3. serializeAsArray属性默认为false，则当遇到Collecion时，格式为{{"id":123,"name":"John"}}，如果设置为true，则格式为[{"id":123,"name":"john"}]，而Gson等解析为后者。 -->
 	<util:list id="jsonKeys">
 		<value>app</value>
 		<value>comment</value>

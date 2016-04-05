@@ -3,7 +3,7 @@ package com.express.model;
 import javax.persistence.*;
 
 /**
- * Created by violet on 2016/3/28.
+ * Created by violet on 2016/4/6.
  */
 @Entity
 @Table(name = "employees", schema = "", catalog = "express")
@@ -15,9 +15,10 @@ public class EmployeesEntity {
     private Integer job;
     private String jobText;
     private Integer status;
+    private int outletsId;
 
     @Id
-    @Column(name = "ID")
+    @Column(name = "ID", nullable = false, insertable = true, updatable = true)
     public int getId() {
         return id;
     }
@@ -27,7 +28,7 @@ public class EmployeesEntity {
     }
 
     @Basic
-    @Column(name = "Name")
+    @Column(name = "Name", nullable = true, insertable = true, updatable = true, length = 50)
     public String getName() {
         return name;
     }
@@ -37,7 +38,7 @@ public class EmployeesEntity {
     }
 
     @Basic
-    @Column(name = "Password")
+    @Column(name = "Password", nullable = true, insertable = true, updatable = true, length = 25)
     public String getPassword() {
         return password;
     }
@@ -47,7 +48,7 @@ public class EmployeesEntity {
     }
 
     @Basic
-    @Column(name = "Telephone")
+    @Column(name = "Telephone", nullable = true, insertable = true, updatable = true, length = 11)
     public String getTelephone() {
         return telephone;
     }
@@ -57,7 +58,7 @@ public class EmployeesEntity {
     }
 
     @Basic
-    @Column(name = "Job")
+    @Column(name = "Job", nullable = true, insertable = true, updatable = true)
     public Integer getJob() {
         return job;
     }
@@ -67,7 +68,7 @@ public class EmployeesEntity {
     }
 
     @Basic
-    @Column(name = "jobText")
+    @Column(name = "jobText", nullable = true, insertable = true, updatable = true, length = 255)
     public String getJobText() {
         return jobText;
     }
@@ -77,13 +78,23 @@ public class EmployeesEntity {
     }
 
     @Basic
-    @Column(name = "status")
+    @Column(name = "status", nullable = true, insertable = true, updatable = true)
     public Integer getStatus() {
         return status;
     }
 
     public void setStatus(Integer status) {
         this.status = status;
+    }
+
+    @Basic
+    @Column(name = "OutletsID", nullable = false, insertable = true, updatable = true)
+    public int getOutletsId() {
+        return outletsId;
+    }
+
+    public void setOutletsId(int outletsId) {
+        this.outletsId = outletsId;
     }
 
     @Override
@@ -94,6 +105,7 @@ public class EmployeesEntity {
         EmployeesEntity that = (EmployeesEntity) o;
 
         if (id != that.id) return false;
+        if (outletsId != that.outletsId) return false;
         if (name != null ? !name.equals(that.name) : that.name != null) return false;
         if (password != null ? !password.equals(that.password) : that.password != null) return false;
         if (telephone != null ? !telephone.equals(that.telephone) : that.telephone != null) return false;
@@ -113,6 +125,7 @@ public class EmployeesEntity {
         result = 31 * result + (job != null ? job.hashCode() : 0);
         result = 31 * result + (jobText != null ? jobText.hashCode() : 0);
         result = 31 * result + (status != null ? status.hashCode() : 0);
+        result = 31 * result + outletsId;
         return result;
     }
 }

@@ -1,26 +1,28 @@
 package com.express.model;
 
 import javax.persistence.*;
-import java.sql.Time;
+import java.sql.Timestamp;
 
 /**
- * Created by violet on 2016/3/28.
+ * Created by violet on 2016/4/6.
  */
 @Entity
 @Table(name = "express", schema = "", catalog = "express")
 public class ExpressEntity {
     private int id;
-    private Byte isPackage;
+    private int customerId;
+    private Integer isPackage;
     private Float weight;
     private String accepter;
     private Integer accTel;
-    private Time getTime;
-    private Time outTime;
+    private int accAddressId;
+    private Timestamp getTime;
+    private Timestamp outTime;
     private Float tranFee;
     private Float insuFee;
 
     @Id
-    @Column(name = "ID")
+    @Column(name = "ID", nullable = false, insertable = true, updatable = true)
     public int getId() {
         return id;
     }
@@ -30,17 +32,27 @@ public class ExpressEntity {
     }
 
     @Basic
-    @Column(name = "IsPackage")
-    public Byte getIsPackage() {
+    @Column(name = "CustomerID", nullable = false, insertable = true, updatable = true)
+    public int getCustomerId() {
+        return customerId;
+    }
+
+    public void setCustomerId(int customerId) {
+        this.customerId = customerId;
+    }
+
+    @Basic
+    @Column(name = "IsPackage", nullable = true, insertable = true, updatable = true)
+    public Integer getIsPackage() {
         return isPackage;
     }
 
-    public void setIsPackage(Byte isPackage) {
+    public void setIsPackage(Integer isPackage) {
         this.isPackage = isPackage;
     }
 
     @Basic
-    @Column(name = "Weight")
+    @Column(name = "Weight", nullable = true, insertable = true, updatable = true, precision = 0)
     public Float getWeight() {
         return weight;
     }
@@ -50,7 +62,7 @@ public class ExpressEntity {
     }
 
     @Basic
-    @Column(name = "Accepter")
+    @Column(name = "Accepter", nullable = true, insertable = true, updatable = true, length = 50)
     public String getAccepter() {
         return accepter;
     }
@@ -60,7 +72,7 @@ public class ExpressEntity {
     }
 
     @Basic
-    @Column(name = "AccTel")
+    @Column(name = "AccTel", nullable = true, insertable = true, updatable = true)
     public Integer getAccTel() {
         return accTel;
     }
@@ -70,27 +82,37 @@ public class ExpressEntity {
     }
 
     @Basic
-    @Column(name = "GetTime")
-    public Time getGetTime() {
+    @Column(name = "AccAddressID", nullable = false, insertable = true, updatable = true)
+    public int getAccAddressId() {
+        return accAddressId;
+    }
+
+    public void setAccAddressId(int accAddressId) {
+        this.accAddressId = accAddressId;
+    }
+
+    @Basic
+    @Column(name = "GetTime", nullable = true, insertable = true, updatable = true)
+    public Timestamp getGetTime() {
         return getTime;
     }
 
-    public void setGetTime(Time getTime) {
+    public void setGetTime(Timestamp getTime) {
         this.getTime = getTime;
     }
 
     @Basic
-    @Column(name = "OutTime")
-    public Time getOutTime() {
+    @Column(name = "OutTime", nullable = true, insertable = true, updatable = true)
+    public Timestamp getOutTime() {
         return outTime;
     }
 
-    public void setOutTime(Time outTime) {
+    public void setOutTime(Timestamp outTime) {
         this.outTime = outTime;
     }
 
     @Basic
-    @Column(name = "TranFee")
+    @Column(name = "TranFee", nullable = true, insertable = true, updatable = true, precision = 0)
     public Float getTranFee() {
         return tranFee;
     }
@@ -100,7 +122,7 @@ public class ExpressEntity {
     }
 
     @Basic
-    @Column(name = "InsuFee")
+    @Column(name = "InsuFee", nullable = true, insertable = true, updatable = true, precision = 0)
     public Float getInsuFee() {
         return insuFee;
     }
@@ -117,6 +139,8 @@ public class ExpressEntity {
         ExpressEntity that = (ExpressEntity) o;
 
         if (id != that.id) return false;
+        if (customerId != that.customerId) return false;
+        if (accAddressId != that.accAddressId) return false;
         if (isPackage != null ? !isPackage.equals(that.isPackage) : that.isPackage != null) return false;
         if (weight != null ? !weight.equals(that.weight) : that.weight != null) return false;
         if (accepter != null ? !accepter.equals(that.accepter) : that.accepter != null) return false;
@@ -132,10 +156,12 @@ public class ExpressEntity {
     @Override
     public int hashCode() {
         int result = id;
+        result = 31 * result + customerId;
         result = 31 * result + (isPackage != null ? isPackage.hashCode() : 0);
         result = 31 * result + (weight != null ? weight.hashCode() : 0);
         result = 31 * result + (accepter != null ? accepter.hashCode() : 0);
         result = 31 * result + (accTel != null ? accTel.hashCode() : 0);
+        result = 31 * result + accAddressId;
         result = 31 * result + (getTime != null ? getTime.hashCode() : 0);
         result = 31 * result + (outTime != null ? outTime.hashCode() : 0);
         result = 31 * result + (tranFee != null ? tranFee.hashCode() : 0);

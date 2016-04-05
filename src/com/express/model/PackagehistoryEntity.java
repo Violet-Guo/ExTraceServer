@@ -1,26 +1,67 @@
 package com.express.model;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
-import java.sql.Time;
+import javax.persistence.*;
+import java.sql.Timestamp;
 
 /**
- * Created by violet on 2016/3/28.
+ * Created by violet on 2016/4/6.
  */
 @Entity
 @Table(name = "packagehistory", schema = "", catalog = "express")
 public class PackagehistoryEntity {
-    private Time time;
+    private int id;
+    private int packageId;
+    private int fromOutletsId;
+    private int toOutletsId;
+    private Timestamp time;
+
+    @Id
+    @Column(name = "id", nullable = false, insertable = true, updatable = true)
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     @Basic
-    @Column(name = "Time")
-    public Time getTime() {
+    @Column(name = "PackageID", nullable = false, insertable = true, updatable = true)
+    public int getPackageId() {
+        return packageId;
+    }
+
+    public void setPackageId(int packageId) {
+        this.packageId = packageId;
+    }
+
+    @Basic
+    @Column(name = "FromOutletsID", nullable = false, insertable = true, updatable = true)
+    public int getFromOutletsId() {
+        return fromOutletsId;
+    }
+
+    public void setFromOutletsId(int fromOutletsId) {
+        this.fromOutletsId = fromOutletsId;
+    }
+
+    @Basic
+    @Column(name = "ToOutletsID", nullable = false, insertable = true, updatable = true)
+    public int getToOutletsId() {
+        return toOutletsId;
+    }
+
+    public void setToOutletsId(int toOutletsId) {
+        this.toOutletsId = toOutletsId;
+    }
+
+    @Basic
+    @Column(name = "Time", nullable = true, insertable = true, updatable = true)
+    public Timestamp getTime() {
         return time;
     }
 
-    public void setTime(Time time) {
+    public void setTime(Timestamp time) {
         this.time = time;
     }
 
@@ -31,6 +72,10 @@ public class PackagehistoryEntity {
 
         PackagehistoryEntity that = (PackagehistoryEntity) o;
 
+        if (id != that.id) return false;
+        if (packageId != that.packageId) return false;
+        if (fromOutletsId != that.fromOutletsId) return false;
+        if (toOutletsId != that.toOutletsId) return false;
         if (time != null ? !time.equals(that.time) : that.time != null) return false;
 
         return true;
@@ -38,6 +83,11 @@ public class PackagehistoryEntity {
 
     @Override
     public int hashCode() {
-        return time != null ? time.hashCode() : 0;
+        int result = id;
+        result = 31 * result + packageId;
+        result = 31 * result + fromOutletsId;
+        result = 31 * result + toOutletsId;
+        result = 31 * result + (time != null ? time.hashCode() : 0);
+        return result;
     }
 }

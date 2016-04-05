@@ -1,4 +1,4 @@
-package main.java.com.express.daoBase;
+package com.express.daoBase;
 
 import org.hibernate.criterion.Criterion;
 
