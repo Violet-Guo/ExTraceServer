@@ -1,16 +1,18 @@
 package com.express.model;
 
 import javax.persistence.*;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  * Created by violet on 2016/4/6.
  */
 @Entity
 @Table(name = "packandpack", schema = "", catalog = "express")
+@XmlRootElement(name = "PackAndPack")
 public class PackandpackEntity {
     private int id;
-    private int packageId;
-    private int parentId;
+    private String packageId;
+    private String parentId;
     private Integer isHistory;
 
     @Id
@@ -24,22 +26,22 @@ public class PackandpackEntity {
     }
 
     @Basic
-    @Column(name = "PackageID", nullable = false, insertable = true, updatable = true)
-    public int getPackageId() {
+    @Column(name = "PackageID", nullable = false, insertable = true, updatable = true, length = 24)
+    public String getPackageId() {
         return packageId;
     }
 
-    public void setPackageId(int packageId) {
+    public void setPackageId(String packageId) {
         this.packageId = packageId;
     }
 
     @Basic
-    @Column(name = "ParentID", nullable = false, insertable = true, updatable = true)
-    public int getParentId() {
+    @Column(name = "ParentID", nullable = false, insertable = true, updatable = true, length = 24)
+    public String getParentId() {
         return parentId;
     }
 
-    public void setParentId(int parentId) {
+    public void setParentId(String parentId) {
         this.parentId = parentId;
     }
 
@@ -61,8 +63,8 @@ public class PackandpackEntity {
         PackandpackEntity that = (PackandpackEntity) o;
 
         if (id != that.id) return false;
-        if (packageId != that.packageId) return false;
-        if (parentId != that.parentId) return false;
+        if (packageId != null ? !packageId.equals(that.packageId) : that.packageId != null) return false;
+        if (parentId != null ? !parentId.equals(that.parentId) : that.parentId != null) return false;
         if (isHistory != null ? !isHistory.equals(that.isHistory) : that.isHistory != null) return false;
 
         return true;
@@ -71,8 +73,8 @@ public class PackandpackEntity {
     @Override
     public int hashCode() {
         int result = id;
-        result = 31 * result + packageId;
-        result = 31 * result + parentId;
+        result = 31 * result + (packageId != null ? packageId.hashCode() : 0);
+        result = 31 * result + (parentId != null ? parentId.hashCode() : 0);
         result = 31 * result + (isHistory != null ? isHistory.hashCode() : 0);
         return result;
     }

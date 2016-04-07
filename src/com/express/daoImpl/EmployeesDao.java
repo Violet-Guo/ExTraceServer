@@ -8,4 +8,9 @@ import com.express.model.EmployeesEntity;
  */
 public class EmployeesDao extends BaseDao<EmployeesEntity, Integer> {
 
+    //根据工作人员id拿到工作人员的信息
+    public EmployeesEntity get(int id){
+        EmployeesEntity employeesEntity = super.get(id);
+        return employeesEntity;
+    }
 }

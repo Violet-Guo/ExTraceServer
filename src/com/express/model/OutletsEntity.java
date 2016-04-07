@@ -1,12 +1,14 @@
 package com.express.model;
 
 import javax.persistence.*;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  * Created by violet on 2016/4/6.
  */
 @Entity
 @Table(name = "outlets", schema = "", catalog = "express")
+@XmlRootElement(name = "Outlets")
 public class OutletsEntity {
     private int id;
     private String name;

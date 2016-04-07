@@ -1,6 +1,7 @@
 package com.express.model;
 
 import javax.persistence.*;
+import javax.xml.bind.annotation.XmlRootElement;
 import java.sql.Timestamp;
 
 /**
@@ -8,12 +9,13 @@ import java.sql.Timestamp;
  */
 @Entity
 @Table(name = "position", schema = "", catalog = "express")
+@XmlRootElement(name = "Position")
 public class PositionEntity {
     private int id;
     private Double x;
     private Double y;
     private Timestamp time;
-    private int packageId;
+    private String packageId;
 
     @Id
     @Column(name = "ID", nullable = false, insertable = true, updatable = true)
@@ -56,12 +58,12 @@ public class PositionEntity {
     }
 
     @Basic
-    @Column(name = "PackageID", nullable = false, insertable = true, updatable = true)
-    public int getPackageId() {
+    @Column(name = "PackageID", nullable = false, insertable = true, updatable = true, length = 24)
+    public String getPackageId() {
         return packageId;
     }
 
-    public void setPackageId(int packageId) {
+    public void setPackageId(String packageId) {
         this.packageId = packageId;
     }
 
@@ -73,10 +75,10 @@ public class PositionEntity {
         PositionEntity that = (PositionEntity) o;
 
         if (id != that.id) return false;
-        if (packageId != that.packageId) return false;
         if (x != null ? !x.equals(that.x) : that.x != null) return false;
         if (y != null ? !y.equals(that.y) : that.y != null) return false;
         if (time != null ? !time.equals(that.time) : that.time != null) return false;
+        if (packageId != null ? !packageId.equals(that.packageId) : that.packageId != null) return false;
 
         return true;
     }
@@ -87,7 +89,7 @@ public class PositionEntity {
         result = 31 * result + (x != null ? x.hashCode() : 0);
         result = 31 * result + (y != null ? y.hashCode() : 0);
         result = 31 * result + (time != null ? time.hashCode() : 0);
-        result = 31 * result + packageId;
+        result = 31 * result + (packageId != null ? packageId.hashCode() : 0);
         return result;
     }
 }

@@ -6,5 +6,5 @@ import com.express.model.PackageEntity;
 /**
  * Created by violet on 2016/3/28.
  */
-public class PackageDao extends BaseDao<PackageEntity, Integer>{
+public class PackageDao extends BaseDao<PackageEntity, String>{
 }

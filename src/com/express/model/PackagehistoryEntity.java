@@ -1,6 +1,7 @@
 package com.express.model;
 
 import javax.persistence.*;
+import javax.xml.bind.annotation.XmlRootElement;
 import java.sql.Timestamp;
 
 /**
@@ -8,9 +9,10 @@ import java.sql.Timestamp;
  */
 @Entity
 @Table(name = "packagehistory", schema = "", catalog = "express")
+@XmlRootElement(name = "PackageHistory")
 public class PackagehistoryEntity {
     private int id;
-    private int packageId;
+    private String packageId;
     private int fromOutletsId;
     private int toOutletsId;
     private Timestamp time;
@@ -26,12 +28,12 @@ public class PackagehistoryEntity {
     }
 
     @Basic
-    @Column(name = "PackageID", nullable = false, insertable = true, updatable = true)
-    public int getPackageId() {
+    @Column(name = "PackageID", nullable = false, insertable = true, updatable = true, length = 24)
+    public String getPackageId() {
         return packageId;
     }
 
-    public void setPackageId(int packageId) {
+    public void setPackageId(String packageId) {
         this.packageId = packageId;
     }
 
@@ -73,9 +75,9 @@ public class PackagehistoryEntity {
         PackagehistoryEntity that = (PackagehistoryEntity) o;
 
         if (id != that.id) return false;
-        if (packageId != that.packageId) return false;
         if (fromOutletsId != that.fromOutletsId) return false;
         if (toOutletsId != that.toOutletsId) return false;
+        if (packageId != null ? !packageId.equals(that.packageId) : that.packageId != null) return false;
         if (time != null ? !time.equals(that.time) : that.time != null) return false;
 
         return true;
@@ -84,7 +86,7 @@ public class PackagehistoryEntity {
     @Override
     public int hashCode() {
         int result = id;
-        result = 31 * result + packageId;
+        result = 31 * result + (packageId != null ? packageId.hashCode() : 0);
         result = 31 * result + fromOutletsId;
         result = 31 * result + toOutletsId;
         result = 31 * result + (time != null ? time.hashCode() : 0);

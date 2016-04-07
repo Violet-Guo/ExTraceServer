@@ -70,11 +70,36 @@
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
 
+    <!--自己加的-->
+	<tx:advice id="txAdvice" transaction-manager="transactionManager">
+		<tx:attributes>
+            <tx:method name="save*" propagation="REQUIRED" />
+            <tx:method name="add*" propagation="REQUIRED" />
+            <tx:method name="create*" propagation="REQUIRED" />
+            <tx:method name="insert*" propagation="REQUIRED" />
+            <tx:method name="update*" propagation="REQUIRED" />
+            <tx:method name="merge*" propagation="REQUIRED" />
+            <tx:method name="del*" propagation="REQUIRED" />
+            <tx:method name="remove*" propagation="REQUIRED" />
+            <tx:method name="put*" propagation="REQUIRED" />
+            <tx:method name="use*" propagation="REQUIRED" />
+            <tx:method name="recordOperLog" propagation="REQUIRED" />
+            <!--hibernate4必须配置为开启事务 否则 getCurrentSession()获取不到 -->
+            <tx:method name="get*" propagation="REQUIRED" read-only="true" />
+            <tx:method name="count*" propagation="REQUIRED" read-only="true" />
+            <tx:method name="find*" propagation="REQUIRED" read-only="true" />
+            <tx:method name="list*" propagation="REQUIRED" read-only="true" />
+		</tx:attributes>
+	</tx:advice>
+
     <!-- REST服务的注解例子 -->
 	<jaxrs:server id="Service" address="/REST">
 
         <jaxrs:serviceBeans>
             <bean class="com.express.serviceImpl.MiscService">
+                <property name="CustomerDao" ref="CustomerDao"></property>
+                <property name="EmployeesDao" ref="EmployeesDao"></property>
+                <property name="ExpressDao" ref="ExpressDao"></property>
             </bean>
         </jaxrs:serviceBeans>
 
@@ -82,6 +107,11 @@
 			<entry key="json" value="application/json" />
 			<entry key="xml" value="application/xml" />
 		</jaxrs:extensionMappings>
+
+        <jaxrs:providers>
+            <ref bean="jsonProvider" />
+            <bean class="com.express.serviceException.InvokeFaultExceptionMapper" />
+        </jaxrs:providers>
 
 		<jaxrs:languageMappings>
 			<entry key="en" value="en-gb" />

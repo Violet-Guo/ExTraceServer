@@ -1,17 +1,18 @@
 package com.express.model;
 
 import javax.persistence.*;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  * Created by violet on 2016/4/6.
  */
 @Entity
 @Table(name = "region", schema = "", catalog = "express")
+@XmlRootElement(name = "Region")
 public class RegionEntity {
     private int id;
-    private String province;
-    private String city;
     private String area;
+    private Integer cityId;
 
     @Id
     @Column(name = "ID", nullable = false, insertable = true, updatable = true)
@@ -24,26 +25,6 @@ public class RegionEntity {
     }
 
     @Basic
-    @Column(name = "Province", nullable = true, insertable = true, updatable = true, length = 20)
-    public String getProvince() {
-        return province;
-    }
-
-    public void setProvince(String province) {
-        this.province = province;
-    }
-
-    @Basic
-    @Column(name = "City", nullable = true, insertable = true, updatable = true, length = 20)
-    public String getCity() {
-        return city;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
-    }
-
-    @Basic
     @Column(name = "Area", nullable = true, insertable = true, updatable = true, length = 20)
     public String getArea() {
         return area;
@@ -51,6 +32,16 @@ public class RegionEntity {
 
     public void setArea(String area) {
         this.area = area;
+    }
+
+    @Basic
+    @Column(name = "CityId", nullable = true, insertable = true, updatable = true)
+    public Integer getCityId() {
+        return cityId;
+    }
+
+    public void setCityId(Integer cityId) {
+        this.cityId = cityId;
     }
 
     @Override
@@ -61,9 +52,8 @@ public class RegionEntity {
         RegionEntity that = (RegionEntity) o;
 
         if (id != that.id) return false;
-        if (province != null ? !province.equals(that.province) : that.province != null) return false;
-        if (city != null ? !city.equals(that.city) : that.city != null) return false;
         if (area != null ? !area.equals(that.area) : that.area != null) return false;
+        if (cityId != null ? !cityId.equals(that.cityId) : that.cityId != null) return false;
 
         return true;
     }
@@ -71,9 +61,8 @@ public class RegionEntity {
     @Override
     public int hashCode() {
         int result = id;
-        result = 31 * result + (province != null ? province.hashCode() : 0);
-        result = 31 * result + (city != null ? city.hashCode() : 0);
         result = 31 * result + (area != null ? area.hashCode() : 0);
+        result = 31 * result + (cityId != null ? cityId.hashCode() : 0);
         return result;
     }
 }

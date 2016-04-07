@@ -1,12 +1,15 @@
 package com.express.model;
 
 import javax.persistence.*;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  * Created by violet on 2016/4/6.
  */
 @Entity
 @Table(name = "customer", schema = "", catalog = "express")
+@org.hibernate.annotations.Proxy(lazy=false)
+@XmlRootElement(name = "Customer")
 public class CustomerEntity {
     private int id;
     private String name;
@@ -50,6 +53,16 @@ public class CustomerEntity {
     }
 
     public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public CustomerEntity() {
+    }
+
+    public CustomerEntity(int id, String name, String telephone, String password) {
+        this.id = id;
+        this.name = name;
+        this.telephone = telephone;
         this.password = password;
     }
 

@@ -1,6 +1,7 @@
 package com.express.model;
 
 import javax.persistence.*;
+import javax.xml.bind.annotation.XmlRootElement;
 import java.sql.Timestamp;
 
 /**
@@ -8,8 +9,9 @@ import java.sql.Timestamp;
  */
 @Entity
 @Table(name = "express", schema = "", catalog = "express")
+@XmlRootElement(name = "Express")
 public class ExpressEntity {
-    private int id;
+    private String id;
     private int customerId;
     private Integer isPackage;
     private Float weight;
@@ -22,12 +24,12 @@ public class ExpressEntity {
     private Float insuFee;
 
     @Id
-    @Column(name = "ID", nullable = false, insertable = true, updatable = true)
-    public int getId() {
+    @Column(name = "ID", nullable = false, insertable = true, updatable = true, length = 24)
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -138,9 +140,9 @@ public class ExpressEntity {
 
         ExpressEntity that = (ExpressEntity) o;
 
-        if (id != that.id) return false;
         if (customerId != that.customerId) return false;
         if (accAddressId != that.accAddressId) return false;
+        if (id != null ? !id.equals(that.id) : that.id != null) return false;
         if (isPackage != null ? !isPackage.equals(that.isPackage) : that.isPackage != null) return false;
         if (weight != null ? !weight.equals(that.weight) : that.weight != null) return false;
         if (accepter != null ? !accepter.equals(that.accepter) : that.accepter != null) return false;
@@ -155,7 +157,7 @@ public class ExpressEntity {
 
     @Override
     public int hashCode() {
-        int result = id;
+        int result = id != null ? id.hashCode() : 0;
         result = 31 * result + customerId;
         result = 31 * result + (isPackage != null ? isPackage.hashCode() : 0);
         result = 31 * result + (weight != null ? weight.hashCode() : 0);

@@ -31,6 +31,8 @@
         <mapping class="com.express.model.PackandpackEntity"/>
         <mapping class="com.express.model.PositionEntity"/>
         <mapping class="com.express.model.RegionEntity"/>
+        <mapping class="com.express.model.CityEntity"/>
+        <mapping class="com.express.model.ProvinceEntity"/>
 
 
     </session-factory>

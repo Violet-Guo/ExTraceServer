@@ -5,6 +5,8 @@ import org.hibernate.criterion.DetachedCriteria;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.orm.hibernate4.support.HibernateDaoSupport;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
 
 import java.io.Serializable;
@@ -13,6 +15,7 @@ import java.util.List;
 /**
  * Created by violet on 2016/3/28.
  */
+@Transactional(readOnly = false, propagation = Propagation.REQUIRES_NEW )
 public class BaseDao<T, PK extends Serializable> extends HibernateDaoSupport implements com.express.daoBase.IBaseDao<T, PK> {
     protected Class<T> entityClass;			// DAO所管理的Entity类型.
 

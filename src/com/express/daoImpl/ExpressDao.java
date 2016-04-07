@@ -6,5 +6,11 @@ import com.express.model.ExpressEntity;
 /**
  * Created by violet on 2016/3/28.
  */
-public class ExpressDao extends BaseDao<ExpressEntity, Integer> {
+public class ExpressDao extends BaseDao<ExpressEntity, String> {
+
+    //根据快递单号拿到快递信息
+    public ExpressEntity get(String id){
+        ExpressEntity expressEntity = super.get(id);
+        return expressEntity;
+    }
 }

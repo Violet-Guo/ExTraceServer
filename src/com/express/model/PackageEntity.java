@@ -1,6 +1,7 @@
 package com.express.model;
 
 import javax.persistence.*;
+import javax.xml.bind.annotation.XmlRootElement;
 import java.sql.Timestamp;
 
 /**
@@ -8,18 +9,19 @@ import java.sql.Timestamp;
  */
 @Entity
 @Table(name = "package", schema = "", catalog = "express")
+@XmlRootElement(name = "Package")
 public class PackageEntity {
-    private int id;
+    private String id;
     private int employeesId;
     private Timestamp time;
 
     @Id
-    @Column(name = "ID", nullable = false, insertable = true, updatable = true)
-    public int getId() {
+    @Column(name = "ID", nullable = false, insertable = true, updatable = true, length = 24)
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -50,8 +52,8 @@ public class PackageEntity {
 
         PackageEntity that = (PackageEntity) o;
 
-        if (id != that.id) return false;
         if (employeesId != that.employeesId) return false;
+        if (id != null ? !id.equals(that.id) : that.id != null) return false;
         if (time != null ? !time.equals(that.time) : that.time != null) return false;
 
         return true;
@@ -59,7 +61,7 @@ public class PackageEntity {
 
     @Override
     public int hashCode() {
-        int result = id;
+        int result = id != null ? id.hashCode() : 0;
         result = 31 * result + employeesId;
         result = 31 * result + (time != null ? time.hashCode() : 0);
         return result;
