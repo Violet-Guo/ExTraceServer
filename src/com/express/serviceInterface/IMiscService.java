@@ -70,9 +70,17 @@ public interface IMiscService {
     public List<ProvinceEntity> getAllProvince();
 
     //获得对应省下所有的市
+    @GET
+    @Produces({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+    @Path("/getCityList/{pid}")
+    public List<CityEntity> getCityList(@PathParam("pid")int pid);
 
 
     //获得对应市下面的所有的区
+    @GET
+    @Produces({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+    @Path("/getRegionList/{cid}")
+    public List<RegionEntity> getRegionList(@PathParam("cid")int cid);
 
     //根据id查找省
     @GET

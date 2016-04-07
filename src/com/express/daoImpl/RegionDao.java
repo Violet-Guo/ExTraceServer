@@ -2,6 +2,9 @@ package com.express.daoImpl;
 
 import com.express.daoBase.BaseDao;
 import com.express.model.RegionEntity;
+import org.hibernate.criterion.Restrictions;
+
+import java.util.List;
 
 
 /**
@@ -17,5 +20,11 @@ public class RegionDao extends BaseDao<RegionEntity, Integer>{
     public RegionEntity get(int id){
         RegionEntity regionEntity = super.get(id);
         return regionEntity;
+    }
+
+    //根据市的id拿到市的区域
+    public List<RegionEntity> getRegionList(int id){
+        List<RegionEntity> list = findBy("id", true, Restrictions.eq("cityId", id));
+        return  list;
     }
 }

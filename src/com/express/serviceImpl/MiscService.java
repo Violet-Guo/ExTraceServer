@@ -145,6 +145,18 @@ public class MiscService implements IMiscService {
         return provinceDao.getAllProvince();
     }
 
+    //根据省的id拿到所有的市
+    @Override
+    public List<CityEntity> getCityList(int pid) {
+        return cityDao.getCityList(pid);
+    }
+
+    //根据市的id拿到所有的区域   有问题
+    @Override
+    public List<RegionEntity> getRegionList(int cid) {
+        return regionDao.getRegionList(cid);
+    }
+
     //根据id查找省
     @Override
     public ProvinceEntity getProvinceById(int id) {
