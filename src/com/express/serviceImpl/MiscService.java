@@ -1,13 +1,11 @@
 package com.express.serviceImpl;
 
-import com.express.daoImpl.CustomerDao;
-import com.express.daoImpl.EmployeesDao;
-import com.express.daoImpl.ExpressDao;
-import com.express.model.CustomerEntity;
-import com.express.model.EmployeesEntity;
+import com.express.daoImpl.*;
+import com.express.model.*;
 import com.express.serviceInterface.IMiscService;
 
 import javax.ws.rs.core.Response;
+import java.util.List;
 
 
 /**
@@ -18,6 +16,42 @@ public class MiscService implements IMiscService {
     private CustomerDao customerDao;
     private ExpressDao expressDao;
     private EmployeesDao employeesDao;
+    private ProvinceDao provinceDao;
+    private RegionDao regionDao;
+    private AddressDao addressDao;
+    private CityDao cityDao;
+
+    public CityDao getCityDao() {
+        return cityDao;
+    }
+
+    public void setCityDao(CityDao cityDao) {
+        this.cityDao = cityDao;
+    }
+
+    public AddressDao getAddressDao() {
+        return addressDao;
+    }
+
+    public void setAddressDao(AddressDao addressDao) {
+        this.addressDao = addressDao;
+    }
+
+    public RegionDao getRegionDao() {
+        return regionDao;
+    }
+
+    public void setRegionDao(RegionDao regionDao) {
+        this.regionDao = regionDao;
+    }
+
+    public ProvinceDao getProvinceDao() {
+        return provinceDao;
+    }
+
+    public void setProvinceDao(ProvinceDao provinceDao) {
+        this.provinceDao = provinceDao;
+    }
 
     public ExpressDao getExpressDao() {
         return expressDao;
@@ -53,6 +87,7 @@ public class MiscService implements IMiscService {
         return customerDao.get(id);
     }
 
+    //更新或者是插入一条数据
     @Override
     public Response saveCustomerInfo(CustomerEntity obj) {
         try{
@@ -73,7 +108,7 @@ public class MiscService implements IMiscService {
 
     //登陆
     @Override
-    public boolean doLogin(int cid, String pwd) {
+    public boolean doLogin(String tel, String pwd) {
 
         return false;
     }
@@ -92,10 +127,52 @@ public class MiscService implements IMiscService {
         return employeesDao.get(id);
     }
 
+    //更新或者是插入一条数据
     @Override
     public Response saveEmployeeInfo(EmployeesEntity obj) {
-        return null;
+        try{
+            employeesDao.save(obj);
+            return Response.ok(obj).header("EntityClass", "R_EmployeeInfo").build();
+        }
+        catch(Exception e) {
+            return Response.serverError().entity(e.getMessage()).build();
+        }
     }
 
+    //获得所有的省份  有错误！！
+    @Override
+    public List<ProvinceEntity> getAllProvince() {
+        return provinceDao.getAllProvince();
+    }
+
+    //根据id查找省
+    @Override
+    public ProvinceEntity getProvinceById(int id) {
+        return provinceDao.get(id);
+    }
+
+    //根据id查找市
+    @Override
+    public CityEntity getCityById(int id) {
+        return cityDao.get(id);
+    }
+
+    //根据id查找区域
+    @Override
+    public RegionEntity getRegionById(int id) {
+        return regionDao.get(id);
+    }
+
+    //用户增加、更改地区
+    @Override
+    public Response saveAddressbyCus(AddressEntity obj) {
+        try{
+            addressDao.save(obj);
+            return Response.ok(obj).header("EntityClass", "R_Address").build();
+        }
+        catch(Exception e) {
+            return Response.serverError().entity(e.getMessage()).build();
+        }
+    }
 
 }

@@ -9,11 +9,21 @@ import java.sql.Timestamp;
  */
 @Entity
 @Table(name = "package", schema = "", catalog = "express")
+@org.hibernate.annotations.Proxy(lazy=false)
 @XmlRootElement(name = "Package")
 public class PackageEntity {
     private String id;
     private int employeesId;
     private Timestamp time;
+
+    public PackageEntity() {
+    }
+
+    public PackageEntity(String id, int employeesId, Timestamp time) {
+        this.id = id;
+        this.employeesId = employeesId;
+        this.time = time;
+    }
 
     @Id
     @Column(name = "ID", nullable = false, insertable = true, updatable = true, length = 24)

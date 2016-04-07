@@ -8,6 +8,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  */
 @Entity
 @Table(name = "address", schema = "", catalog = "express")
+@org.hibernate.annotations.Proxy(lazy=false)
 @XmlRootElement(name = "Address")
 public class AddressEntity {
     private int id;
@@ -15,6 +16,17 @@ public class AddressEntity {
     private String address;
     private int customerId;
     private Integer rank;
+
+    public AddressEntity() {
+    }
+
+    public AddressEntity(int id, int regionId, String address, int customerId, Integer rank) {
+        this.id = id;
+        this.regionId = regionId;
+        this.address = address;
+        this.customerId = customerId;
+        this.rank = rank;
+    }
 
     @Id
     @Column(name = "ID", nullable = false, insertable = true, updatable = true)

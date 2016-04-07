@@ -40,7 +40,7 @@ public class BaseDao<T, PK extends Serializable> extends HibernateDaoSupport imp
 
     @Override
     public List<T> getAll() {
-        return (List<T>)(getHibernateTemplate().loadAll(getEntityClass()));
+        return getHibernateTemplate().loadAll(getEntityClass());
     }
 
     @Override

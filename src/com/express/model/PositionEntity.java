@@ -9,6 +9,7 @@ import java.sql.Timestamp;
  */
 @Entity
 @Table(name = "position", schema = "", catalog = "express")
+@org.hibernate.annotations.Proxy(lazy=false)
 @XmlRootElement(name = "Position")
 public class PositionEntity {
     private int id;
@@ -16,6 +17,17 @@ public class PositionEntity {
     private Double y;
     private Timestamp time;
     private String packageId;
+
+    public PositionEntity() {
+    }
+
+    public PositionEntity(int id, Double x, Double y, Timestamp time, String packageId) {
+        this.id = id;
+        this.x = x;
+        this.y = y;
+        this.time = time;
+        this.packageId = packageId;
+    }
 
     @Id
     @Column(name = "ID", nullable = false, insertable = true, updatable = true)

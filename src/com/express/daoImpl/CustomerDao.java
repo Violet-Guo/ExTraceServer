@@ -18,6 +18,12 @@ public class CustomerDao extends BaseDao<CustomerEntity, Integer> {
         return customerEntity;
     }
 
+    //根据用户手机号拿到用户信息
+    public CustomerEntity get(String tel){
+        return null;
+    }
+
+    //更新或者插入一条新的数据
     public void save(CustomerEntity customerEntity){
         super.save(customerEntity);
     }

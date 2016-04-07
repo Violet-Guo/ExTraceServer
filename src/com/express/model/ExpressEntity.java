@@ -9,6 +9,7 @@ import java.sql.Timestamp;
  */
 @Entity
 @Table(name = "express", schema = "", catalog = "express")
+@org.hibernate.annotations.Proxy(lazy=false)
 @XmlRootElement(name = "Express")
 public class ExpressEntity {
     private String id;
@@ -22,6 +23,23 @@ public class ExpressEntity {
     private Timestamp outTime;
     private Float tranFee;
     private Float insuFee;
+
+    public ExpressEntity() {
+    }
+
+    public ExpressEntity(String id, int customerId, Integer isPackage, Float weight, String accepter, Integer accTel, int accAddressId, Timestamp getTime, Timestamp outTime, Float tranFee, Float insuFee) {
+        this.id = id;
+        this.customerId = customerId;
+        this.isPackage = isPackage;
+        this.weight = weight;
+        this.accepter = accepter;
+        this.accTel = accTel;
+        this.accAddressId = accAddressId;
+        this.getTime = getTime;
+        this.outTime = outTime;
+        this.tranFee = tranFee;
+        this.insuFee = insuFee;
+    }
 
     @Id
     @Column(name = "ID", nullable = false, insertable = true, updatable = true, length = 24)

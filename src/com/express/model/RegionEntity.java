@@ -8,11 +8,21 @@ import javax.xml.bind.annotation.XmlRootElement;
  */
 @Entity
 @Table(name = "region", schema = "", catalog = "express")
+@org.hibernate.annotations.Proxy(lazy=false)
 @XmlRootElement(name = "Region")
 public class RegionEntity {
     private int id;
     private String area;
     private Integer cityId;
+
+    public RegionEntity() {
+    }
+
+    public RegionEntity(int id, String area, Integer cityId) {
+        this.id = id;
+        this.area = area;
+        this.cityId = cityId;
+    }
 
     @Id
     @Column(name = "ID", nullable = false, insertable = true, updatable = true)

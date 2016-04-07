@@ -8,8 +8,7 @@
           <element id="module-output" name="ExTrace_Server" />
         </element>
         <element id="directory" name="lib">
-          <element id="library" level="project" name="Hibernate" />
-          <element id="library" level="project" name="spring-aop-4.2.5.RELEASE-javadoc" />
+          <element id="library" level="project" name="mysql-connector-java-5.1.36-bin" />
         </element>
       </element>
     </root>

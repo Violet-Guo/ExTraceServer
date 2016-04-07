@@ -69,6 +69,12 @@
 	<bean id="RegionDao" class="com.express.daoImpl.RegionDao">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
+    <bean id="ProvinceDao" class="com.express.daoImpl.ProvinceDao">
+        <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
+    <bean id="CityDao" class="com.express.daoImpl.CityDao">
+        <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
 
     <!--自己加的-->
 	<tx:advice id="txAdvice" transaction-manager="transactionManager">
@@ -97,9 +103,13 @@
 
         <jaxrs:serviceBeans>
             <bean class="com.express.serviceImpl.MiscService">
+                <property name="ProvinceDao" ref="ProvinceDao"></property>
                 <property name="CustomerDao" ref="CustomerDao"></property>
                 <property name="EmployeesDao" ref="EmployeesDao"></property>
                 <property name="ExpressDao" ref="ExpressDao"></property>
+                <property name="RegionDao" ref="RegionDao"></property>
+                <property name="AddressDao" ref="AddressDao"></property>
+                <property name="CityDao" ref="CityDao"></property>
             </bean>
         </jaxrs:serviceBeans>
 

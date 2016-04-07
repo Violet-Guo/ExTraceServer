@@ -8,12 +8,23 @@ import javax.xml.bind.annotation.XmlRootElement;
  */
 @Entity
 @Table(name = "packandpack", schema = "", catalog = "express")
+@org.hibernate.annotations.Proxy(lazy=false)
 @XmlRootElement(name = "PackAndPack")
 public class PackandpackEntity {
     private int id;
     private String packageId;
     private String parentId;
     private Integer isHistory;
+
+    public PackandpackEntity() {
+    }
+
+    public PackandpackEntity(int id, String packageId, String parentId, Integer isHistory) {
+        this.id = id;
+        this.packageId = packageId;
+        this.parentId = parentId;
+        this.isHistory = isHistory;
+    }
 
     @Id
     @Column(name = "id", nullable = false, insertable = true, updatable = true)
