@@ -2,187 +2,378 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d747fa28-cbe5-4754-940e-39be7417714b" name="Default" comment="第一次提交">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/classes/com/express/daoImpl/AddressDao.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/ExTrace_Server/com/express/daoImpl/AddressDao.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/classes/com/express/model/AddressEntity.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/ExTrace_Server/com/express/model/AddressEntity.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/classes/com/express/daoBase/BaseDao.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/ExTrace_Server/com/express/daoBase/BaseDao.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/classes/com/express/daoImpl/CityDao.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/ExTrace_Server/com/express/daoImpl/CityDao.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/classes/com/express/model/CityEntity.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/ExTrace_Server/com/express/model/CityEntity.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/classes/com/express/daoImpl/CustomerDao.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/ExTrace_Server/com/express/daoImpl/CustomerDao.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/classes/com/express/model/CustomerEntity.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/ExTrace_Server/com/express/model/CustomerEntity.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/classes/com/express/serviceImpl/DomainService.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/ExTrace_Server/com/express/serviceImpl/DomainService.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/classes/com/express/daoImpl/EmployeesDao.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/ExTrace_Server/com/express/daoImpl/EmployeesDao.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/classes/com/express/model/EmployeesEntity.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/ExTrace_Server/com/express/model/EmployeesEntity.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/classes/com/express/daoImpl/ExpressDao.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/ExTrace_Server/com/express/daoImpl/ExpressDao.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/classes/com/express/model/ExpressEntity.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/ExTrace_Server/com/express/model/ExpressEntity.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/classes/com/express/model/ExpressandpackageEntity.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/ExTrace_Server/com/express/model/ExpressandpackageEntity.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/FastInfoset-1.2.13.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/FastInfoset-1.2.13.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/classes/com/express/daoBase/IBaseDao.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/ExTrace_Server/com/express/daoBase/IBaseDao.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/classes/com/express/serviceInterface/IDomainService.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/ExTrace_Server/com/express/serviceInterface/IDomainService.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/classes/com/express/serviceInterface/IMiscService.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/ExTrace_Server/com/express/serviceInterface/IMiscService.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/classes/com/express/serviceException/InvokeFaultExceptionMapper.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/ExTrace_Server/com/express/serviceException/InvokeFaultExceptionMapper.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/classes/com/express/serviceImpl/MiscService.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/ExTrace_Server/com/express/serviceImpl/MiscService.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/classes/com/express/model/OutletsEntity.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/ExTrace_Server/com/express/model/OutletsEntity.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/classes/com/express/daoImpl/PackageDao.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/ExTrace_Server/com/express/daoImpl/PackageDao.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/classes/com/express/model/PackageEntity.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/ExTrace_Server/com/express/model/PackageEntity.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/classes/com/express/model/PackagehistoryEntity.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/ExTrace_Server/com/express/model/PackagehistoryEntity.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/classes/com/express/model/PackandpackEntity.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/ExTrace_Server/com/express/model/PackandpackEntity.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/classes/com/express/daoImpl/PositionDao.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/ExTrace_Server/com/express/daoImpl/PositionDao.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/classes/com/express/model/PositionEntity.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/ExTrace_Server/com/express/model/PositionEntity.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/classes/com/express/daoImpl/ProvinceDao.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/ExTrace_Server/com/express/daoImpl/ProvinceDao.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/classes/com/express/model/ProvinceEntity.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/ExTrace_Server/com/express/model/ProvinceEntity.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/classes/com/express/daoImpl/RegionDao.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/ExTrace_Server/com/express/daoImpl/RegionDao.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/classes/com/express/model/RegionEntity.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/ExTrace_Server/com/express/model/RegionEntity.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/classes/com/express/serviceException/ServiceExceptionEntity.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/ExTrace_Server/com/express/serviceException/ServiceExceptionEntity.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/activemq-broker-5.8.0.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/activemq-broker-5.8.0.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/activemq-client-5.8.0.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/activemq-client-5.8.0.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/activemq-openwire-legacy-5.8.0.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/activemq-openwire-legacy-5.8.0.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/antlr-2.7.7.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/antlr-2.7.7.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/aopalliance-1.0.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/aopalliance-1.0.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/asm-3.3.1.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/asm-3.3.1.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/c3p0-0.9.2.1.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/c3p0-0.9.2.1.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/commons-codec-1.9.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/commons-codec-1.9.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/commons-collections-3.2.1.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/commons-collections-3.2.1.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/commons-lang-2.6.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/commons-lang-2.6.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/commons-logging-1.1.1.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/commons-logging-1.1.1.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/cxf-2.7.10.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/cxf-2.7.10.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/cxf-manifest.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/cxf-manifest.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/cxf-services-sts-core-2.7.10.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/cxf-services-sts-core-2.7.10.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/cxf-services-ws-discovery-api-2.7.10.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/cxf-services-ws-discovery-api-2.7.10.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/cxf-services-ws-discovery-service-2.7.10.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/cxf-services-ws-discovery-service-2.7.10.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/cxf-services-wsn-api-2.7.10.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/cxf-services-wsn-api-2.7.10.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/cxf-services-wsn-core-2.7.10.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/cxf-services-wsn-core-2.7.10.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/cxf-xjc-boolean-2.6.2.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/cxf-xjc-boolean-2.6.2.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/cxf-xjc-bug671-2.6.2.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/cxf-xjc-bug671-2.6.2.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/cxf-xjc-dv-2.6.2.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/cxf-xjc-dv-2.6.2.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/cxf-xjc-runtime-2.6.2.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/cxf-xjc-runtime-2.6.2.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/cxf-xjc-ts-2.6.2.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/cxf-xjc-ts-2.6.2.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dataSources.ids" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/dom4j-1.6.1.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/dom4j-1.6.1.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/ehcache-core-2.5.1.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/ehcache-core-2.5.1.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/geronimo-j2ee-management_1.1_spec-1.0.1.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/geronimo-j2ee-management_1.1_spec-1.0.1.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/geronimo-javamail_1.4_spec-1.7.1.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/geronimo-javamail_1.4_spec-1.7.1.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/geronimo-jaxws_2.2_spec-1.1.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/geronimo-jaxws_2.2_spec-1.1.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/geronimo-jms_1.1_spec-1.1.1.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/geronimo-jms_1.1_spec-1.1.1.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/geronimo-servlet_3.0_spec-1.0.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/geronimo-servlet_3.0_spec-1.0.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/hawtbuf-1.9.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/hawtbuf-1.9.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/hibernate-c3p0-4.3.1.Final.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/hibernate-c3p0-4.3.1.Final.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/hibernate-commons-annotations-4.0.4.Final.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/hibernate-commons-annotations-4.0.4.Final.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/hibernate-core-4.3.1.Final.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/hibernate-core-4.3.1.Final.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/hibernate-entitymanager-4.3.1.Final.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/hibernate-entitymanager-4.3.1.Final.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/hibernate-jpa-2.1-api-1.0.0.Final.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/hibernate-jpa-2.1-api-1.0.0.Final.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/httpasyncclient-4.0-beta3.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/httpasyncclient-4.0-beta3.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/httpclient-4.2.5.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/httpclient-4.2.5.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/httpcore-4.2.4.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/httpcore-4.2.4.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/httpcore-nio-4.2.4.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/httpcore-nio-4.2.4.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/isorelax-20030108.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/isorelax-20030108.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/jandex-1.1.0.Final.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/jandex-1.1.0.Final.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/javassist-3.18.1-GA.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/javassist-3.18.1-GA.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/javax.ws.rs-api-2.0-m10.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/javax.ws.rs-api-2.0-m10.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/jaxb-api-2.2.6.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/jaxb-api-2.2.6.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/jaxb-impl-2.2.6.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/jaxb-impl-2.2.6.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/jaxb-xjc-2.2.6.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/jaxb-xjc-2.2.6.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/jboss-logging-3.1.3.GA.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/jboss-logging-3.1.3.GA.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/jboss-logging-annotations-1.2.0.Beta1.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/jboss-logging-annotations-1.2.0.Beta1.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/jboss-transaction-api_1.2_spec-1.0.0.Final.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/jboss-transaction-api_1.2_spec-1.0.0.Final.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/jettison-1.3.5.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/jettison-1.3.5.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/jetty-continuation-8.1.14.v20131031.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/jetty-continuation-8.1.14.v20131031.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/jetty-http-8.1.14.v20131031.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/jetty-http-8.1.14.v20131031.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/jetty-io-8.1.14.v20131031.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/jetty-io-8.1.14.v20131031.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/jetty-security-8.1.14.v20131031.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/jetty-security-8.1.14.v20131031.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/jetty-server-8.1.14.v20131031.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/jetty-server-8.1.14.v20131031.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/jetty-util-8.1.14.v20131031.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/jetty-util-8.1.14.v20131031.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/joda-time-1.6.2.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/joda-time-1.6.2.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/js-1.7R2.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/js-1.7R2.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/mchange-commons-java-0.2.3.4.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/mchange-commons-java-0.2.3.4.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/mina-core-2.0.7.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/mina-core-2.0.7.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/msv-core-2011.1.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/msv-core-2011.1.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/mysql-connector-java-5.1.29-bin.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/mysql-connector-java-5.1.29-bin.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/mysql-connector-java-5.1.36-bin.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/neethi-3.0.3.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/neethi-3.0.3.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/oauth-20100527.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/oauth-20100527.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/oauth-provider-20100527.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/oauth-provider-20100527.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/opensaml-2.5.1-1.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/opensaml-2.5.1-1.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/openws-1.4.2-1.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/openws-1.4.2-1.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/relaxngDatatype-20020414.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/relaxngDatatype-20020414.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/slf4j-api-1.7.5.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/slf4j-api-1.7.5.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/slf4j-jdk14-1.7.5.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/slf4j-jdk14-1.7.5.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/spring-aop-4.0.2.RELEASE-javadoc.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/spring-aop-4.0.2.RELEASE-javadoc.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/spring-aop-4.0.2.RELEASE-sources.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/spring-aop-4.0.2.RELEASE-sources.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/spring-aop-4.0.2.RELEASE.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/spring-aop-4.0.2.RELEASE.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/spring-aspects-4.0.2.RELEASE-javadoc.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/spring-aspects-4.0.2.RELEASE-javadoc.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/spring-aspects-4.0.2.RELEASE-sources.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/spring-aspects-4.0.2.RELEASE-sources.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/spring-aspects-4.0.2.RELEASE.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/spring-aspects-4.0.2.RELEASE.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/spring-beans-4.0.2.RELEASE-javadoc.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/spring-beans-4.0.2.RELEASE-javadoc.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/spring-beans-4.0.2.RELEASE-sources.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/spring-beans-4.0.2.RELEASE-sources.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/spring-beans-4.0.2.RELEASE.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/spring-beans-4.0.2.RELEASE.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/spring-build-src-4.0.2.RELEASE.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/spring-build-src-4.0.2.RELEASE.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/spring-context-4.0.2.RELEASE-javadoc.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/spring-context-4.0.2.RELEASE-javadoc.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/spring-context-4.0.2.RELEASE-sources.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/spring-context-4.0.2.RELEASE-sources.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/spring-context-4.0.2.RELEASE.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/spring-context-4.0.2.RELEASE.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/spring-context-support-4.0.2.RELEASE-javadoc.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/spring-context-support-4.0.2.RELEASE-javadoc.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/spring-context-support-4.0.2.RELEASE-sources.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/spring-context-support-4.0.2.RELEASE-sources.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/spring-context-support-4.0.2.RELEASE.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/spring-context-support-4.0.2.RELEASE.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/spring-core-4.0.2.RELEASE-javadoc.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/spring-core-4.0.2.RELEASE-javadoc.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/spring-core-4.0.2.RELEASE-sources.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/spring-core-4.0.2.RELEASE-sources.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/spring-core-4.0.2.RELEASE.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/spring-core-4.0.2.RELEASE.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/spring-expression-4.0.2.RELEASE-javadoc.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/spring-expression-4.0.2.RELEASE-javadoc.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/spring-expression-4.0.2.RELEASE-sources.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/spring-expression-4.0.2.RELEASE-sources.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/spring-expression-4.0.2.RELEASE.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/spring-expression-4.0.2.RELEASE.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/spring-framework-bom-4.0.2.RELEASE-javadoc.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/spring-framework-bom-4.0.2.RELEASE-javadoc.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/spring-framework-bom-4.0.2.RELEASE-sources.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/spring-framework-bom-4.0.2.RELEASE-sources.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/spring-framework-bom-4.0.2.RELEASE.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/spring-framework-bom-4.0.2.RELEASE.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/spring-instrument-4.0.2.RELEASE-javadoc.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/spring-instrument-4.0.2.RELEASE-javadoc.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/spring-instrument-4.0.2.RELEASE-sources.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/spring-instrument-4.0.2.RELEASE-sources.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/spring-instrument-4.0.2.RELEASE.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/spring-instrument-4.0.2.RELEASE.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/spring-instrument-tomcat-4.0.2.RELEASE-javadoc.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/spring-instrument-tomcat-4.0.2.RELEASE-javadoc.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/spring-instrument-tomcat-4.0.2.RELEASE-sources.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/spring-instrument-tomcat-4.0.2.RELEASE-sources.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/spring-instrument-tomcat-4.0.2.RELEASE.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/spring-instrument-tomcat-4.0.2.RELEASE.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/spring-jdbc-4.0.2.RELEASE-javadoc.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/spring-jdbc-4.0.2.RELEASE-javadoc.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/spring-jdbc-4.0.2.RELEASE-sources.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/spring-jdbc-4.0.2.RELEASE-sources.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/spring-jdbc-4.0.2.RELEASE.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/spring-jdbc-4.0.2.RELEASE.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/spring-jms-4.0.2.RELEASE-javadoc.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/spring-jms-4.0.2.RELEASE-javadoc.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/spring-jms-4.0.2.RELEASE-sources.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/spring-jms-4.0.2.RELEASE-sources.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/spring-jms-4.0.2.RELEASE.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/spring-jms-4.0.2.RELEASE.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/spring-messaging-4.0.2.RELEASE-javadoc.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/spring-messaging-4.0.2.RELEASE-javadoc.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/spring-messaging-4.0.2.RELEASE-sources.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/spring-messaging-4.0.2.RELEASE-sources.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/spring-messaging-4.0.2.RELEASE.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/spring-messaging-4.0.2.RELEASE.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/spring-orm-4.0.2.RELEASE-javadoc.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/spring-orm-4.0.2.RELEASE-javadoc.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/spring-orm-4.0.2.RELEASE-sources.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/spring-orm-4.0.2.RELEASE-sources.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/spring-orm-4.0.2.RELEASE.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/spring-orm-4.0.2.RELEASE.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/spring-oxm-4.0.2.RELEASE-javadoc.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/spring-oxm-4.0.2.RELEASE-javadoc.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/spring-oxm-4.0.2.RELEASE-sources.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/spring-oxm-4.0.2.RELEASE-sources.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/spring-oxm-4.0.2.RELEASE.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/spring-oxm-4.0.2.RELEASE.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/spring-test-4.0.2.RELEASE-javadoc.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/spring-test-4.0.2.RELEASE-javadoc.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/spring-test-4.0.2.RELEASE-sources.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/spring-test-4.0.2.RELEASE-sources.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/spring-test-4.0.2.RELEASE.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/spring-test-4.0.2.RELEASE.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/spring-tx-4.0.2.RELEASE-javadoc.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/spring-tx-4.0.2.RELEASE-javadoc.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/spring-tx-4.0.2.RELEASE-sources.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/spring-tx-4.0.2.RELEASE-sources.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/spring-tx-4.0.2.RELEASE.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/spring-tx-4.0.2.RELEASE.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/spring-web-4.0.2.RELEASE-javadoc.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/spring-web-4.0.2.RELEASE-javadoc.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/spring-web-4.0.2.RELEASE-sources.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/spring-web-4.0.2.RELEASE-sources.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/spring-web-4.0.2.RELEASE.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/spring-web-4.0.2.RELEASE.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/spring-webmvc-4.0.2.RELEASE-javadoc.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/spring-webmvc-4.0.2.RELEASE-javadoc.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/spring-webmvc-4.0.2.RELEASE-sources.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/spring-webmvc-4.0.2.RELEASE-sources.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/spring-webmvc-4.0.2.RELEASE.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/spring-webmvc-4.0.2.RELEASE.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/spring-webmvc-portlet-4.0.2.RELEASE-javadoc.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/spring-webmvc-portlet-4.0.2.RELEASE-javadoc.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/spring-webmvc-portlet-4.0.2.RELEASE-sources.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/spring-webmvc-portlet-4.0.2.RELEASE-sources.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/spring-webmvc-portlet-4.0.2.RELEASE.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/spring-webmvc-portlet-4.0.2.RELEASE.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/spring-websocket-4.0.2.RELEASE-javadoc.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/spring-websocket-4.0.2.RELEASE-javadoc.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/spring-websocket-4.0.2.RELEASE-sources.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/spring-websocket-4.0.2.RELEASE-sources.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/spring-websocket-4.0.2.RELEASE.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/spring-websocket-4.0.2.RELEASE.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/stax2-api-3.1.1.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/stax2-api-3.1.1.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/velocity-1.7.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/velocity-1.7.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/woodstox-core-asl-4.2.0.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/woodstox-core-asl-4.2.0.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/wsdl4j-1.6.3.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/wsdl4j-1.6.3.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/wss4j-1.6.14.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/wss4j-1.6.14.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/xml-resolver-1.2.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/xml-resolver-1.2.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/xmlbeans-2.6.0.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/xmlbeans-2.6.0.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/xmlschema-core-2.1.0.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/xmlschema-core-2.1.0.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/xmlsec-1.5.6.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/xmlsec-1.5.6.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/xmltooling-1.3.2-1.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/xmltooling-1.3.2-1.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/xsdlib-2010.1.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/xsdlib-2010.1.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/express/daoImpl/CityDao.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/ExTraceLib.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/express/daoImpl/ProvinceDao.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/express/daoImpl/OutletsDao.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/lib/WHICH_JARS" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/WHICH_JARS" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/mysql_connector_java_5_1_36_bin.xml" />
-      <change type="DELETED" beforePath="E:\workspace\ExTrace\ExTrace_Server\.idea\libraries\Hibernate.xml" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\ExTrace\ExTrace_Server\.idea\libraries\JAX_RS.xml" afterPath="" />
-      <change type="DELETED" beforePath="E:\workspace\ExTrace\ExTrace_Server\.idea\libraries\spring_aop_4_2_5_RELEASE_javadoc.xml" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/express/daoImpl/AddressDao.java" afterPath="$PROJECT_DIR$/src/com/express/daoImpl/AddressDao.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/express/model/AddressEntity.java" afterPath="$PROJECT_DIR$/src/com/express/model/AddressEntity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/express/daoBase/BaseDao.java" afterPath="$PROJECT_DIR$/src/com/express/daoBase/BaseDao.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/express/model/CityEntity.java" afterPath="$PROJECT_DIR$/src/com/express/model/CityEntity.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/classes/applicationContext.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/ExTrace_Server/applicationContext.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/classes/hibernate.cfg.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/ExTrace_Server/hibernate.cfg.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ExTrace_Server_war_exploded/WEB-INF/web.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/express/daoImpl/CustomerDao.java" afterPath="$PROJECT_DIR$/src/com/express/daoImpl/CustomerDao.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/express/daoImpl/EmployeesDao.java" afterPath="$PROJECT_DIR$/src/com/express/daoImpl/EmployeesDao.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/express/model/EmployeesEntity.java" afterPath="$PROJECT_DIR$/src/com/express/model/EmployeesEntity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/ExTrace_Server_war_exploded.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/ExTrace_Server_war_exploded.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/express/daoImpl/ExpressDao.java" afterPath="$PROJECT_DIR$/src/com/express/daoImpl/ExpressDao.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/express/model/ExpressEntity.java" afterPath="$PROJECT_DIR$/src/com/express/model/ExpressEntity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/express/model/ExpressandpackageEntity.java" afterPath="$PROJECT_DIR$/src/com/express/model/ExpressandpackageEntity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/express/serviceInterface/IMiscService.java" afterPath="$PROJECT_DIR$/src/com/express/serviceInterface/IMiscService.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/express/serviceImpl/MiscService.java" afterPath="$PROJECT_DIR$/src/com/express/serviceImpl/MiscService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/express/model/OutletsEntity.java" afterPath="$PROJECT_DIR$/src/com/express/model/OutletsEntity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/express/daoImpl/PackageDao.java" afterPath="$PROJECT_DIR$/src/com/express/daoImpl/PackageDao.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/express/model/PackageEntity.java" afterPath="$PROJECT_DIR$/src/com/express/model/PackageEntity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/express/model/PackagehistoryEntity.java" afterPath="$PROJECT_DIR$/src/com/express/model/PackagehistoryEntity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/express/model/PackandpackEntity.java" afterPath="$PROJECT_DIR$/src/com/express/model/PackandpackEntity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/express/daoImpl/PositionDao.java" afterPath="$PROJECT_DIR$/src/com/express/daoImpl/PositionDao.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/express/model/PositionEntity.java" afterPath="$PROJECT_DIR$/src/com/express/model/PositionEntity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/express/model/ProvinceEntity.java" afterPath="$PROJECT_DIR$/src/com/express/model/ProvinceEntity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/express/daoImpl/RegionDao.java" afterPath="$PROJECT_DIR$/src/com/express/daoImpl/RegionDao.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/express/model/RegionEntity.java" afterPath="$PROJECT_DIR$/src/com/express/model/RegionEntity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/applicationContext.xml" afterPath="$PROJECT_DIR$/src/applicationContext.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="ExTrace_Server.iws" />
@@ -220,11 +411,43 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="EmployeesEntity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/express/model/EmployeesEntity.java">
+      <file leaf-file-name="MiscService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/express/serviceImpl/MiscService.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="10" column="44" selection-start-line="10" selection-start-column="44" selection-end-line="10" selection-end-column="44" />
+              <caret line="269" column="42" selection-start-line="269" selection-start-column="42" selection-end-line="269" selection-end-column="42" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#616#617#0" expanded="true" />
+                <element signature="e#649#650#0" expanded="true" />
+                <element signature="e#705#706#0" expanded="true" />
+                <element signature="e#749#750#0" expanded="true" />
+                <element signature="e#3962#3963#0" expanded="true" />
+                <element signature="e#4011#4012#0" expanded="true" />
+                <element signature="e#5524#5525#0" expanded="true" />
+                <element signature="e#5575#5576#0" expanded="true" />
+                <element signature="e#5666#5667#0" expanded="true" />
+                <element signature="e#5724#5725#0" expanded="true" />
+                <element signature="e#5825#5826#0" expanded="true" />
+                <element signature="e#5885#5886#0" expanded="true" />
+                <element signature="e#5987#5988#0" expanded="true" />
+                <element signature="e#6048#6049#0" expanded="true" />
+                <element signature="e#6130#6131#0" expanded="true" />
+                <element signature="e#6178#6179#0" expanded="true" />
+                <element signature="e#6264#6265#0" expanded="true" />
+                <element signature="e#6316#6317#0" expanded="true" />
+                <element signature="e#6404#6405#0" expanded="true" />
+                <element signature="e#6453#6454#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="IMiscService.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/express/serviceInterface/IMiscService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.6983759">
+              <caret line="173" column="8" selection-start-line="173" selection-start-column="8" selection-end-line="173" selection-end-column="8" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -232,22 +455,41 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ExpressandpackageEntity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/express/model/ExpressandpackageEntity.java">
+      <file leaf-file-name="EmployeesDao.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/express/daoImpl/EmployeesDao.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="11" column="44" selection-start-line="11" selection-start-column="44" selection-end-line="11" selection-end-column="44" />
+              <caret line="35" column="28" selection-start-line="35" selection-start-column="28" selection-end-line="35" selection-end-column="28" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ExpressEntity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/express/model/ExpressEntity.java">
+      <file leaf-file-name="OutletsDao.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/express/daoImpl/OutletsDao.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="11" column="44" selection-start-line="11" selection-start-column="44" selection-end-line="11" selection-end-column="44" />
-              <folding />
+              <caret line="54" column="29" selection-start-line="54" selection-start-column="29" selection-end-line="54" selection-end-column="29" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#308#309#0" expanded="true" />
+                <element signature="e#350#351#0" expanded="true" />
+                <element signature="e#1676#1677#0" expanded="true" />
+                <element signature="e#1713#1714#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ProvinceDao.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/express/daoImpl/ProvinceDao.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="25" column="5" selection-start-line="25" selection-start-column="5" selection-end-line="25" selection-end-column="5" />
+              <folding>
+                <element signature="e#523#524#0" expanded="true" />
+                <element signature="e#560#561#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -256,76 +498,8 @@
         <entry file="file://$PROJECT_DIR$/src/com/express/model/OutletsEntity.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="10" column="44" selection-start-line="10" selection-start-column="44" selection-end-line="10" selection-end-column="44" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PackageEntity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/express/model/PackageEntity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="11" column="44" selection-start-line="11" selection-start-column="44" selection-end-line="11" selection-end-column="44" />
+              <caret line="15" column="24" selection-start-line="15" selection-start-column="16" selection-end-line="15" selection-end-column="24" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PackagehistoryEntity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/express/model/PackagehistoryEntity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="11" column="44" selection-start-line="11" selection-start-column="44" selection-end-line="11" selection-end-column="44" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PackandpackEntity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/express/model/PackandpackEntity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="10" column="44" selection-start-line="10" selection-start-column="44" selection-end-line="10" selection-end-column="44" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PositionEntity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/express/model/PositionEntity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="11" column="44" selection-start-line="11" selection-start-column="44" selection-end-line="11" selection-end-column="44" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ProvinceEntity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/express/model/ProvinceEntity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="10" column="44" selection-start-line="10" selection-start-column="44" selection-end-line="10" selection-end-column="44" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RegionEntity.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/com/express/model/RegionEntity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-2.877193">
-              <caret line="10" column="44" selection-start-line="10" selection-start-column="44" selection-end-line="10" selection-end-column="44" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -353,7 +527,7 @@
     </option>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="dummy://restClient/response252.txt" root0="SKIP_INSPECTION" />
+    <setting file="dummy://restClient/response31.json" root0="SKIP_INSPECTION" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -371,18 +545,11 @@
         <option value="$PROJECT_DIR$/src/hibernate.cfg.xml" />
         <option value="$PROJECT_DIR$/web/WEB-INF/web.xml" />
         <option value="$PROJECT_DIR$/src/com/express/model/CustomerEntity.java" />
-        <option value="$PROJECT_DIR$/src/com/express/daoImpl/CustomerDao.java" />
         <option value="$PROJECT_DIR$/src/com/express/daoBase/BaseDao.java" />
-        <option value="$PROJECT_DIR$/src/applicationContext.xml" />
-        <option value="$PROJECT_DIR$/src/com/express/serviceImpl/MiscService.java" />
         <option value="$PROJECT_DIR$/src/com/express/daoImpl/AddressDao.java" />
-        <option value="$PROJECT_DIR$/src/com/express/daoImpl/CityDao.java" />
-        <option value="$PROJECT_DIR$/src/com/express/daoImpl/EmployeesDao.java" />
         <option value="$PROJECT_DIR$/src/com/express/daoImpl/ExpressDao.java" />
         <option value="$PROJECT_DIR$/src/com/express/daoImpl/PackageDao.java" />
         <option value="$PROJECT_DIR$/src/com/express/daoImpl/PositionDao.java" />
-        <option value="$PROJECT_DIR$/src/com/express/daoImpl/RegionDao.java" />
-        <option value="$PROJECT_DIR$/src/com/express/serviceInterface/IMiscService.java" />
         <option value="$PROJECT_DIR$/src/com/express/daoImpl/ProvinceDao.java" />
         <option value="$PROJECT_DIR$/src/com/express/model/AddressEntity.java" />
         <option value="$PROJECT_DIR$/src/com/express/model/CityEntity.java" />
@@ -396,6 +563,14 @@
         <option value="$PROJECT_DIR$/src/com/express/model/PositionEntity.java" />
         <option value="$PROJECT_DIR$/src/com/express/model/ProvinceEntity.java" />
         <option value="$PROJECT_DIR$/src/com/express/model/RegionEntity.java" />
+        <option value="$PROJECT_DIR$/src/com/express/daoImpl/CityDao.java" />
+        <option value="$PROJECT_DIR$/src/com/express/daoImpl/RegionDao.java" />
+        <option value="$PROJECT_DIR$/src/com/express/daoImpl/CustomerDao.java" />
+        <option value="$PROJECT_DIR$/src/com/express/daoImpl/EmployeesDao.java" />
+        <option value="$PROJECT_DIR$/src/com/express/serviceInterface/IMiscService.java" />
+        <option value="$PROJECT_DIR$/src/com/express/daoImpl/OutletsDao.java" />
+        <option value="$PROJECT_DIR$/src/applicationContext.xml" />
+        <option value="$PROJECT_DIR$/src/com/express/serviceImpl/MiscService.java" />
       </list>
     </option>
   </component>
@@ -468,8 +643,7 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -537,10 +711,99 @@
               <option name="myItemId" value="express" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="serviceInterface" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ExTrace_Server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ExTrace_Server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="express" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="serviceImpl" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ExTrace_Server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ExTrace_Server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="express" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ExTrace_Server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ExTrace_Server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="express" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="model" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ExTrace_Server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ExTrace_Server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="express" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="daoImpl" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -579,6 +842,288 @@
   <component name="RestClientSettings">
     <option name="REQUEST_HISTORY">
       <list>
+        <RestClientRequest>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://localhost:8080" />
+          <option name="urlPath" value="/REST/Misc/doLogin/1236975263/123456" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="application/json" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="{&quot;id&quot;:2, &quot;regionId&quot;:5, &quot;address&quot;:&quot;nicai&quot;, &quot;customerId&quot;:1, &quot;rank&quot;:1}" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://localhost:8080" />
+          <option name="urlPath" value="/REST/Misc/doLogin/12369751263/12345" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="application/json" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="{&quot;id&quot;:2, &quot;regionId&quot;:5, &quot;address&quot;:&quot;nicai&quot;, &quot;customerId&quot;:1, &quot;rank&quot;:1}" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://localhost:8080" />
+          <option name="urlPath" value="/REST/Misc/doLogin/12369751263/123456" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="application/json" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="{&quot;id&quot;:2, &quot;regionId&quot;:5, &quot;address&quot;:&quot;nicai&quot;, &quot;customerId&quot;:1, &quot;rank&quot;:1}" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://localhost:8080" />
+          <option name="urlPath" value="/REST/Misc/checkTelephone/11111111" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="application/json" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="{&quot;id&quot;:2, &quot;regionId&quot;:5, &quot;address&quot;:&quot;nicai&quot;, &quot;customerId&quot;:1, &quot;rank&quot;:1}" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://localhost:8080" />
+          <option name="urlPath" value="/REST/Misc/checkTelephone/12369751263" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="application/json" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="{&quot;id&quot;:2, &quot;regionId&quot;:5, &quot;address&quot;:&quot;nicai&quot;, &quot;customerId&quot;:1, &quot;rank&quot;:1}" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://localhost:8080" />
+          <option name="urlPath" value="/REST/Misc/checkTelephone/1236971" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="application/json" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="{&quot;id&quot;:2, &quot;regionId&quot;:5, &quot;address&quot;:&quot;nicai&quot;, &quot;customerId&quot;:1, &quot;rank&quot;:1}" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://localhost:8080" />
+          <option name="urlPath" value="/REST/Misc/checkTelephone/123697512612" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="application/json" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="{&quot;id&quot;:2, &quot;regionId&quot;:5, &quot;address&quot;:&quot;nicai&quot;, &quot;customerId&quot;:1, &quot;rank&quot;:1}" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://localhost:8080" />
+          <option name="urlPath" value="/REST/Misc/saveAddressbyCus" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="application/json" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="haveTextToSend" value="true" />
+          <option name="textToSend" value="{&quot;id&quot;:2, &quot;regionId&quot;:5, &quot;address&quot;:&quot;nicai&quot;, &quot;customerId&quot;:1, &quot;rank&quot;:1}" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://localhost:8080" />
+          <option name="urlPath" value="/REST/Misc/saveAddressbyCus" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="application/json" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="haveTextToSend" value="true" />
+          <option name="textToSend" value="{&quot;id&quot;:2, &quot;regionId&quot;:5, &quot;address&quot;:&quot;nicai&quot;, &quot;customerId&quot;:1, &quot;rank&quot;:0}" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://localhost:8080" />
+          <option name="urlPath" value="/REST/Misc/doLogin/12369751263/12345" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="application/json" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://localhost:8080" />
+          <option name="urlPath" value="/REST/Misc/doLogin/12369751263/123456" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="application/json" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://localhost:8080" />
+          <option name="urlPath" value="/REST/Misc/getCustomerInfoById/1" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="application/json" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="{&quot;&quot;ID&quot;:1,RegionID&quot;:23,&quot;Address&quot;:&quot;zheng zhou university&quot;,&quot;CustomerID&quot;:1,&quot;Rank&quot;:1}" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://localhost:8080" />
+          <option name="urlPath" value="/REST/Misc/getRegionList/3" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="application/json" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="{&quot;&quot;ID&quot;:1,RegionID&quot;:23,&quot;Address&quot;:&quot;zheng zhou university&quot;,&quot;CustomerID&quot;:1,&quot;Rank&quot;:1}" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://localhost:8080" />
+          <option name="urlPath" value="/REST/Misc/getCityList/3" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="application/json" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="{&quot;&quot;ID&quot;:1,RegionID&quot;:23,&quot;Address&quot;:&quot;zheng zhou university&quot;,&quot;CustomerID&quot;:1,&quot;Rank&quot;:1}" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
         <RestClientRequest>
           <option name="httpMethod" value="POST" />
           <option name="urlBase" value="http://localhost:8080" />
@@ -1336,300 +1881,6 @@
           <option name="textToSend" value="[{\&quot;id\&quot;:1, \&quot;name\&quot;:\&quot;violet\&quot;, \&quot;password\&quot;:123456, \&quot;telephone\&quot;:12369751263}]" />
           <option name="filesToSend" value="" />
         </RestClientRequest>
-        <RestClientRequest>
-          <option name="httpMethod" value="POST" />
-          <option name="urlBase" value="http://localhost:8080" />
-          <option name="urlPath" value="/REST/Misc/saveCustomerInfo" />
-          <option name="headers">
-            <list>
-              <KeyValuePair>
-                <option name="key" value="Accept" />
-                <option name="value" value="application/json" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="Cache-Control" />
-                <option name="value" value="no-cache" />
-              </KeyValuePair>
-            </list>
-          </option>
-          <option name="parametersEnabled" value="true" />
-          <option name="haveTextToSend" value="true" />
-          <option name="textToSend" value="[{&quot;id&quot;:1, &quot;name&quot;:&quot;violet&quot;, &quot;password&quot;:123456, &quot;telephone&quot;:12369751263}]" />
-          <option name="filesToSend" value="" />
-        </RestClientRequest>
-        <RestClientRequest>
-          <option name="httpMethod" value="POST" />
-          <option name="urlBase" value="http://localhost:8080" />
-          <option name="urlPath" value="/REST/Misc/saveCustomerInfo" />
-          <option name="headers">
-            <list>
-              <KeyValuePair>
-                <option name="key" value="Accept" />
-                <option name="value" value="application/json" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="Cache-Control" />
-                <option name="value" value="no-cache" />
-              </KeyValuePair>
-            </list>
-          </option>
-          <option name="parametersEnabled" value="true" />
-          <option name="haveTextToSend" value="true" />
-          <option name="textToSend" value="[&quot;id&quot;:1, &quot;name&quot;:&quot;violet&quot;, &quot;password&quot;:123456, &quot;telephone&quot;:12369751263]" />
-          <option name="filesToSend" value="" />
-        </RestClientRequest>
-        <RestClientRequest>
-          <option name="httpMethod" value="POST" />
-          <option name="urlBase" value="http://localhost:8080" />
-          <option name="urlPath" value="/REST/Misc/saveCustomerInfo" />
-          <option name="headers">
-            <list>
-              <KeyValuePair>
-                <option name="key" value="Accept" />
-                <option name="value" value="application/json" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="Cache-Control" />
-                <option name="value" value="no-cache" />
-              </KeyValuePair>
-            </list>
-          </option>
-          <option name="parametersEnabled" value="true" />
-          <option name="haveTextToSend" value="true" />
-          <option name="textToSend" value="[&quot;id&quot;:1,&quot;name&quot;:&quot;violet&quot;,&quot;password&quot;:123456,&quot;telephone&quot;:12369751263]" />
-          <option name="filesToSend" value="" />
-        </RestClientRequest>
-        <RestClientRequest>
-          <option name="httpMethod" value="POST" />
-          <option name="urlBase" value="http://localhost:8080" />
-          <option name="urlPath" value="/REST/Misc/saveCustomerInfo" />
-          <option name="headers">
-            <list>
-              <KeyValuePair>
-                <option name="key" value="Accept" />
-                <option name="value" value="application/json" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="Cache-Control" />
-                <option name="value" value="no-cache" />
-              </KeyValuePair>
-            </list>
-          </option>
-          <option name="parametersEnabled" value="true" />
-          <option name="haveTextToSend" value="true" />
-          <option name="textToSend" value="[&quot;id&quot;: 1,&quot;name&quot;:&quot;violet&quot;,&quot;password&quot;:123456,&quot;telephone&quot;:12369751263]" />
-          <option name="filesToSend" value="" />
-        </RestClientRequest>
-        <RestClientRequest>
-          <option name="httpMethod" value="POST" />
-          <option name="urlBase" value="http://localhost:8080" />
-          <option name="urlPath" value="/REST/Misc/saveCustomerInfo" />
-          <option name="headers">
-            <list>
-              <KeyValuePair>
-                <option name="key" value="Accept" />
-                <option name="value" value="application/json" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="Cache-Control" />
-                <option name="value" value="no-cache" />
-              </KeyValuePair>
-            </list>
-          </option>
-          <option name="parametersEnabled" value="true" />
-          <option name="haveTextToSend" value="true" />
-          <option name="textToSend" value="[     &quot;id&quot;: 1,     &quot;name&quot;: &quot;violet&quot;,     &quot;password&quot;: 123456,     &quot;telephone&quot;: 12369751263 ]" />
-          <option name="filesToSend" value="" />
-        </RestClientRequest>
-        <RestClientRequest>
-          <option name="httpMethod" value="POST" />
-          <option name="urlBase" value="http://localhost:8080" />
-          <option name="urlPath" value="/REST/Misc/saveCustomerInfo" />
-          <option name="headers">
-            <list>
-              <KeyValuePair>
-                <option name="key" value="Accept" />
-                <option name="value" value="application/json" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="Cache-Control" />
-                <option name="value" value="no-cache" />
-              </KeyValuePair>
-            </list>
-          </option>
-          <option name="parametersEnabled" value="true" />
-          <option name="haveTextToSend" value="true" />
-          <option name="textToSend" value="[     &quot;id&quot;: 1,     &quot;name&quot;: &quot;violet&quot;,     &quot;password&quot;: 123456,     &quot;telephone\&quot;: 12369751263 ]" />
-          <option name="filesToSend" value="" />
-        </RestClientRequest>
-        <RestClientRequest>
-          <option name="httpMethod" value="POST" />
-          <option name="urlBase" value="http://localhost:8080" />
-          <option name="urlPath" value="/REST/Misc/saveCustomerInfo" />
-          <option name="headers">
-            <list>
-              <KeyValuePair>
-                <option name="key" value="Accept" />
-                <option name="value" value="application/json" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="Cache-Control" />
-                <option name="value" value="no-cache" />
-              </KeyValuePair>
-            </list>
-          </option>
-          <option name="parametersEnabled" value="true" />
-          <option name="haveTextToSend" value="true" />
-          <option name="textToSend" value="{     &quot;id&quot;: 1,     &quot;name&quot;: &quot;violet&quot;,     &quot;password&quot;: 123456,     &quot;telephone\&quot;: 12369751263 }" />
-          <option name="filesToSend" value="" />
-        </RestClientRequest>
-        <RestClientRequest>
-          <option name="httpMethod" value="POST" />
-          <option name="urlBase" value="http://localhost:8080" />
-          <option name="urlPath" value="/REST/Misc/saveCustomerInfo" />
-          <option name="headers">
-            <list>
-              <KeyValuePair>
-                <option name="key" value="Accept" />
-                <option name="value" value="application/json" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="Cache-Control" />
-                <option name="value" value="no-cache" />
-              </KeyValuePair>
-            </list>
-          </option>
-          <option name="parametersEnabled" value="true" />
-          <option name="haveTextToSend" value="true" />
-          <option name="textToSend" value="{     &quot;id&quot;: 1,     &quot;name&quot;: &quot;violet&quot;,     &quot;password&quot;: 123456,     &quot;telephone&quot;: 12369751263 };" />
-          <option name="filesToSend" value="" />
-        </RestClientRequest>
-        <RestClientRequest>
-          <option name="httpMethod" value="POST" />
-          <option name="urlBase" value="http://localhost:8080" />
-          <option name="urlPath" value="/REST/Misc/saveCustomerInfo" />
-          <option name="headers">
-            <list>
-              <KeyValuePair>
-                <option name="key" value="Accept" />
-                <option name="value" value="application/json" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="Cache-Control" />
-                <option name="value" value="no-cache" />
-              </KeyValuePair>
-            </list>
-          </option>
-          <option name="parametersEnabled" value="true" />
-          <option name="haveTextToSend" value="true" />
-          <option name="textToSend" value="{     &quot;id&quot;: 1,     &quot;name&quot;: \&quot;violet\&quot;,     &quot;password&quot;: 123456,     &quot;telephone&quot;: 12369751263 }" />
-          <option name="filesToSend" value="" />
-        </RestClientRequest>
-        <RestClientRequest>
-          <option name="httpMethod" value="POST" />
-          <option name="urlBase" value="http://localhost:8080" />
-          <option name="urlPath" value="/REST/Misc/saveCustomerInfo" />
-          <option name="headers">
-            <list>
-              <KeyValuePair>
-                <option name="key" value="Accept" />
-                <option name="value" value="application/json" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="Cache-Control" />
-                <option name="value" value="no-cache" />
-              </KeyValuePair>
-            </list>
-          </option>
-          <option name="parametersEnabled" value="true" />
-          <option name="haveTextToSend" value="true" />
-          <option name="textToSend" value="{     \\&quot;id\\&quot;: 1,     \\&quot;name\\&quot;: \\&quot;violet\\&quot;,     \\&quot;password\\&quot;: 123456,     \\&quot;telephone\\&quot;: 12369751263 }" />
-          <option name="filesToSend" value="" />
-        </RestClientRequest>
-        <RestClientRequest>
-          <option name="httpMethod" value="POST" />
-          <option name="urlBase" value="http://localhost:8080" />
-          <option name="urlPath" value="/REST/Misc/saveCustomerInfo" />
-          <option name="headers">
-            <list>
-              <KeyValuePair>
-                <option name="key" value="Accept" />
-                <option name="value" value="application/json" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="Cache-Control" />
-                <option name="value" value="no-cache" />
-              </KeyValuePair>
-            </list>
-          </option>
-          <option name="parametersEnabled" value="true" />
-          <option name="haveTextToSend" value="true" />
-          <option name="textToSend" value="{     \&quot;id\&quot;: 1,     \&quot;name\&quot;: \&quot;violet\&quot;,     \&quot;password\&quot;: 123456,     \&quot;telephone\&quot;: 12369751263 }" />
-          <option name="filesToSend" value="" />
-        </RestClientRequest>
-        <RestClientRequest>
-          <option name="httpMethod" value="POST" />
-          <option name="urlBase" value="http://localhost:8080" />
-          <option name="urlPath" value="/REST/Misc/saveCustomerInfo" />
-          <option name="headers">
-            <list>
-              <KeyValuePair>
-                <option name="key" value="Accept" />
-                <option name="value" value="application/json" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="Cache-Control" />
-                <option name="value" value="no-cache" />
-              </KeyValuePair>
-            </list>
-          </option>
-          <option name="parametersEnabled" value="true" />
-          <option name="haveTextToSend" value="true" />
-          <option name="textToSend" value="{     &quot;id&quot;: 1,     &quot;name&quot;: &quot;violet&quot;,     &quot;password&quot;: 123456,     &quot;telephone&quot;: 12369751263 }" />
-          <option name="filesToSend" value="" />
-        </RestClientRequest>
-        <RestClientRequest>
-          <option name="httpMethod" value="POST" />
-          <option name="urlBase" value="http://localhost:8080" />
-          <option name="urlPath" value="/REST/Misc/saveCustomerInfo" />
-          <option name="headers">
-            <list>
-              <KeyValuePair>
-                <option name="key" value="Accept" />
-                <option name="value" value="application/json" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="Cache-Control" />
-                <option name="value" value="no-cache" />
-              </KeyValuePair>
-            </list>
-          </option>
-          <option name="parametersEnabled" value="true" />
-          <option name="haveTextToSend" value="true" />
-          <option name="textToSend" value="{\\\&quot;id\\\&quot;:1,\\\&quot;name\\\&quot;:\\\&quot;violet\\\&quot;,\\\&quot;password\\\&quot;:123456,\\\&quot;telephone\\\&quot;:12369751263}" />
-          <option name="filesToSend" value="" />
-        </RestClientRequest>
-        <RestClientRequest>
-          <option name="httpMethod" value="POST" />
-          <option name="urlBase" value="http://localhost:8080" />
-          <option name="urlPath" value="/REST/Misc/saveCustomerInfo" />
-          <option name="headers">
-            <list>
-              <KeyValuePair>
-                <option name="key" value="Accept" />
-                <option name="value" value="application/json" />
-              </KeyValuePair>
-              <KeyValuePair>
-                <option name="key" value="Cache-Control" />
-                <option name="value" value="no-cache" />
-              </KeyValuePair>
-            </list>
-          </option>
-          <option name="parametersEnabled" value="true" />
-          <option name="haveTextToSend" value="true" />
-          <option name="textToSend" value="\&quot;id\&quot;:1,\&quot;name\&quot;:\&quot;violet\&quot;,\&quot;password\&quot;:123456,\&quot;telephone\&quot;:12369751263" />
-          <option name="filesToSend" value="" />
-        </RestClientRequest>
       </list>
     </option>
   </component>
@@ -1988,7 +2239,8 @@
       <workItem from="1459874801289" duration="1814000" />
       <workItem from="1459876627143" duration="1267000" />
       <workItem from="1459909439474" duration="27022000" />
-      <workItem from="1459995485810" duration="20902000" />
+      <workItem from="1459995485810" duration="28032000" />
+      <workItem from="1460081376875" duration="9857000" />
     </task>
     <task id="LOCAL-00001" summary="能跑起来的一个框架">
       <created>1459877812178</created>
@@ -2002,15 +2254,27 @@
       <option name="project" value="LOCAL" />
       <updated>1460008091923</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="增加了新的接口">
+      <created>1460030664017</created>
+      <option name="number" value="00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1460030664017</updated>
+    </task>
+    <task id="LOCAL-00004" summary="增加了省、市、区域的方法">
+      <created>1460043101845</created>
+      <option name="number" value="00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1460043101845</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="62921000" />
+    <option name="totallyTimeSpent" value="79908000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.50651467" sideWeight="0.5030257" order="8" side_tool="true" content_ui="tabs" />
@@ -2018,22 +2282,22 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="ConsoleMavenPlugin" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1505295" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.0" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.51140064" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.41205212" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32952693" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="REST Client" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.40065145" sideWeight="0.4969743" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3029316" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="REST Client" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.41205212" sideWeight="0.4969743" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.0" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25081432" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="14" side_tool="true" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
-      <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.20121029" sideWeight="0.19477434" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20121029" sideWeight="0.8070588" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.20121029" sideWeight="0.19565217" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20121029" sideWeight="0.8043478" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24357034" sideWeight="0.18208955" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Maven-2 Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24357034" sideWeight="0.22686568" order="2" side_tool="true" content_ui="tabs" />
@@ -2060,18 +2324,21 @@
     <MESSAGE value="第一次提交" />
     <MESSAGE value="能跑起来的一个框架" />
     <MESSAGE value="get save delete已测可用" />
-    <option name="LAST_COMMIT_MESSAGE" value="get save delete已测可用" />
+    <MESSAGE value="增加了新的接口" />
+    <MESSAGE value="增加了省、市、区域的方法" />
+    <option name="LAST_COMMIT_MESSAGE" value="增加了省、市、区域的方法" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="15" />
+      <option name="time" value="18" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory">
         <watch expression="provinceDao" language="JAVA" custom="" />
         <watch expression="provinceDao.getAllProvince()" language="JAVA" custom="" />
         <watch expression="customerDao" language="JAVA" custom="" />
-        <watch expression="customerDao.get()" language="JAVA" custom="" />
+        <watch expression="regionDao.getRegionList(cid)" language="JAVA" custom="" />
+        <watch expression="cityDao.getCityList(pid)" language="JAVA" custom="" />
       </configuration>
     </watches-manager>
   </component>
@@ -2080,13 +2347,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/lib/WHICH_JARS">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$PROJECT_DIR$/web/WEB-INF/lib/spring-beans-4.0.2.RELEASE-sources.jar!/org/springframework/beans/factory/support/AbstractAutowireCapableBeanFactory.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33333334">
@@ -2098,7 +2358,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33093524">
           <caret line="111" column="0" selection-start-line="111" selection-start-column="0" selection-end-line="111" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2113,7 +2372,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="14" column="33" selection-start-line="14" selection-start-column="33" selection-end-line="14" selection-end-column="33" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2121,7 +2379,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2165,9 +2422,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="110" column="0" selection-start-line="110" selection-start-column="0" selection-end-line="110" selection-end-column="0" />
-          <folding>
-            <element signature="e#4595#4596#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2175,7 +2429,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5708061">
           <caret line="265" column="39" selection-start-line="265" selection-start-column="39" selection-end-line="265" selection-end-column="39" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2183,7 +2436,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.225058">
           <caret line="107" column="0" selection-start-line="107" selection-start-column="0" selection-end-line="107" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2191,7 +2443,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-3.607143">
           <caret line="107" column="0" selection-start-line="107" selection-start-column="0" selection-end-line="107" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2199,7 +2450,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-3.9642856">
           <caret line="215" column="0" selection-start-line="215" selection-start-column="0" selection-end-line="215" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2207,7 +2457,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-3.9642856">
           <caret line="91" column="0" selection-start-line="91" selection-start-column="0" selection-end-line="91" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2215,7 +2464,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-3.9642856">
           <caret line="188" column="0" selection-start-line="188" selection-start-column="0" selection-end-line="188" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2223,7 +2471,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-3.607143">
           <caret line="135" column="0" selection-start-line="135" selection-start-column="0" selection-end-line="135" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2231,7 +2478,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33333334">
           <caret line="155" column="0" selection-start-line="155" selection-start-column="0" selection-end-line="155" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2239,7 +2485,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33114755">
           <caret line="222" column="0" selection-start-line="222" selection-start-column="0" selection-end-line="222" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2247,7 +2492,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.36393443">
           <caret line="165" column="0" selection-start-line="165" selection-start-column="0" selection-end-line="165" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2255,15 +2499,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="614" column="0" selection-start-line="614" selection-start-column="0" selection-end-line="614" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/web/WEB-INF/lib/cxf-2.7.10.jar!/org/apache/cxf/service/invoker/AbstractInvoker.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.607143">
-          <caret line="71" column="21" selection-start-line="71" selection-start-column="21" selection-end-line="71" selection-end-column="21" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2271,7 +2506,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33114755">
           <caret line="317" column="0" selection-start-line="317" selection-start-column="0" selection-end-line="317" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2283,67 +2517,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/applicationContext.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="74" column="57" selection-start-line="74" selection-start-column="57" selection-end-line="74" selection-end-column="57" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/express/daoBase/BaseDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/express/daoImpl/CityDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="11" column="30" selection-start-line="11" selection-start-column="30" selection-end-line="11" selection-end-column="30" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#228#229#0" expanded="true" />
-            <element signature="e#267#268#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/express/daoImpl/CustomerDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="12" column="5" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
-          <folding>
-            <element signature="e#603#604#0" expanded="true" />
-            <element signature="e#645#646#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/express/daoImpl/EmployeesDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="11" column="35" selection-start-line="11" selection-start-column="35" selection-end-line="11" selection-end-column="35" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#249#250#0" expanded="true" />
-            <element signature="e#293#294#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/express/daoImpl/ExpressDao.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="11" column="33" selection-start-line="11" selection-start-column="33" selection-end-line="11" selection-end-column="33" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#240#241#0" expanded="true" />
-            <element signature="e#282#283#0" expanded="true" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#240#241#0" expanded="false" />
+            <element signature="e#282#283#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2353,8 +2534,8 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="11" column="33" selection-start-line="11" selection-start-column="33" selection-end-line="11" selection-end-column="33" />
           <folding>
-            <element signature="e#239#240#0" expanded="true" />
-            <element signature="e#281#282#0" expanded="true" />
+            <element signature="e#239#240#0" expanded="false" />
+            <element signature="e#281#282#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2364,102 +2545,8 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="11" column="34" selection-start-line="11" selection-start-column="34" selection-end-line="11" selection-end-column="34" />
           <folding>
-            <element signature="e#244#245#0" expanded="true" />
-            <element signature="e#287#288#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/express/daoImpl/RegionDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#237#238#0" expanded="true" />
-            <element signature="e#278#279#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/express/serviceImpl/MiscService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="156" column="29" selection-start-line="156" selection-start-column="29" selection-end-line="156" selection-end-column="29" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#3605#3606#0" expanded="true" />
-            <element signature="e#3643#3644#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/express/daoImpl/ProvinceDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-          <folding>
-            <element signature="e#268#269#0" expanded="true" />
-            <element signature="e#311#312#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/express/daoImpl/AddressDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="14" column="12" selection-start-line="14" selection-start-column="12" selection-end-line="14" selection-end-column="12" />
-          <folding>
-            <element signature="e#241#242#0" expanded="true" />
-            <element signature="e#283#284#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/express/serviceInterface/IMiscService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="95" column="9" selection-start-line="95" selection-start-column="9" selection-end-line="95" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/express/model/AddressEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="10" column="44" selection-start-line="10" selection-start-column="44" selection-end-line="10" selection-end-column="44" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/express/model/CityEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="10" column="44" selection-start-line="10" selection-start-column="44" selection-end-line="10" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/express/model/CustomerEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="10" column="44" selection-start-line="10" selection-start-column="44" selection-end-line="10" selection-end-column="44" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/express/model/EmployeesEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="10" column="44" selection-start-line="10" selection-start-column="44" selection-end-line="10" selection-end-column="44" />
-          <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#244#245#0" expanded="false" />
+            <element signature="e#287#288#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2477,16 +2564,6 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="11" column="44" selection-start-line="11" selection-start-column="44" selection-end-line="11" selection-end-column="44" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/express/model/OutletsEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="10" column="44" selection-start-line="10" selection-start-column="44" selection-end-line="10" selection-end-column="44" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2511,7 +2588,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="10" column="44" selection-start-line="10" selection-start-column="44" selection-end-line="10" selection-end-column="44" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2529,15 +2606,189 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="10" column="44" selection-start-line="10" selection-start-column="44" selection-end-line="10" selection-end-column="44" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/express/model/CityEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.3458648">
+          <caret line="10" column="44" selection-start-line="10" selection-start-column="44" selection-end-line="10" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/web/WEB-INF/lib/cxf-2.7.10.jar!/org/apache/cxf/service/invoker/AbstractInvoker.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.39333335">
+          <caret line="143" column="0" selection-start-line="143" selection-start-column="0" selection-end-line="143" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/express/model/RegionEntity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.877193">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="74" column="21" selection-start-line="74" selection-start-column="21" selection-end-line="74" selection-end-column="21" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1137#1138#0" expanded="true" />
+            <element signature="e#1166#1167#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/express/daoImpl/CityDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="25" column="78" selection-start-line="25" selection-start-column="78" selection-end-line="25" selection-end-column="78" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/express/model/CustomerEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="15" column="28" selection-start-line="15" selection-start-column="19" selection-end-line="15" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/express/daoBase/BaseDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="66" column="12" selection-start-line="66" selection-start-column="12" selection-end-line="66" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/express/daoImpl/RegionDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33190578">
+          <caret line="24" column="18" selection-start-line="24" selection-start-column="18" selection-end-line="24" selection-end-column="18" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/express/model/AddressEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
           <caret line="10" column="44" selection-start-line="10" selection-start-column="44" selection-end-line="10" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/express/daoImpl/AddressDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="14" column="18" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/express/daoImpl/CustomerDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="23" column="4" selection-start-line="23" selection-start-column="4" selection-end-line="34" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/express/model/EmployeesEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.060324825">
+          <caret line="10" column="44" selection-start-line="10" selection-start-column="44" selection-end-line="10" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/express/daoImpl/EmployeesDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="35" column="28" selection-start-line="35" selection-start-column="28" selection-end-line="35" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/express/model/OutletsEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="15" column="24" selection-start-line="15" selection-start-column="16" selection-end-line="15" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/express/daoImpl/ProvinceDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="25" column="5" selection-start-line="25" selection-start-column="5" selection-end-line="25" selection-end-column="5" />
+          <folding>
+            <element signature="e#523#524#0" expanded="true" />
+            <element signature="e#560#561#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/applicationContext.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.9032258">
+          <caret line="113" column="72" selection-start-line="113" selection-start-column="72" selection-end-line="113" selection-end-column="72" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/express/daoImpl/OutletsDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="54" column="29" selection-start-line="54" selection-start-column="29" selection-end-line="54" selection-end-column="29" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#308#309#0" expanded="true" />
+            <element signature="e#350#351#0" expanded="true" />
+            <element signature="e#1676#1677#0" expanded="true" />
+            <element signature="e#1713#1714#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/express/serviceImpl/MiscService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="269" column="42" selection-start-line="269" selection-start-column="42" selection-end-line="269" selection-end-column="42" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#616#617#0" expanded="true" />
+            <element signature="e#649#650#0" expanded="true" />
+            <element signature="e#705#706#0" expanded="true" />
+            <element signature="e#749#750#0" expanded="true" />
+            <element signature="e#3962#3963#0" expanded="true" />
+            <element signature="e#4011#4012#0" expanded="true" />
+            <element signature="e#5524#5525#0" expanded="true" />
+            <element signature="e#5575#5576#0" expanded="true" />
+            <element signature="e#5666#5667#0" expanded="true" />
+            <element signature="e#5724#5725#0" expanded="true" />
+            <element signature="e#5825#5826#0" expanded="true" />
+            <element signature="e#5885#5886#0" expanded="true" />
+            <element signature="e#5987#5988#0" expanded="true" />
+            <element signature="e#6048#6049#0" expanded="true" />
+            <element signature="e#6130#6131#0" expanded="true" />
+            <element signature="e#6178#6179#0" expanded="true" />
+            <element signature="e#6264#6265#0" expanded="true" />
+            <element signature="e#6316#6317#0" expanded="true" />
+            <element signature="e#6404#6405#0" expanded="true" />
+            <element signature="e#6453#6454#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/express/serviceInterface/IMiscService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6983759">
+          <caret line="173" column="8" selection-start-line="173" selection-start-column="8" selection-end-line="173" selection-end-column="8" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

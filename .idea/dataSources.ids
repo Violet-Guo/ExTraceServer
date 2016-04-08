@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="MySQL - express@localhost" uuid="10f7d4e7-4813-4a97-8636-6c7cc162dc7e">
+    <database-info product="MySQL" version="5.5.45-log" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.36 ( Revision: 4fc1f969f740409a4e03750316df2c0e429f3dc8 )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower"/>
+    <schema name="" catalog="express"/>
+    <table name="address" schema="" catalog="express" type="TABLE">
+      <column name="ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="RegionID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="Address" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="CustomerID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="Rank" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="ID"/>
+      <foreign-key name="FKAddress64710" columns="CustomerID" ref-table="customer" ref-schema="" ref-catalog="express" ref-columns="ID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="FKAddress661685" columns="RegionID" ref-table="region" ref-schema="" ref-catalog="express" ref-columns="ID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="express_ibfk_1" table="express" schema="" catalog="express" columns="AccAddressID"/>
+      <index name="FKAddress64710" unique="false" columns="CustomerID"/>
+      <index name="FKAddress661685" unique="false" columns="RegionID"/>
+    </table>
+    <table name="city" schema="" catalog="express" type="TABLE">
+      <column name="cid" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="cname" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="code" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="pid" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="cid"/>
+      <foreign-key name="pid" columns="pid" ref-table="province" ref-schema="" ref-catalog="express" ref-columns="pid" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="cityid" table="region" schema="" catalog="express" columns="CityId"/>
+    </table>
+    <table name="customer" schema="" catalog="express" type="TABLE">
+      <column name="ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="Name" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12"/>
+      <column name="Telephone" sqlType="VARCHAR" precision="11" scale="0" nullable="true" jdbcType="12"/>
+      <column name="Password" sqlType="VARCHAR" precision="25" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="ID"/>
+      <exported-key name="FKAddress64710" table="address" schema="" catalog="express" columns="CustomerID"/>
+      <exported-key name="express_ibfk_2" table="express" schema="" catalog="express" columns="CustomerID"/>
+    </table>
+    <table name="employees" schema="" catalog="express" type="TABLE">
+      <column name="ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="Name" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12"/>
+      <column name="Password" sqlType="VARCHAR" precision="25" scale="0" nullable="true" jdbcType="12"/>
+      <column name="Telephone" sqlType="VARCHAR" precision="11" scale="0" nullable="true" jdbcType="12"/>
+      <column name="Job" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" remarks="MeS7o+ihqOW/q+mAkuWRmO+8jDLku6PooajliIbmi6PlkZjvvIwz5Luj6KGo5Y+45py6"/>
+      <column name="jobText" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="status" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="OutletsID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="ID"/>
+      <foreign-key name="FKEmployees629115" columns="OutletsID" ref-table="outlets" ref-schema="" ref-catalog="express" ref-columns="ID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="打包，拆包" table="package" schema="" catalog="express" columns="EmployeesID"/>
+      <index name="FKEmployees629115" unique="false" columns="OutletsID"/>
+    </table>
+    <table name="express" schema="" catalog="express" type="TABLE">
+      <column name="ID" sqlType="CHAR" precision="24" scale="0" nullable="false" jdbcType="1"/>
+      <column name="CustomerID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="IsPackage" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="Weight" sqlType="FLOAT" precision="12" scale="0" nullable="true" jdbcType="7"/>
+      <column name="Accepter" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12"/>
+      <column name="AccTel" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="AccAddressID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="GetTime" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="OutTime" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="TranFee" sqlType="FLOAT" precision="12" scale="0" nullable="true" jdbcType="7"/>
+      <column name="InsuFee" sqlType="FLOAT" precision="12" scale="0" nullable="true" jdbcType="7"/>
+      <primary-key name="PRIMARY" columns="ID"/>
+      <foreign-key name="express_ibfk_1" columns="AccAddressID" ref-table="address" ref-schema="" ref-catalog="express" ref-columns="ID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="express_ibfk_2" columns="CustomerID" ref-table="customer" ref-schema="" ref-catalog="express" ref-columns="ID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="expressandpackage_ibfk_1" table="expressandpackage" schema="" catalog="express" columns="ExpressID"/>
+    </table>
+    <table name="expressandpackage" schema="" catalog="express" type="TABLE">
+      <column name="ExpressID" sqlType="CHAR" precision="24" scale="0" nullable="false" jdbcType="1"/>
+      <column name="PackageID" sqlType="CHAR" precision="24" scale="0" nullable="false" jdbcType="1"/>
+      <column name="Time" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <primary-key name="PRIMARY" columns="ExpressID"/>
+      <foreign-key name="expressandpackage_ibfk_1" columns="ExpressID" ref-table="express" ref-schema="" ref-catalog="express" ref-columns="ID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="FKExpressAnd818822" columns="PackageID" ref-table="package" ref-schema="" ref-catalog="express" ref-columns="ID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="FKExpressAnd818822" unique="false" columns="PackageID"/>
+    </table>
+    <table name="outlets" schema="" catalog="express" type="TABLE">
+      <column name="ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="Name" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="RegionID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="Address" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="type" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="ID"/>
+      <foreign-key name="FKOutlets218810" columns="RegionID" ref-table="region" ref-schema="" ref-catalog="express" ref-columns="ID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="FKEmployees629115" table="employees" schema="" catalog="express" columns="OutletsID"/>
+      <exported-key name="FKPackageHis53017" table="packagehistory" schema="" catalog="express" columns="FromOutletsID"/>
+      <exported-key name="FKPackageHis83511" table="packagehistory" schema="" catalog="express" columns="ToOutletsID"/>
+      <index name="FKOutlets218810" unique="false" columns="RegionID"/>
+    </table>
+    <table name="package" schema="" catalog="express" type="TABLE">
+      <column name="ID" sqlType="CHAR" precision="24" scale="0" nullable="false" jdbcType="1"/>
+      <column name="EmployeesID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="time" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <primary-key name="PRIMARY" columns="ID"/>
+      <foreign-key name="打包，拆包" columns="EmployeesID" ref-table="employees" ref-schema="" ref-catalog="express" ref-columns="ID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="FKExpressAnd818822" table="expressandpackage" schema="" catalog="express" columns="PackageID"/>
+      <exported-key name="FKPackageHis985464" table="packagehistory" schema="" catalog="express" columns="PackageID"/>
+      <exported-key name="父包裹" table="packandpack" schema="" catalog="express" columns="ParentID"/>
+      <exported-key name="FKPackAndPac508571" table="packandpack" schema="" catalog="express" columns="PackageID"/>
+      <exported-key name="FKPosition104872" table="position" schema="" catalog="express" columns="PackageID"/>
+      <index name="打包，拆包" unique="false" columns="EmployeesID"/>
+    </table>
+    <table name="packagehistory" schema="" catalog="express" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="PackageID" sqlType="CHAR" precision="24" scale="0" nullable="false" jdbcType="1"/>
+      <column name="FromOutletsID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="ToOutletsID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="Time" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="FKPackageHis53017" columns="FromOutletsID" ref-table="outlets" ref-schema="" ref-catalog="express" ref-columns="ID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="FKPackageHis83511" columns="ToOutletsID" ref-table="outlets" ref-schema="" ref-catalog="express" ref-columns="ID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="FKPackageHis985464" columns="PackageID" ref-table="package" ref-schema="" ref-catalog="express" ref-columns="ID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="FKPackageHis53017" unique="false" columns="FromOutletsID"/>
+      <index name="FKPackageHis83511" unique="false" columns="ToOutletsID"/>
+      <index name="FKPackageHis985464" unique="false" columns="PackageID"/>
+    </table>
+    <table name="packandpack" schema="" catalog="express" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="PackageID" sqlType="CHAR" precision="24" scale="0" nullable="false" jdbcType="1"/>
+      <column name="ParentID" sqlType="CHAR" precision="24" scale="0" nullable="false" jdbcType="1"/>
+      <column name="IsHistory" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="父包裹" columns="ParentID" ref-table="package" ref-schema="" ref-catalog="express" ref-columns="ID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="FKPackAndPac508571" columns="PackageID" ref-table="package" ref-schema="" ref-catalog="express" ref-columns="ID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="FKPackAndPac508571" unique="false" columns="PackageID"/>
+      <index name="父包裹" unique="false" columns="ParentID"/>
+    </table>
+    <table name="position" schema="" catalog="express" type="TABLE">
+      <column name="ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="X" sqlType="DOUBLE" precision="22" scale="0" nullable="true" jdbcType="8"/>
+      <column name="Y" sqlType="DOUBLE" precision="22" scale="0" nullable="true" jdbcType="8"/>
+      <column name="Time" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="PackageID" sqlType="CHAR" precision="24" scale="0" nullable="false" jdbcType="1"/>
+      <primary-key name="PRIMARY" columns="ID"/>
+      <foreign-key name="FKPosition104872" columns="PackageID" ref-table="package" ref-schema="" ref-catalog="express" ref-columns="ID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="FKPosition104872" unique="false" columns="PackageID"/>
+    </table>
+    <table name="province" schema="" catalog="express" type="TABLE">
+      <column name="pid" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="pname" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="pid"/>
+      <exported-key name="pid" table="city" schema="" catalog="express" columns="pid"/>
+    </table>
+    <table name="region" schema="" catalog="express" type="TABLE">
+      <column name="ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="Area" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
+      <column name="CityId" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="ID"/>
+      <foreign-key name="cityid" columns="CityId" ref-table="city" ref-schema="" ref-catalog="express" ref-columns="cid" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="FKAddress661685" table="address" schema="" catalog="express" columns="RegionID"/>
+      <exported-key name="FKOutlets218810" table="outlets" schema="" catalog="express" columns="RegionID"/>
+    </table>
+  </data-source>
+</component>

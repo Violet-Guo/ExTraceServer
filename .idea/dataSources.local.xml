@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="MySQL - express@localhost" uuid="10f7d4e7-4813-4a97-8636-6c7cc162dc7e">
+      <secret-storage>master_key</secret-storage>
+      <user-name>root</user-name>
+      <schema-pattern>express.*</schema-pattern>
+      <default-schemas>express.*</default-schemas>
+    </data-source>
+  </component>
+</project>
