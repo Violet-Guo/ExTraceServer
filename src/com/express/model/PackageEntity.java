@@ -2,7 +2,7 @@ package com.express.model;
 
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
-import java.sql.Timestamp;
+import java.util.Date;
 
 /**
  * Created by violet on 2016/4/6.
@@ -14,12 +14,12 @@ import java.sql.Timestamp;
 public class PackageEntity {
     private String id;
     private int employeesId;
-    private Timestamp time;
+    private Date time;
 
     public PackageEntity() {
     }
 
-    public PackageEntity(String id, int employeesId, Timestamp time) {
+    public PackageEntity(String id, int employeesId, Date time) {
         this.id = id;
         this.employeesId = employeesId;
         this.time = time;
@@ -47,11 +47,11 @@ public class PackageEntity {
 
     @Basic
     @Column(name = "time", nullable = true, insertable = true, updatable = true)
-    public Timestamp getTime() {
+    public Date getTime() {
         return time;
     }
 
-    public void setTime(Timestamp time) {
+    public void setTime(Date time) {
         this.time = time;
     }
 

@@ -2,7 +2,7 @@ package com.express.model;
 
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
-import java.sql.Timestamp;
+import java.util.Date;
 
 /**
  * Created by violet on 2016/4/6.
@@ -15,13 +15,13 @@ public class PositionEntity {
     private int id;
     private Double x;
     private Double y;
-    private Timestamp time;
+    private Date time;
     private String packageId;
 
     public PositionEntity() {
     }
 
-    public PositionEntity(int id, Double x, Double y, Timestamp time, String packageId) {
+    public PositionEntity(int id, Double x, Double y, Date time, String packageId) {
         this.id = id;
         this.x = x;
         this.y = y;
@@ -61,11 +61,11 @@ public class PositionEntity {
 
     @Basic
     @Column(name = "Time", nullable = true, insertable = true, updatable = true)
-    public Timestamp getTime() {
+    public Date getTime() {
         return time;
     }
 
-    public void setTime(Timestamp time) {
+    public void setTime(Date time) {
         this.time = time;
     }
 

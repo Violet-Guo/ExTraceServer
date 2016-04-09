@@ -2,7 +2,7 @@ package com.express.model;
 
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
-import java.sql.Timestamp;
+import java.util.Date;
 
 /**
  * Created by violet on 2016/4/6.
@@ -19,15 +19,15 @@ public class ExpressEntity {
     private String accepter;
     private Integer accTel;
     private int accAddressId;
-    private Timestamp getTime;
-    private Timestamp outTime;
+    private Date getTime;
+    private Date outTime;
     private Float tranFee;
     private Float insuFee;
 
     public ExpressEntity() {
     }
 
-    public ExpressEntity(String id, int customerId, Integer isPackage, Float weight, String accepter, Integer accTel, int accAddressId, Timestamp getTime, Timestamp outTime, Float tranFee, Float insuFee) {
+    public ExpressEntity(String id, int customerId, Integer isPackage, Float weight, String accepter, Integer accTel, int accAddressId, Date getTime, Date outTime, Float tranFee, Float insuFee) {
         this.id = id;
         this.customerId = customerId;
         this.isPackage = isPackage;
@@ -113,21 +113,21 @@ public class ExpressEntity {
 
     @Basic
     @Column(name = "GetTime", nullable = true, insertable = true, updatable = true)
-    public Timestamp getGetTime() {
+    public Date getGetTime() {
         return getTime;
     }
 
-    public void setGetTime(Timestamp getTime) {
+    public void setGetTime(Date getTime) {
         this.getTime = getTime;
     }
 
     @Basic
     @Column(name = "OutTime", nullable = true, insertable = true, updatable = true)
-    public Timestamp getOutTime() {
+    public Date getOutTime() {
         return outTime;
     }
 
-    public void setOutTime(Timestamp outTime) {
+    public void setOutTime(Date outTime) {
         this.outTime = outTime;
     }
 
