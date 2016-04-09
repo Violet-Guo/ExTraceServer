@@ -51,5 +51,11 @@ public interface IDomainService {
     @Path("/savePackage")
     public Response savePackage(PackageEntity obj);
 
+    //通过包裹ID查找包裹
+    @GET
+    @Produces({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+    @Path("/getPackageById/{id}")
+    public ExpressEntity getPackageById(@PathParam("id")int pid);
+
     ///////////////////////////////////////////////////////////////////////////
 }
