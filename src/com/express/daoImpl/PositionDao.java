@@ -6,7 +6,7 @@ import com.express.model.PositionEntity;
 /**
  * Created by violet on 2016/3/28.
  */
-public class PositionDao extends BaseDao<PositionEntity, Integer>{
+public class PositionDao extends BaseDao<PositionEntity, Integer> {
 
     public PositionDao() {
         super(PositionEntity.class);

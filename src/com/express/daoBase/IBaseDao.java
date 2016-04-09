@@ -62,7 +62,6 @@ public interface IBaseDao<T, PK extends Serializable> {
 
     /**
      * 消除与 Hibernate Session 的关联
-     *
      */
     public void evit(T entity);
 

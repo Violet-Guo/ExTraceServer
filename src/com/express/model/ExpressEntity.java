@@ -9,7 +9,7 @@ import java.sql.Timestamp;
  */
 @Entity
 @Table(name = "express", schema = "", catalog = "express")
-@org.hibernate.annotations.Proxy(lazy=false)
+@org.hibernate.annotations.Proxy(lazy = false)
 @XmlRootElement(name = "Express")
 public class ExpressEntity {
     private String id;

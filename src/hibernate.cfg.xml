@@ -10,7 +10,8 @@
         <property name="connection.url">jdbc:mysql://localhost:3306/express</property>
         <property name="connection.username">root</property>
         <property name="connection.password">root</property>
-        <property name="hibernate.connection.provider_class">org.hibernate.c3p0.internal.C3P0ConnectionProvider</property>
+        <property name="hibernate.connection.provider_class">org.hibernate.c3p0.internal.C3P0ConnectionProvider
+        </property>
         <property name="hibernate.c3p0.acquire_increment">1</property>
         <property name="hibernate.c3p0.idle_test_period">0</property>
         <property name="hibernate.c3p0.min_size">1</property>

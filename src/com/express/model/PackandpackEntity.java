@@ -8,7 +8,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  */
 @Entity
 @Table(name = "packandpack", schema = "", catalog = "express")
-@org.hibernate.annotations.Proxy(lazy=false)
+@org.hibernate.annotations.Proxy(lazy = false)
 @XmlRootElement(name = "PackAndPack")
 public class PackandpackEntity {
     private int id;

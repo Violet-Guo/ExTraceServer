@@ -16,14 +16,14 @@ public class CityDao extends BaseDao<CityEntity, Integer> {
     }
 
     //根据id拿到市
-    public CityEntity get(int id){
+    public CityEntity get(int id) {
         CityEntity cityEntity = super.get(id);
         return cityEntity;
     }
 
     //根据省的id拿到市的信息
-    public List<CityEntity> getCityList(int id){
+    public List<CityEntity> getCityList(int id) {
         List<CityEntity> list = findBy("cid", true, Restrictions.eq("pid", id));
-        return  list;
+        return list;
     }
 }

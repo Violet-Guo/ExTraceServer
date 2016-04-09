@@ -15,13 +15,13 @@ public class ProvinceDao extends BaseDao<ProvinceEntity, Integer> {
     }
 
     //根据id拿到省份
-    public ProvinceEntity get(int id){
+    public ProvinceEntity get(int id) {
         ProvinceEntity provinceEntity = super.get(id);
         return provinceEntity;
     }
 
     //获得所有的省份
-    public List<ProvinceEntity> getAllProvince(){
+    public List<ProvinceEntity> getAllProvince() {
         return super.getAll();
     }
 

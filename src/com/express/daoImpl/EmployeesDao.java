@@ -16,23 +16,23 @@ public class EmployeesDao extends BaseDao<EmployeesEntity, Integer> {
     }
 
     //根据工作人员id拿到工作人员的信息
-    public EmployeesEntity get(int id){
+    public EmployeesEntity get(int id) {
         EmployeesEntity employeesEntity = super.get(id);
         return employeesEntity;
     }
 
     //更新或者插入一条新的数据
-    public void save(EmployeesEntity employeesEntity){
+    public void save(EmployeesEntity employeesEntity) {
         super.save(employeesEntity);
     }
 
     //根据员工手机号拿到员工信息判断密码是否正确
-    public boolean get(String tel, String password){
+    public boolean get(String tel, String password) {
         EmployeesEntity employeesEntity;
         List<EmployeesEntity> list = findBy("id", true, Restrictions.eq("telephone", tel));
-        if (list.size() != 0){
+        if (list.size() != 0) {
             employeesEntity = list.get(0);
-            if (employeesEntity.getPassword().equals(password)){
+            if (employeesEntity.getPassword().equals(password)) {
                 return true;
             }
         }

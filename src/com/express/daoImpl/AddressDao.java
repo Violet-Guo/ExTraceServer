@@ -13,7 +13,7 @@ public class AddressDao extends BaseDao<AddressEntity, Integer> {
     }
 
     //更新或者插入一条新的数据
-    public void save(AddressEntity addressEntity){
+    public void save(AddressEntity addressEntity) {
         super.save(addressEntity);
     }
 }

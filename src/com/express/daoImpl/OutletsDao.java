@@ -15,25 +15,25 @@ public class OutletsDao extends BaseDao<OutletsEntity, Integer> {
     }
 
     //根据id获得营业网点的信息
-    public OutletsEntity getBranchById(int id){
+    public OutletsEntity getBranchById(int id) {
         List<OutletsEntity> list = findBy("id", true, Restrictions.eq("id", id), Restrictions.eq("type", 1));
         return list.get(0);
     }
 
     //根据id获得分拣中心的信息
-    public OutletsEntity getSortingCenterById(int id){
-        List<OutletsEntity> list = findBy("id", true, Restrictions.eq("id", id) ,Restrictions.eq("type", 2));
+    public OutletsEntity getSortingCenterById(int id) {
+        List<OutletsEntity> list = findBy("id", true, Restrictions.eq("id", id), Restrictions.eq("type", 2));
         return list.get(0);
     }
 
     //获得某一区域的所有营业网点信息
-    public List<OutletsEntity> getAllBranchByRegionId(int id){
+    public List<OutletsEntity> getAllBranchByRegionId(int id) {
         List<OutletsEntity> list = findBy("id", true, Restrictions.eq("regionId", id), Restrictions.eq("type", 1));
         return list;
     }
 
     //获得某一区域的所有分拣中心信息
-    public List<OutletsEntity> getAllSCenterByRegionId(int id){
+    public List<OutletsEntity> getAllSCenterByRegionId(int id) {
         List<OutletsEntity> list = findBy("id", true, Restrictions.eq("regionId", id), Restrictions.eq("type", 2));
         return list;
     }

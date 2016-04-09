@@ -15,18 +15,18 @@ import java.util.List;
 /**
  * Created by violet on 2016/3/28.
  */
-@Transactional(readOnly = false, propagation = Propagation.REQUIRES_NEW )
+@Transactional(readOnly = false, propagation = Propagation.REQUIRES_NEW)
 public class BaseDao<T, PK extends Serializable> extends HibernateDaoSupport implements com.express.daoBase.IBaseDao<T, PK> {
-    protected Class<T> entityClass;			// DAO所管理的Entity类型.
+    protected Class<T> entityClass;            // DAO所管理的Entity类型.
 
     /**
-     *让spring提供构造函数注入
+     * 让spring提供构造函数注入
      */
     public BaseDao(Class<T> type) {
         this.entityClass = type;
     }
 
-    public BaseDao(){
+    public BaseDao() {
     }
 
     protected Class<T> getEntityClass() {
