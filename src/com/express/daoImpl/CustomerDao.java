@@ -40,13 +40,8 @@ public class CustomerDao extends BaseDao<CustomerEntity, Integer> {
     }
 
     //验证手机号是否可用，true表示没有被注册过，可用；false表示已经被注册过，不可用
-    public boolean checkTelphone(String tel) {
-        List<CustomerEntity> list = null;
-        list = findBy("id", true, Restrictions.eq("telephone", tel));
-        if (0 == list.size()) {
-            return true;
-        }
-        return false;
+    public List<CustomerEntity> checkTelphone(String tel) {
+        return findBy("id", true, Restrictions.eq("telephone", tel));
     }
 
 }
