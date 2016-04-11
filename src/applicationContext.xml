@@ -111,6 +111,7 @@
                 <property name="RegionDao" ref="RegionDao"></property>
                 <property name="CityDao" ref="CityDao"></property>
                 <property name="OutletsDao" ref="OutletsDao"></property>
+                <property name="AddressDao" ref="AddressDao"></property>
             </bean>
             <bean class="com.express.serviceImpl.DomainService">
                 <property name="CustomerDao" ref="CustomerDao"></property>

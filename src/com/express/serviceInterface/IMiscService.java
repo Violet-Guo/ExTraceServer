@@ -16,8 +16,50 @@ public interface IMiscService {
 
     /////////////////////////////位置信息的接口////////////////////////////
 
+    /////////////////////////////Address的接口/////////////////////////////
 
-    /////////////////////////////region的接口////////////////////////////
+    /**
+     * 获得用户所有的收货地址
+     * @param cid 用户的id
+     * @return 地址的实体list
+     */
+    @GET
+    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+    @Path("/getAccAddress/customerid/{cid}")
+    public List<CustomerAddressEntity> getAccAddress(@PathParam("cid")int cid);
+
+    /**
+     * 获得用户所有的发货地址
+     * @param cid 用户的id
+     * @return 地址的实体list
+     */
+    @GET
+    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+    @Path("/getSendAddress/customerid/{cid}")
+    public List<CustomerAddressEntity> getSendAddress(@PathParam("cid")int cid);
+
+    /**
+     * 增加一个新的收货地址
+     * @param obj json格式的地址实体
+     * @return response
+     */
+    @POST
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Path("/newAccAddress")
+    public Response newAccAddress(AddressEntity obj);
+
+    /**
+     * 增加一个新的送货地址
+     * @param obj json格式
+     * @return
+     */
+    @POST
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Path("/newSendAddress")
+    public Response newSendAddress(AddressEntity obj);
+
+
+    /////////////////////////////region的接口/////////////////////////////
 
     /**
      * 获得所有的省份
@@ -154,7 +196,6 @@ public interface IMiscService {
 
     /***
      * 验证手机号是否可用，true表示没有被注册过，可用；false表示已经被注册过，不可用
-     *
      * @param tel 手机号
      * @return true表示没有被注册过，可用；false表示已经被注册过，不可用
      */

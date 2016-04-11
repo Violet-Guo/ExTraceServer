@@ -5,6 +5,7 @@ import com.express.model.*;
 import com.express.serviceInterface.IMiscService;
 
 import javax.ws.rs.core.Response;
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -18,6 +19,15 @@ public class MiscService implements IMiscService {
     private RegionDao regionDao;
     private OutletsDao outletsDao;
     private CustomerDao customerDao;
+    private AddressDao addressDao;
+
+    public AddressDao getAddressDao() {
+        return addressDao;
+    }
+
+    public void setAddressDao(AddressDao addressDao) {
+        this.addressDao = addressDao;
+    }
 
     public ProvinceDao getProvinceDao() {
         return provinceDao;
@@ -62,7 +72,94 @@ public class MiscService implements IMiscService {
     /////////////////////////////位置信息的接口////////////////////////////
 
 
+    /////////////////////////////Address的接口/////////////////////////////
+
+    //获得用户所有的收货地址
+    @Override
+    public List<CustomerAddressEntity> getAccAddress(int cid) {
+        List<CustomerAddressEntity> list = new ArrayList<>();
+        List<AddressEntity> addresslist = addressDao.getAccAddress(cid);
+
+        for (int i = 0; i < addresslist.size(); i++) {
+
+            AddressEntity addressEntity = addresslist.get(i);
+            CustomerAddressEntity customerAddressEntity = new CustomerAddressEntity();
+
+            RegionEntity region = regionDao.get(addressEntity.getRegionId());
+            CityEntity city = cityDao.get(region.getCityId());
+            ProvinceEntity province = provinceDao.get(city.getPid());
+
+            customerAddressEntity.setAid(i);
+            customerAddressEntity.setCustomerid(cid);
+            customerAddressEntity.setName(addressEntity.getName());
+            customerAddressEntity.setTelephone(addressEntity.getTelephone());
+            customerAddressEntity.setProvince(province.getPname());
+            customerAddressEntity.setCity(city.getCname());
+            customerAddressEntity.setRegion(region.getArea());
+            customerAddressEntity.setAddress(addressEntity.getAddress());
+            customerAddressEntity.setRank(addressEntity.getRank());
+
+            list.add(customerAddressEntity);
+        }
+
+        return list;
+    }
+
+    //获得用户所有的发货地址
+    @Override
+    public List<CustomerAddressEntity> getSendAddress(int cid) {
+        List<CustomerAddressEntity> list = new ArrayList<>();
+        List<AddressEntity> addressEntityList = addressDao.getSendAddress(cid);
+
+        for (int i = 0; i < addressEntityList.size(); i++){
+
+            AddressEntity addressEntity = addressEntityList.get(i);
+            CustomerAddressEntity customerAddressEntity = new CustomerAddressEntity();
+
+            RegionEntity region = regionDao.get(addressEntity.getRegionId());
+            CityEntity city = cityDao.get(region.getCityId());
+            ProvinceEntity province = provinceDao.get(city.getPid());
+
+            customerAddressEntity.setAid(i);
+            customerAddressEntity.setCustomerid(cid);
+            customerAddressEntity.setName(addressEntity.getName());
+            customerAddressEntity.setTelephone(addressEntity.getTelephone());
+            customerAddressEntity.setProvince(province.getPname());
+            customerAddressEntity.setCity(city.getCname());
+            customerAddressEntity.setRegion(region.getArea());
+            customerAddressEntity.setAddress(addressEntity.getAddress());
+            customerAddressEntity.setRank(addressEntity.getRank());
+
+            list.add(customerAddressEntity);
+        }
+
+        return list;
+    }
+
+    //增加一个收货地址
+    @Override
+    public Response newAccAddress(AddressEntity obj) {
+        try {
+            addressDao.save(obj);
+            return Response.ok(obj).header("EntityClass", "R_CustomerInfo").build();
+        } catch (Exception e) {
+            return Response.serverError().entity(e.getMessage()).build();
+        }
+    }
+
+    //增加一个发货地址
+    @Override
+    public Response newSendAddress(AddressEntity obj) {
+        try {
+            addressDao.save(obj);
+            return Response.ok(obj).header("EntityClass", "R_CustomerInfo").build();
+        } catch (Exception e) {
+            return Response.serverError().entity(e.getMessage()).build();
+        }
+    }
+
     /////////////////////////////region的接口////////////////////////////
+
 
     //获得所有的省份
     @Override

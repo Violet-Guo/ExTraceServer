@@ -2,10 +2,10 @@ package com.express.model;
 
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
-import java.util.Date;
+import java.sql.Timestamp;
 
 /**
- * Created by violet on 2016/4/6.
+ * Created by violet on 2016/4/11.
  */
 @Entity
 @Table(name = "express", schema = "", catalog = "express")
@@ -16,29 +16,31 @@ public class ExpressEntity {
     private int customerId;
     private Integer isPackage;
     private Float weight;
-    private String accepter;
-    private Integer accTel;
+    private int sendAddressId;
     private int accAddressId;
-    private Date getTime;
-    private Date outTime;
+    private Timestamp getTime;
+    private Timestamp outTime;
     private Float tranFee;
     private Float insuFee;
+    private String acc1;
+    private String acc2;
 
     public ExpressEntity() {
     }
 
-    public ExpressEntity(String id, int customerId, Integer isPackage, Float weight, String accepter, Integer accTel, int accAddressId, Date getTime, Date outTime, Float tranFee, Float insuFee) {
+    public ExpressEntity(String id, int customerId, Integer isPackage, Float weight, int sendAddressId, int accAddressId, Timestamp getTime, Timestamp outTime, Float tranFee, Float insuFee, String acc1, String acc2) {
         this.id = id;
         this.customerId = customerId;
         this.isPackage = isPackage;
         this.weight = weight;
-        this.accepter = accepter;
-        this.accTel = accTel;
+        this.sendAddressId = sendAddressId;
         this.accAddressId = accAddressId;
         this.getTime = getTime;
         this.outTime = outTime;
         this.tranFee = tranFee;
         this.insuFee = insuFee;
+        this.acc1 = acc1;
+        this.acc2 = acc2;
     }
 
     @Id
@@ -82,23 +84,13 @@ public class ExpressEntity {
     }
 
     @Basic
-    @Column(name = "Accepter", nullable = true, insertable = true, updatable = true, length = 50)
-    public String getAccepter() {
-        return accepter;
+    @Column(name = "SendAddressID", nullable = false, insertable = true, updatable = true)
+    public int getSendAddressId() {
+        return sendAddressId;
     }
 
-    public void setAccepter(String accepter) {
-        this.accepter = accepter;
-    }
-
-    @Basic
-    @Column(name = "AccTel", nullable = true, insertable = true, updatable = true)
-    public Integer getAccTel() {
-        return accTel;
-    }
-
-    public void setAccTel(Integer accTel) {
-        this.accTel = accTel;
+    public void setSendAddressId(int sendAddressId) {
+        this.sendAddressId = sendAddressId;
     }
 
     @Basic
@@ -113,21 +105,21 @@ public class ExpressEntity {
 
     @Basic
     @Column(name = "GetTime", nullable = true, insertable = true, updatable = true)
-    public Date getGetTime() {
+    public Timestamp getGetTime() {
         return getTime;
     }
 
-    public void setGetTime(Date getTime) {
+    public void setGetTime(Timestamp getTime) {
         this.getTime = getTime;
     }
 
     @Basic
     @Column(name = "OutTime", nullable = true, insertable = true, updatable = true)
-    public Date getOutTime() {
+    public Timestamp getOutTime() {
         return outTime;
     }
 
-    public void setOutTime(Date outTime) {
+    public void setOutTime(Timestamp outTime) {
         this.outTime = outTime;
     }
 
@@ -151,6 +143,26 @@ public class ExpressEntity {
         this.insuFee = insuFee;
     }
 
+    @Basic
+    @Column(name = "Acc1", nullable = true, insertable = true, updatable = true, length = 255)
+    public String getAcc1() {
+        return acc1;
+    }
+
+    public void setAcc1(String acc1) {
+        this.acc1 = acc1;
+    }
+
+    @Basic
+    @Column(name = "Acc2", nullable = true, insertable = true, updatable = true, length = 255)
+    public String getAcc2() {
+        return acc2;
+    }
+
+    public void setAcc2(String acc2) {
+        this.acc2 = acc2;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -159,16 +171,17 @@ public class ExpressEntity {
         ExpressEntity that = (ExpressEntity) o;
 
         if (customerId != that.customerId) return false;
+        if (sendAddressId != that.sendAddressId) return false;
         if (accAddressId != that.accAddressId) return false;
         if (id != null ? !id.equals(that.id) : that.id != null) return false;
         if (isPackage != null ? !isPackage.equals(that.isPackage) : that.isPackage != null) return false;
         if (weight != null ? !weight.equals(that.weight) : that.weight != null) return false;
-        if (accepter != null ? !accepter.equals(that.accepter) : that.accepter != null) return false;
-        if (accTel != null ? !accTel.equals(that.accTel) : that.accTel != null) return false;
         if (getTime != null ? !getTime.equals(that.getTime) : that.getTime != null) return false;
         if (outTime != null ? !outTime.equals(that.outTime) : that.outTime != null) return false;
         if (tranFee != null ? !tranFee.equals(that.tranFee) : that.tranFee != null) return false;
         if (insuFee != null ? !insuFee.equals(that.insuFee) : that.insuFee != null) return false;
+        if (acc1 != null ? !acc1.equals(that.acc1) : that.acc1 != null) return false;
+        if (acc2 != null ? !acc2.equals(that.acc2) : that.acc2 != null) return false;
 
         return true;
     }
@@ -179,13 +192,14 @@ public class ExpressEntity {
         result = 31 * result + customerId;
         result = 31 * result + (isPackage != null ? isPackage.hashCode() : 0);
         result = 31 * result + (weight != null ? weight.hashCode() : 0);
-        result = 31 * result + (accepter != null ? accepter.hashCode() : 0);
-        result = 31 * result + (accTel != null ? accTel.hashCode() : 0);
+        result = 31 * result + sendAddressId;
         result = 31 * result + accAddressId;
         result = 31 * result + (getTime != null ? getTime.hashCode() : 0);
         result = 31 * result + (outTime != null ? outTime.hashCode() : 0);
         result = 31 * result + (tranFee != null ? tranFee.hashCode() : 0);
         result = 31 * result + (insuFee != null ? insuFee.hashCode() : 0);
+        result = 31 * result + (acc1 != null ? acc1.hashCode() : 0);
+        result = 31 * result + (acc2 != null ? acc2.hashCode() : 0);
         return result;
     }
 }

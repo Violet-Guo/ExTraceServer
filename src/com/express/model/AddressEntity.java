@@ -4,7 +4,7 @@ import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
- * Created by violet on 2016/4/6.
+ * Created by violet on 2016/4/11.
  */
 @Entity
 @Table(name = "address", schema = "", catalog = "express")
@@ -15,17 +15,23 @@ public class AddressEntity {
     private int regionId;
     private String address;
     private int customerId;
+    private String name;
+    private String telephone;
     private Integer rank;
+    private int status;
 
     public AddressEntity() {
     }
 
-    public AddressEntity(int id, int regionId, String address, int customerId, Integer rank) {
+    public AddressEntity(int id, int regionId, String address, int customerId, String name, String telephone, Integer rank, int status) {
         this.id = id;
         this.regionId = regionId;
         this.address = address;
         this.customerId = customerId;
+        this.name = name;
+        this.telephone = telephone;
         this.rank = rank;
+        this.status = status;
     }
 
     @Id
@@ -49,7 +55,7 @@ public class AddressEntity {
     }
 
     @Basic
-    @Column(name = "Address", nullable = true, insertable = true, updatable = true, length = 255)
+    @Column(name = "Address", nullable = false, insertable = true, updatable = true, length = 255)
     public String getAddress() {
         return address;
     }
@@ -69,6 +75,26 @@ public class AddressEntity {
     }
 
     @Basic
+    @Column(name = "name", nullable = false, insertable = true, updatable = true, length = 25)
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @Basic
+    @Column(name = "Telephone", nullable = false, insertable = true, updatable = true, length = 11)
+    public String getTelephone() {
+        return telephone;
+    }
+
+    public void setTelephone(String telephone) {
+        this.telephone = telephone;
+    }
+
+    @Basic
     @Column(name = "Rank", nullable = true, insertable = true, updatable = true)
     public Integer getRank() {
         return rank;
@@ -76,6 +102,16 @@ public class AddressEntity {
 
     public void setRank(Integer rank) {
         this.rank = rank;
+    }
+
+    @Basic
+    @Column(name = "status", nullable = false, insertable = true, updatable = true)
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
     }
 
     @Override
@@ -88,7 +124,10 @@ public class AddressEntity {
         if (id != that.id) return false;
         if (regionId != that.regionId) return false;
         if (customerId != that.customerId) return false;
+        if (status != that.status) return false;
         if (address != null ? !address.equals(that.address) : that.address != null) return false;
+        if (name != null ? !name.equals(that.name) : that.name != null) return false;
+        if (telephone != null ? !telephone.equals(that.telephone) : that.telephone != null) return false;
         if (rank != null ? !rank.equals(that.rank) : that.rank != null) return false;
 
         return true;
@@ -100,7 +139,10 @@ public class AddressEntity {
         result = 31 * result + regionId;
         result = 31 * result + (address != null ? address.hashCode() : 0);
         result = 31 * result + customerId;
+        result = 31 * result + (name != null ? name.hashCode() : 0);
+        result = 31 * result + (telephone != null ? telephone.hashCode() : 0);
         result = 31 * result + (rank != null ? rank.hashCode() : 0);
+        result = 31 * result + status;
         return result;
     }
 }
