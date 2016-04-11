@@ -16,6 +16,7 @@ public interface IDomainService {
 
     /**
      * 通过快递单号获取快递信息
+     *
      * @param id 快递单号id
      * @return 返回一个快递信息的实体
      */
@@ -26,6 +27,7 @@ public interface IDomainService {
 
     /**
      * 保存快递信息
+     *
      * @param obj 快递的json数据实体
      * @return 返回resopnse
      */
@@ -85,6 +87,7 @@ public interface IDomainService {
 
     /***
      * 注销登陆
+     *
      * @param cid 用户id
      */
     @GET
@@ -92,19 +95,10 @@ public interface IDomainService {
     @Path("/doLogOut/{cid}")
     public void doLogOut(@PathParam("cid") int cid);
 
-    /**
-     * 用户增加、更改地址信息
-     * @param obj Address的json数据实体
-     * @return 返回response
-     */
-    @POST
-    @Consumes(MediaType.APPLICATION_JSON)
-    @Path("/saveAddressbyCus")
-    public Response saveAddressbyCus(AddressEntity obj);
 
-    // @Consumes：声明该方法使用 HTML FORM。
     /**
      * 通过快递单号和用户id创建一个快递信息
+     *
      * @param id
      * @param cid
      * @return
@@ -120,6 +114,7 @@ public interface IDomainService {
 
     /**
      * 通过工作人员id查找工作人员信息
+     *
      * @param id 工作人员的id
      * @return 返回一个工作人员的实体
      */
@@ -130,6 +125,7 @@ public interface IDomainService {
 
     /**
      * 保存工作人员信息
+     *
      * @param obj json格式的工作人员信息实体
      * @return 返回Resopnse
      */
@@ -141,6 +137,7 @@ public interface IDomainService {
 
     /**
      * 删除员工信息
+     *
      * @param id 工作人员的id
      * @return 返回response
      */
@@ -151,6 +148,7 @@ public interface IDomainService {
 
     /**
      * 员工通过手机号和密码登陆
+     *
      * @param tel 11位的手机号
      * @param pwd 密码
      * @return 手机号和密码验证成功返回true，验证不成功返回false
@@ -162,6 +160,7 @@ public interface IDomainService {
 
     /**
      * 注销登陆
+     *
      * @param id 员工的id
      */
     @GET
@@ -171,6 +170,7 @@ public interface IDomainService {
 
     /**
      * 保存包裹信息
+     *
      * @param obj 一个包裹的json格式的数据实体
      * @return 返回response
      */
@@ -181,6 +181,7 @@ public interface IDomainService {
 
     /**
      * 通过包裹ID查找包裹
+     *
      * @param pid 包裹的id
      * @return 返回一个快递的实体
      */
@@ -192,10 +193,7 @@ public interface IDomainService {
     /////////////////////////////快递员的接口////////////////////////////
 
 
-
-
     /////////////////////////////分拣员的接口////////////////////////////
-
 
 
 }

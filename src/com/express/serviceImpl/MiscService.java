@@ -141,7 +141,7 @@ public class MiscService implements IMiscService {
     public Response newAccAddress(AddressEntity obj) {
         try {
             addressDao.save(obj);
-            return Response.ok(obj).header("EntityClass", "R_CustomerInfo").build();
+            return Response.ok(obj).header("EntityClass", "R_Address").build();
         } catch (Exception e) {
             return Response.serverError().entity(e.getMessage()).build();
         }
@@ -152,7 +152,7 @@ public class MiscService implements IMiscService {
     public Response newSendAddress(AddressEntity obj) {
         try {
             addressDao.save(obj);
-            return Response.ok(obj).header("EntityClass", "R_CustomerInfo").build();
+            return Response.ok(obj).header("EntityClass", "R_Address").build();
         } catch (Exception e) {
             return Response.serverError().entity(e.getMessage()).build();
         }
@@ -249,7 +249,7 @@ public class MiscService implements IMiscService {
     //验证手机号是否可用，true表示没有被注册过，可用；false表示已经被注册过，不可用
     @Override
     public boolean checkTelephone(String tel) {
-        List<CustomerEntity> list = customerDao.checkTelphone(tel);
+        List<CustomerEntity> list = customerDao.getByTel(tel);
         if (list.size() == 0)
             return true;
         return false;

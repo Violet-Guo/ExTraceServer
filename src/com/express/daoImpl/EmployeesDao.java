@@ -26,16 +26,9 @@ public class EmployeesDao extends BaseDao<EmployeesEntity, Integer> {
         super.save(employeesEntity);
     }
 
-    //根据员工手机号拿到员工信息判断密码是否正确
-    public boolean get(String tel, String password) {
-        EmployeesEntity employeesEntity;
-        List<EmployeesEntity> list = findBy("id", true, Restrictions.eq("telephone", tel));
-        if (list.size() != 0) {
-            employeesEntity = list.get(0);
-            if (employeesEntity.getPassword().equals(password)) {
-                return true;
-            }
-        }
-        return false;
+    //根据员工的手机号找到员工信息
+    public List<EmployeesEntity> getByTel(String tel){
+        return findBy("id", true, Restrictions.eq("telephone", tel));
     }
+
 }

@@ -8,6 +8,7 @@ import com.express.model.*;
 import com.express.serviceInterface.IDomainService;
 
 import javax.ws.rs.core.Response;
+import java.util.List;
 
 /**
  * Created by violet on 2016/4/6.
@@ -90,27 +91,25 @@ public class DomainService implements IDomainService {
         return Response.ok("Deleted").header("EntityClass", "D_CustomerInfo").build();
     }
 
-    //登陆
+    //用户登陆
     @Override
     public boolean doLogin(String tel, String pwd) {
-        return customerDao.get(tel, pwd);
+        List<CustomerEntity> list = customerDao.getByTel(tel);
+        CustomerEntity customerEntity = new CustomerEntity();
+        if (list.size() != 0) {
+            customerEntity = list.get(0);
+            if (customerEntity.getPassword().equals(pwd)) {
+                return true;
+            }
+        }
+        return false;
+
     }
 
     //注销登陆
     @Override
     public void doLogOut(int cid) {
 
-    }
-
-    //用户增加、更改地区
-    @Override
-    public Response saveAddressbyCus(AddressEntity obj) {
-        try {
-            addressDao.save(obj);
-            return Response.ok(obj).header("EntityClass", "R_Address").build();
-        } catch (Exception e) {
-            return Response.serverError().entity(e.getMessage()).build();
-        }
     }
 
     @Override
@@ -147,7 +146,15 @@ public class DomainService implements IDomainService {
     //员工通过手机号和密码登陆
     @Override
     public boolean doLoginByEmployee(String tel, String pwd) {
-        return employeesDao.get(tel, pwd);
+        List<EmployeesEntity> list = employeesDao.getByTel(tel);
+        EmployeesEntity employeesEntity = new EmployeesEntity();
+        if (list.size() != 0) {
+            employeesEntity = list.get(0);
+            if (employeesEntity.getPassword().equals(pwd)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     //员工注销登陆
@@ -155,7 +162,6 @@ public class DomainService implements IDomainService {
     public void doLogOutByEmployee(int id) {
 
     }
-
 
     @Override
     public Response savePackage(PackageEntity obj) {
@@ -168,8 +174,6 @@ public class DomainService implements IDomainService {
     }
 
     /////////////////////////////快递员的接口////////////////////////////
-
-
 
 
     /////////////////////////////分拣员的接口////////////////////////////
