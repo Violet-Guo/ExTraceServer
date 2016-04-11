@@ -14,13 +14,21 @@ public interface IDomainService {
 
     /////////////////////////////公共的接口（用户和工作人员都要用的）////////////////////////////
 
-    //通过快递单号获取快递信息
+    /**
+     * 通过快递单号获取快递信息
+     * @param id 快递单号id
+     * @return 返回一个快递信息的实体
+     */
     @GET
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
     @Path("/getExpressInfoById/{id}")
     public ExpressEntity getExpressInfoById(@PathParam("id") String id);
 
-    //保存快递信息
+    /**
+     * 保存快递信息
+     * @param obj 快递的json数据实体
+     * @return 返回resopnse
+     */
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
@@ -77,7 +85,6 @@ public interface IDomainService {
 
     /***
      * 注销登陆
-     *
      * @param cid 用户id
      */
     @GET
@@ -85,14 +92,23 @@ public interface IDomainService {
     @Path("/doLogOut/{cid}")
     public void doLogOut(@PathParam("cid") int cid);
 
-    //用户增加、更改地址信息
+    /**
+     * 用户增加、更改地址信息
+     * @param obj Address的json数据实体
+     * @return 返回response
+     */
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Path("/saveAddressbyCus")
     public Response saveAddressbyCus(AddressEntity obj);
 
-    //通过快递单号和用户id创建一个快递信息
     // @Consumes：声明该方法使用 HTML FORM。
+    /**
+     * 通过快递单号和用户id创建一个快递信息
+     * @param id
+     * @param cid
+     * @return
+     */
     @GET
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
@@ -102,49 +118,72 @@ public interface IDomainService {
 
     /////////////////////////////工作人员的公共接口////////////////////////////
 
-    //通过工作人员id查找工作人员信息
+    /**
+     * 通过工作人员id查找工作人员信息
+     * @param id 工作人员的id
+     * @return 返回一个工作人员的实体
+     */
     @GET
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
     @Path("/getEmployeeInfoById/{id}")
     public EmployeesEntity getEmployeeInfoById(@PathParam("id") int id);
 
-    //保存工作人员信息
+    /**
+     * 保存工作人员信息
+     * @param obj json格式的工作人员信息实体
+     * @return 返回Resopnse
+     */
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Path("/saveEmployeeInfo")
     public Response saveEmployeeInfo(EmployeesEntity obj);
 
-    //删除员工信息
+
+    /**
+     * 删除员工信息
+     * @param id 工作人员的id
+     * @return 返回response
+     */
     @GET
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
     @Path("/deleteEmployee/{id}")
     public Response deleteEmployee(@PathParam("id") int id);
 
-    //员工通过手机号和密码登陆
+    /**
+     * 员工通过手机号和密码登陆
+     * @param tel 11位的手机号
+     * @param pwd 密码
+     * @return 手机号和密码验证成功返回true，验证不成功返回false
+     */
     @GET
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
     @Path("/doLoginByEmployee/{tel}/{pwd}")
     public boolean doLoginByEmployee(@PathParam("tel") String tel, @PathParam("pwd") String pwd);
 
-    //注销登陆
+    /**
+     * 注销登陆
+     * @param id 员工的id
+     */
     @GET
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
     @Path("/doLogOutByEmployee/{id}")
     public void doLogOutByEmployee(@PathParam("id") int id);
 
-    //创建一个新的包裹
-    @POST
-    @Consumes(MediaType.APPLICATION_JSON)
-    @Path("/newPackage")
-    public Response newTransPackage(String id, int uid);
-
-    //保存包裹信息
+    /**
+     * 保存包裹信息
+     * @param obj 一个包裹的json格式的数据实体
+     * @return 返回response
+     */
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Path("/savePackage")
     public Response savePackage(PackageEntity obj);
 
-    //通过包裹ID查找包裹
+    /**
+     * 通过包裹ID查找包裹
+     * @param pid 包裹的id
+     * @return 返回一个快递的实体
+     */
     @GET
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
     @Path("/getPackageById/{id}")

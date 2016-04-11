@@ -156,10 +156,6 @@ public class DomainService implements IDomainService {
 
     }
 
-    @Override
-    public Response newTransPackage(String id, int uid) {
-        return null;
-    }
 
     @Override
     public Response savePackage(PackageEntity obj) {
