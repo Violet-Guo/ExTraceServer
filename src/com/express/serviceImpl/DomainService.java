@@ -93,20 +93,6 @@ public class DomainService implements IDomainService {
         return Response.ok("Deleted").header("EntityClass", "D_CustomerInfo").build();
     }
 
-    //用户登陆
-    @Override
-    public boolean doLogin(String tel, String pwd) {
-        List<CustomerEntity> list = customerDao.getByTel(tel);
-        CustomerEntity customerEntity = new CustomerEntity();
-        if (list.size() != 0) {
-            customerEntity = list.get(0);
-            if (customerEntity.getPassword().equals(pwd)){
-                return true;
-            }
-        }
-        return false;
-    }
-
     //用户登陆post方法
     @Override
     public boolean login(CustomerEntity obj) {

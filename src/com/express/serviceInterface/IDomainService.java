@@ -73,18 +73,6 @@ public interface IDomainService {
     @Path("/deleteCustomerInfo/{id}")
     public Response deleteCustomerInfo(@PathParam("id") int id);
 
-    /***
-     * 通过手机号和密码登陆
-     *
-     * @param tel 手机号
-     * @param pwd 密码
-     * @return 若手机号密码验证成功返回true，否则返回false
-     */
-    @GET
-    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-    @Path("/doLogin/{tel}/{pwd}")
-    public boolean doLogin(@PathParam("tel") String tel, @PathParam("pwd") String pwd);
-
     /**
      * post请求登陆
      * @param obj 客户信息实体
