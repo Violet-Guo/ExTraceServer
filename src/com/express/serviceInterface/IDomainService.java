@@ -85,6 +85,16 @@ public interface IDomainService {
     @Path("/doLogin/{tel}/{pwd}")
     public boolean doLogin(@PathParam("tel") String tel, @PathParam("pwd") String pwd);
 
+    /**
+     * post请求登陆
+     * @param obj 客户信息实体
+     * @return 登陆成功为true，失败为false
+     */
+    @POST
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Path("/login")
+    public boolean login(CustomerEntity obj);
+
     /***
      * 注销登陆
      *

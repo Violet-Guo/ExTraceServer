@@ -7,6 +7,8 @@ import com.express.daoImpl.ExpressDao;
 import com.express.model.*;
 import com.express.serviceInterface.IDomainService;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import javax.ws.rs.core.Response;
 import java.util.List;
 
@@ -98,12 +100,24 @@ public class DomainService implements IDomainService {
         CustomerEntity customerEntity = new CustomerEntity();
         if (list.size() != 0) {
             customerEntity = list.get(0);
-            if (customerEntity.getPassword().equals(pwd)) {
+            if (customerEntity.getPassword().equals(pwd)){
                 return true;
             }
         }
         return false;
+    }
 
+    //用户登陆post方法
+    @Override
+    public boolean login(CustomerEntity obj) {
+        List<CustomerEntity> list = customerDao.getByTel(obj.getTelephone());
+        if (list.size()!=0){
+            CustomerEntity customerEntity = list.get(0);
+            if (customerEntity.getPassword().equals(obj.getPassword())){
+                return true;
+            }
+        }
+        return false;
     }
 
     //注销登陆

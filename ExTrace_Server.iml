@@ -83,5 +83,6 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="mysql-connector-java-5.1.36-bin" level="project" />
     <orderEntry type="library" name="ExTraceLib" level="project" />
+    <orderEntry type="library" name="servlet-api" level="project" />
   </component>
 </module>
