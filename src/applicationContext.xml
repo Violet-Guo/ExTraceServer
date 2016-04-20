@@ -103,7 +103,6 @@
 
     <!-- REST服务的注解例子 -->
     <jaxrs:server id="Service" address="/REST">
-
         <jaxrs:serviceBeans>
             <bean class="com.express.serviceImpl.MiscService">
                 <property name="ProvinceDao" ref="ProvinceDao"></property>

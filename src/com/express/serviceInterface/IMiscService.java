@@ -17,6 +17,7 @@ public interface IMiscService {
     /////////////////////////////位置信息的接口////////////////////////////
 
     /////////////////////////////Address的接口/////////////////////////////
+    ///////////////////////////status = 1代表是自己的地址，2代表是收货人的地址///////////
 
     /**
      * 获得用户所有的收货地址
@@ -29,6 +30,16 @@ public interface IMiscService {
     public List<CustomerAddressEntity> getAccAddress(@PathParam("cid")int cid);
 
     /**
+     * 获得用户所有的收货地址
+     * @param tel 用户的手机号
+     * @return 地址的实体list
+     */
+    @GET
+    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+    @Path("/getAccAddress/customertel/{tel}")
+    public List<CustomerAddressEntity> getAccAddress(@PathParam("tel")String tel);
+
+    /**
      * 获得用户所有的发货地址
      * @param cid 用户的id
      * @return 地址的实体list
@@ -37,6 +48,16 @@ public interface IMiscService {
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
     @Path("/getSendAddress/customerid/{cid}")
     public List<CustomerAddressEntity> getSendAddress(@PathParam("cid")int cid);
+
+    /**
+     * 获得用户所有的发货地址
+     * @param tel 用户的tel
+     * @return 地址的实体list
+     */
+    @GET
+    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+    @Path("/getSendAddress/customertel/{tel}")
+    public List<CustomerAddressEntity> getSendAddress(@PathParam("tel")String tel);
 
     /**
      * 增加一个新的收货地址

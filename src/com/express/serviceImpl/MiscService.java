@@ -105,7 +105,42 @@ public class MiscService implements IMiscService {
         return list;
     }
 
-    //获得用户所有的发货地址
+    //通过手机号查用户的所有收货地址
+    @Override
+    public List<CustomerAddressEntity> getAccAddress(String tel) {
+        //获得用户的id
+        List<CustomerEntity> list = customerDao.getByTel(tel);
+        int cid = list.get(0).getId();
+
+        //查找并拼接
+        List<CustomerAddressEntity> lis = new ArrayList<>();
+        List<AddressEntity> addresslist = addressDao.getAccAddress(cid);
+
+        for (int i = 0; i < addresslist.size(); i++) {
+
+            AddressEntity addressEntity = addresslist.get(i);
+            CustomerAddressEntity customerAddressEntity = new CustomerAddressEntity();
+
+            RegionEntity region = regionDao.get(addressEntity.getRegionId());
+            CityEntity city = cityDao.get(region.getCityId());
+            ProvinceEntity province = provinceDao.get(city.getPid());
+
+            customerAddressEntity.setAid(i);
+            customerAddressEntity.setCustomerid(cid);
+            customerAddressEntity.setName(addressEntity.getName());
+            customerAddressEntity.setTelephone(addressEntity.getTelephone());
+            customerAddressEntity.setProvince(province.getPname());
+            customerAddressEntity.setCity(city.getCname());
+            customerAddressEntity.setRegion(region.getArea());
+            customerAddressEntity.setAddress(addressEntity.getAddress());
+            customerAddressEntity.setRank(addressEntity.getRank());
+
+            lis.add(customerAddressEntity);
+        }
+        return lis;
+    }
+
+    //通过用户id获得用户所有的发货地址
     @Override
     public List<CustomerAddressEntity> getSendAddress(int cid) {
         List<CustomerAddressEntity> list = new ArrayList<>();
@@ -134,6 +169,41 @@ public class MiscService implements IMiscService {
         }
 
         return list;
+    }
+
+    //通过用户手机号获得用户所有的发货地址
+    @Override
+    public List<CustomerAddressEntity> getSendAddress(String tel) {
+        //获得用户的id
+        List<CustomerEntity> list = customerDao.getByTel(tel);
+        int cid = list.get(0).getId();
+
+        //查找并拼接
+        List<CustomerAddressEntity> lis = new ArrayList<>();
+        List<AddressEntity> addresslist = addressDao.getSendAddress(cid);
+
+        for (int i = 0; i < addresslist.size(); i++) {
+
+            AddressEntity addressEntity = addresslist.get(i);
+            CustomerAddressEntity customerAddressEntity = new CustomerAddressEntity();
+
+            RegionEntity region = regionDao.get(addressEntity.getRegionId());
+            CityEntity city = cityDao.get(region.getCityId());
+            ProvinceEntity province = provinceDao.get(city.getPid());
+
+            customerAddressEntity.setAid(i);
+            customerAddressEntity.setCustomerid(cid);
+            customerAddressEntity.setName(addressEntity.getName());
+            customerAddressEntity.setTelephone(addressEntity.getTelephone());
+            customerAddressEntity.setProvince(province.getPname());
+            customerAddressEntity.setCity(city.getCname());
+            customerAddressEntity.setRegion(region.getArea());
+            customerAddressEntity.setAddress(addressEntity.getAddress());
+            customerAddressEntity.setRank(addressEntity.getRank());
+
+            lis.add(customerAddressEntity);
+        }
+        return lis;
     }
 
     //增加一个收货地址

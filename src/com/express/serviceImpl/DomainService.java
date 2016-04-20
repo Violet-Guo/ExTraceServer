@@ -7,8 +7,6 @@ import com.express.daoImpl.ExpressDao;
 import com.express.model.*;
 import com.express.serviceInterface.IDomainService;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 import javax.ws.rs.core.Response;
 import java.util.List;
 
@@ -75,6 +73,23 @@ public class DomainService implements IDomainService {
         return customerDao.get(id);
     }
 
+    //注册，并在注册过程中检查手机号是否注册过
+    @Override
+    public String registerByCus(CustomerEntity obj) {
+        List<CustomerEntity> list = customerDao.getByTel(obj.getTelephone());
+        if (list.size() == 0) {
+            try {
+                customerDao.save(obj);
+                return "{\"registerstate\":\"true\"}";
+            } catch (Exception e) {
+                e.printStackTrace();
+                return "{\"registerstate\":\"false\"}";
+            }
+        } else {
+            return "{\"registerstate\":\"deny\"}";
+        }
+    }
+
     //更新或者是插入一条数据
     @Override
     public Response saveCustomerInfo(CustomerEntity obj) {
@@ -95,15 +110,15 @@ public class DomainService implements IDomainService {
 
     //用户登陆post方法
     @Override
-    public boolean login(CustomerEntity obj) {
+    public String login(CustomerEntity obj) {
         List<CustomerEntity> list = customerDao.getByTel(obj.getTelephone());
-        if (list.size()!=0){
+        if (list.size() != 0) {
             CustomerEntity customerEntity = list.get(0);
-            if (customerEntity.getPassword().equals(obj.getPassword())){
-                return true;
+            if (customerEntity.getPassword().equals(obj.getPassword())) {
+                return "{\"name\":\"" + customerEntity.getName() + "\", \"loginstate\":\"true\"}";
             }
         }
-        return false;
+        return "{\"loginstate\":\"false\"}";
     }
 
     //注销登陆

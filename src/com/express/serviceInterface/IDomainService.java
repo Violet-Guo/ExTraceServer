@@ -51,6 +51,16 @@ public interface IDomainService {
     @Path("/getCustomerInfoById/{id}")
     public CustomerEntity getCustomerInfoById(@PathParam("id") int id);
 
+    /**
+     * 用户注册
+     * @param obj obj中含有手机号、密码、姓名，一个实体传过来
+     * @return 返回一个仿json数据
+     */
+    @POST
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Path("/register")
+    public String registerByCus(CustomerEntity obj);
+
     /***
      * 保存或更新用户信息
      *
@@ -81,7 +91,7 @@ public interface IDomainService {
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Path("/login")
-    public boolean login(CustomerEntity obj);
+    public String login(CustomerEntity obj);
 
     /***
      * 注销登陆
