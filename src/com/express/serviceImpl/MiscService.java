@@ -4,7 +4,10 @@ import com.express.daoImpl.*;
 import com.express.model.*;
 import com.express.serviceInterface.IMiscService;
 
+import javax.ws.rs.core.HttpHeaders;
+import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import javax.xml.ws.spi.http.HttpHandler;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -108,6 +111,7 @@ public class MiscService implements IMiscService {
     //通过手机号查用户的所有收货地址
     @Override
     public List<CustomerAddressEntity> getAccAddress(String tel) {
+
         //获得用户的id
         List<CustomerEntity> list = customerDao.getByTel(tel);
         int cid = list.get(0).getId();
@@ -137,6 +141,7 @@ public class MiscService implements IMiscService {
 
             lis.add(customerAddressEntity);
         }
+
         return lis;
     }
 

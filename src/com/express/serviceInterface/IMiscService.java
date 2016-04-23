@@ -25,7 +25,7 @@ public interface IMiscService {
      * @return 地址的实体list
      */
     @GET
-    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+    @Produces({MediaType.APPLICATION_JSON + ";charset=UTF-8"})
     @Path("/getAccAddress/customerid/{cid}")
     public List<CustomerAddressEntity> getAccAddress(@PathParam("cid")int cid);
 
@@ -35,7 +35,7 @@ public interface IMiscService {
      * @return 地址的实体list
      */
     @GET
-    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+    @Produces({MediaType.APPLICATION_JSON + ";charset=UTF-8"})
     @Path("/getAccAddress/customertel/{tel}")
     public List<CustomerAddressEntity> getAccAddress(@PathParam("tel")String tel);
 
@@ -45,7 +45,7 @@ public interface IMiscService {
      * @return 地址的实体list
      */
     @GET
-    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+    @Produces({MediaType.APPLICATION_JSON + ";charset=UTF-8"})
     @Path("/getSendAddress/customerid/{cid}")
     public List<CustomerAddressEntity> getSendAddress(@PathParam("cid")int cid);
 
@@ -55,7 +55,7 @@ public interface IMiscService {
      * @return 地址的实体list
      */
     @GET
-    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+    @Produces({MediaType.APPLICATION_JSON + ";charset=UTF-8"})
     @Path("/getSendAddress/customertel/{tel}")
     public List<CustomerAddressEntity> getSendAddress(@PathParam("tel")String tel);
 
@@ -87,7 +87,7 @@ public interface IMiscService {
      * @return  返回一个省份的List
      */
     @GET
-    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+    @Produces({MediaType.APPLICATION_JSON + ";charset=UTF-8"})
     @Path("/getAllProvince")
     public List<ProvinceEntity> getAllProvince();
 
@@ -97,7 +97,7 @@ public interface IMiscService {
      * @return 返回一个城市的List
      */
     @GET
-    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+    @Produces({MediaType.APPLICATION_JSON + ";charset=UTF-8"})
     @Path("/getCityList/{pid}")
     public List<CityEntity> getCityList(@PathParam("pid") int pid);
 
@@ -108,7 +108,7 @@ public interface IMiscService {
      * @return 返回一个区域的List
      */
     @GET
-    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+    @Produces({MediaType.APPLICATION_JSON + ";charset=UTF-8"})
     @Path("/getRegionList/{cid}")
     public List<RegionEntity> getRegionList(@PathParam("cid") int cid);
 
@@ -118,7 +118,7 @@ public interface IMiscService {
      * @return 返回一个省的实体
      */
     @GET
-    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+    @Produces({MediaType.APPLICATION_JSON + ";charset=UTF-8"})
     @Path("/getProvinceById/{id}")
     public ProvinceEntity getProvinceById(@PathParam("id") int id);
 
@@ -128,7 +128,7 @@ public interface IMiscService {
      * @return 返回一个城市的实体
      */
     @GET
-    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+    @Produces({MediaType.APPLICATION_JSON + ";charset=UTF-8"})
     @Path("/getCityById/{id}")
     public CityEntity getCityById(@PathParam("id") int id);
 
@@ -138,7 +138,7 @@ public interface IMiscService {
      * @return 返回一个区域的实体
      */
     @GET
-    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+    @Produces({MediaType.APPLICATION_JSON + ";charset=UTF-8"})
     @Path("/getRegionById/{id}")
     public RegionEntity getRegionById(@PathParam("id") int id);
 
@@ -151,7 +151,7 @@ public interface IMiscService {
      * @return 返回一个营业网点的实体
      */
     @GET
-    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+    @Produces({MediaType.APPLICATION_JSON + ";charset=UTF-8"})
     @Path("/getBranchById/{id}")
     public OutletsEntity getBranchById(int id);
 
@@ -161,7 +161,7 @@ public interface IMiscService {
      * @return 返回一个分拣中心的实体
      */
     @GET
-    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+    @Produces({MediaType.APPLICATION_JSON + ";charset=UTF-8"})
     @Path("/getSortingCenterById/{id}")
     public OutletsEntity getSortingCenterById(int id);
 
@@ -171,7 +171,7 @@ public interface IMiscService {
      * @return 返回一个营业网点的list
      */
     @GET
-    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+    @Produces({MediaType.APPLICATION_JSON + ";charset=UTF-8"})
     @Path("/getAllBranchByRegionId/{id}")
     public List<OutletsEntity> getAllBranchByRegionId(int id);
 
@@ -181,7 +181,7 @@ public interface IMiscService {
      * @return 返回一个分拣中心的list
      */
     @GET
-    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+    @Produces({MediaType.APPLICATION_JSON + ";charset=UTF-8"})
     @Path("/getAllSCenterByRegionId/{id}")
     public List<OutletsEntity> getAllSCenterByRegionId(int id);
 
@@ -190,7 +190,7 @@ public interface IMiscService {
      * @return 一个营业网点的list
      */
     @GET
-    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+    @Produces({MediaType.APPLICATION_JSON + ";charset=UTF-8"})
     @Path("/getAllBranch")
     public List<OutletsEntity> getAllBranch();
 
@@ -199,7 +199,7 @@ public interface IMiscService {
      * @return 返回一个分拣中心的list
      */
     @GET
-    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+    @Produces({MediaType.APPLICATION_JSON + ";charset=UTF-8"})
     @Path("/getAllSortCenter")
     public List<OutletsEntity> getAllSortCenter();
 
@@ -208,7 +208,7 @@ public interface IMiscService {
      * @return 返回一个分拣中心+营业网点的list
      */
     @GET
-    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+    @Produces({MediaType.APPLICATION_JSON + ";charset=UTF-8"})
     @Path("/getAllOutlets")
     public List<OutletsEntity> getAllOutlets();
 
@@ -221,7 +221,7 @@ public interface IMiscService {
      * @return true表示没有被注册过，可用；false表示已经被注册过，不可用
      */
     @GET
-    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+    @Produces({MediaType.APPLICATION_JSON + ";charset=UTF-8"})
     @Path("/checkTelephone/{tel}")
     public boolean checkTelephone(@PathParam("tel") String tel);
 

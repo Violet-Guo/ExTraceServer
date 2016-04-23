@@ -21,7 +21,7 @@ public interface IDomainService {
      * @return 返回一个快递信息的实体
      */
     @GET
-    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+    @Produces({MediaType.APPLICATION_JSON + ";charset=UTF-8"})
     @Path("/getExpressInfoById/{id}")
     public ExpressEntity getExpressInfoById(@PathParam("id") String id);
 
@@ -33,7 +33,7 @@ public interface IDomainService {
      */
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
-    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+    @Produces({MediaType.APPLICATION_JSON + ";charset=UTF-8"})
     @Path("/saveExpress")
     public Response saveExpress(ExpressEntity obj);
 
@@ -47,7 +47,7 @@ public interface IDomainService {
      * @return 返回一个用户的实体
      */
     @GET
-    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+    @Produces({MediaType.APPLICATION_JSON + ";charset=UTF-8"})
     @Path("/getCustomerInfoById/{id}")
     public CustomerEntity getCustomerInfoById(@PathParam("id") int id);
 
@@ -79,7 +79,7 @@ public interface IDomainService {
      * @return 返回resopnse
      */
     @GET
-    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+    @Produces({MediaType.APPLICATION_JSON + ";charset=UTF-8"})
     @Path("/deleteCustomerInfo/{id}")
     public Response deleteCustomerInfo(@PathParam("id") int id);
 
@@ -99,7 +99,7 @@ public interface IDomainService {
      * @param cid 用户id
      */
     @GET
-    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+    @Produces({MediaType.APPLICATION_JSON + ";charset=UTF-8"})
     @Path("/doLogOut/{cid}")
     public void doLogOut(@PathParam("cid") int cid);
 
@@ -113,7 +113,7 @@ public interface IDomainService {
      */
     @GET
     @Consumes(MediaType.APPLICATION_JSON)
-    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+    @Produces({MediaType.APPLICATION_JSON + ";charset=UTF-8"})
     @Path("/createExpress/id/{id}/cid/{cid}")
     public Response createExpress(@PathParam("id") String id, @PathParam("cid") int cid);
 
@@ -127,7 +127,7 @@ public interface IDomainService {
      * @return 返回一个工作人员的实体
      */
     @GET
-    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+    @Produces({MediaType.APPLICATION_JSON + ";charset=UTF-8"})
     @Path("/getEmployeeInfoById/{id}")
     public EmployeesEntity getEmployeeInfoById(@PathParam("id") int id);
 
@@ -150,7 +150,7 @@ public interface IDomainService {
      * @return 返回response
      */
     @GET
-    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+    @Produces({MediaType.APPLICATION_JSON + ";charset=UTF-8"})
     @Path("/deleteEmployee/{id}")
     public Response deleteEmployee(@PathParam("id") int id);
 
@@ -162,7 +162,7 @@ public interface IDomainService {
      * @return 手机号和密码验证成功返回true，验证不成功返回false
      */
     @GET
-    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+    @Produces({MediaType.APPLICATION_JSON + ";charset=UTF-8"})
     @Path("/doLoginByEmployee/{tel}/{pwd}")
     public boolean doLoginByEmployee(@PathParam("tel") String tel, @PathParam("pwd") String pwd);
 
@@ -172,7 +172,7 @@ public interface IDomainService {
      * @param id 员工的id
      */
     @GET
-    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+    @Produces({MediaType.APPLICATION_JSON + ";charset=UTF-8"})
     @Path("/doLogOutByEmployee/{id}")
     public void doLogOutByEmployee(@PathParam("id") int id);
 
@@ -194,7 +194,7 @@ public interface IDomainService {
      * @return 返回一个快递的实体
      */
     @GET
-    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+    @Produces({MediaType.APPLICATION_JSON + ";charset=UTF-8"})
     @Path("/getPackageById/{id}")
     public ExpressEntity getPackageById(@PathParam("id") int pid);
 
