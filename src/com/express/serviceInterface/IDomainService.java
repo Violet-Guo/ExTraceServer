@@ -5,6 +5,8 @@ import com.express.model.*;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.util.Date;
+import java.util.List;
 
 /**
  * Created by violet on 2016/4/6.
@@ -14,6 +16,56 @@ public interface IDomainService {
 
     /////////////////////////////公共的接口（用户和工作人员都要用的）////////////////////////////
 
+
+    /**
+     *  通过发送地址和收货地址id获取快递id 寄件
+     * @param sendAddressId 发送地址id
+     * @param recAddressId  收货地址id
+     * @return                  快递id
+     */
+    @GET
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces({MediaType.APPLICATION_JSON + ";charset=UTF-8"})
+    @Path("/createPackage/sendAddressId/{sendAddressId}/recAddressId/{recAddressId}")
+    public String PrepareSendExpress(@PathParam("sendAddressId") Integer sendAddressId, @PathParam("recAddressId") Integer recAddressId);
+
+    /**
+     * 创建一个包裹
+     *
+     * @return 一个包裹实体
+     */
+    @GET
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces({MediaType.APPLICATION_JSON + ";charset=UTF-8"})
+    @Path("/createPackage/{id}")
+    public PackageEntity CreateAPackage(@PathParam("id") Integer id);
+
+    /**
+     * 快递装入包裹的操作
+     *
+     * @param PackageId 包裹Id
+     * @param Id        快递Id
+     * @param isPackage 是不是包裹 0 不是包裹 1 是包裹
+     * @return 是否插入成功
+     */
+    @GET
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces({MediaType.APPLICATION_JSON + ";charset=UTF-8"})
+    @Path("/loadIntoPackage/packageId/{packageId}/id/{id}/isPackage/{isPackage}")
+    public Response LoadIntoPackage(@PathParam("packageId") String PackageId, @PathParam("id") String Id, @PathParam("isPackage") Integer isPackage);
+
+    /**
+     * 查询包裹中的快件实体列表
+     *
+     * @param PackageId 包裹Id
+     * @return 返回一个快件实体列表
+     */
+    @GET
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces({MediaType.APPLICATION_JSON + ";charset=UTF-8"})
+    @Path("/searchExpressInPackageById/{packageId}")
+    public List<ExpressEntity> searchExpressInPackageById(@PathParam("packageId") String PackageId);
+
     /**
      * 通过快递单号获取快递信息
      *
@@ -21,9 +73,47 @@ public interface IDomainService {
      * @return 返回一个快递信息的实体
      */
     @GET
+    @Consumes(MediaType.APPLICATION_JSON)
     @Produces({MediaType.APPLICATION_JSON + ";charset=UTF-8"})
     @Path("/getExpressInfoById/{id}")
-    public ExpressEntity getExpressInfoById(@PathParam("id") String id);
+    public ExpressInfo getExpressInfoById(@PathParam("id") String id);
+
+
+    /**
+     *  按照电话号码查询快递信息
+     * @param tel 电话号码
+     * @return    快递信息的list
+     */
+    @GET
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces({MediaType.APPLICATION_JSON + ";charset=UTF-8"})
+    @Path("/getExpressInfoById/{tel}")
+    public List<ExpressInfo> getExpressInfoByTel(@PathParam("tel") String tel);
+
+
+
+    /**
+     * 通过包裹id查找包裹
+     * @param PackageId 包裹Id
+     * @return 返回一个包裹对象
+     */
+    @GET
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces({MediaType.APPLICATION_JSON + ";charset=UTF-8"})
+    @Path("/findAPackageById/{packageId}")
+    public PackageEntity findAPackageById(@PathParam("packageId") String PackageId);
+
+
+    /**
+     * 查询包裹中的包裹对象列表
+     * @param PackageId 包裹Id
+     * @return 返回一个包裹对象列表
+     */
+    @GET
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces({MediaType.APPLICATION_JSON + ";charset=UTF-8"})
+    @Path("/searchPackageInPackageById/{packageId}")
+    public List<PackageEntity> searchPackageInPackageById(@PathParam("packageId") String PackageId);
 
     /**
      * 保存快递信息
@@ -36,6 +126,20 @@ public interface IDomainService {
     @Produces({MediaType.APPLICATION_JSON + ";charset=UTF-8"})
     @Path("/saveExpress")
     public Response saveExpress(ExpressEntity obj);
+
+    /**
+     *查询工作量
+     * @param employeeId 员工id
+     * @param starttime 开始时间
+     * @param days 查询总天数
+     * @return 返回一个快件列表
+     */
+    @GET
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces({MediaType.APPLICATION_JSON + ";charset=UTF-8"})
+
+    @Path("/getWork/employeeId/{employeeId}/starttime/{starttime}/days/{days}")
+    public List<ExpressEntity> getWork(@PathParam("employeeId") Integer employeeId,@PathParam("starttime") Date starttime,@PathParam("days") Integer days);
 
 
     /////////////////////////////用户的接口////////////////////////////

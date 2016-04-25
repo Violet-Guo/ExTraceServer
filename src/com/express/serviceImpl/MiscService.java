@@ -326,4 +326,12 @@ public class MiscService implements IMiscService {
             return true;
         return false;
     }
+
+    //计算费用的工具类
+    @Override
+    public Float calc(String from, String to, Float weight, Float area) {
+        //计算方式待定
+
+        return null;
+    }
 }

@@ -225,6 +225,19 @@ public interface IMiscService {
     @Path("/checkTelephone/{tel}")
     public boolean checkTelephone(@PathParam("tel") String tel);
 
+    /**
+     * 计算价格用的
+     * @param from 发送地
+     * @param to   目的地
+     * @param weight 宽
+     * @param area 长
+     * @return 返回一个Float的价格
+     */
+    @GET
+    @Produces({MediaType.APPLICATION_JSON + ";charset=UTF-8"})
+    @Path("/calc/from/{from}/to/{to}/weight/{weight}/area/{area}")
+    public Float calc(@PathParam("from") String from, @PathParam("to") String to, @PathParam("weight") Float weight, @PathParam("area") Float area);
+
 
     //////////////////////////////////////////////////////////////////////////
 

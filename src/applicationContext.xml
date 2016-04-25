@@ -78,6 +78,12 @@
     <bean id="OutletsDao" class="com.express.daoImpl.OutletsDao">
         <property name="sessionFactory" ref="sessionFactory"></property>
     </bean>
+    <bean id="ExpressAndPackageDao" class="com.express.daoImpl.ExpressAndPackageDao">
+        <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
+    <bean id="PackAndpackDao" class="com.express.daoImpl.PackAndpackDao">
+        <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
 
     <!--自己加的-->
     <tx:advice id="txAdvice" transaction-manager="transactionManager">
@@ -117,6 +123,12 @@
                 <property name="ExpressDao" ref="ExpressDao"></property>
                 <property name="AddressDao" ref="AddressDao"></property>
                 <property name="EmployeesDao" ref="EmployeesDao"></property>
+                <property name="PackageDao" ref="PackageDao"></property>
+                <property name="ExpressAndPackageDao" ref="ExpressAndPackageDao"></property>
+                <property name="PackAndpackDao" ref="PackAndpackDao"></property>
+                <property name="RegionDao" ref="RegionDao"></property>
+                <property name="CityDao" ref="CityDao"></property>
+                <property name="ProvinceDao" ref="ProvinceDao"></property>
             </bean>
         </jaxrs:serviceBeans>
 
