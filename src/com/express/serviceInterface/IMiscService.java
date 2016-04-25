@@ -60,24 +60,24 @@ public interface IMiscService {
     public List<CustomerAddressEntity> getSendAddress(@PathParam("tel")String tel);
 
     /**
-     * 增加一个新的收货地址
+     * 增加一个新的收货地址或发货地址
      * @param obj json格式的地址实体
      * @return response
      */
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
-    @Path("/newAccAddress")
-    public Response newAccAddress(AddressEntity obj);
+    @Path("/newAddress")
+    public String newAddress(AddressEntity obj);
 
     /**
-     * 增加一个新的送货地址
-     * @param obj json格式
+     * 修改收货地址或发货地址信息
+     * @param obj json格式的地址实体
      * @return response
      */
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
-    @Path("/newSendAddress")
-    public Response newSendAddress(AddressEntity obj);
+    @Path("/updateAddress")
+    public String updateAddress(AddressEntity obj);
 
 
     /////////////////////////////region的接口/////////////////////////////

@@ -73,9 +73,21 @@ public class DomainService implements IDomainService {
         return customerDao.get(id);
     }
 
+    //通过用户手机号获得用户信息
+    @Override
+    public CustomerEntity getCustomerInfoByTel(String tel) {
+        List<CustomerEntity> list = customerDao.getByTel(tel);
+        if (list.size()!=0){
+            return list.get(0);
+        }
+        return null;
+    }
+
     //注册，并在注册过程中检查手机号是否注册过
     @Override
     public String registerByCus(CustomerEntity obj) {
+        if (obj.getName()==null || obj.getTelephone()==null || obj.getPassword()==null)
+            return "{\"registerstate\":\"null\"}";
         List<CustomerEntity> list = customerDao.getByTel(obj.getTelephone());
         if (list.size() == 0) {
             try {
@@ -90,14 +102,14 @@ public class DomainService implements IDomainService {
         }
     }
 
-    //更新或者是插入一条数据
+    //更新用户信息
     @Override
-    public Response saveCustomerInfo(CustomerEntity obj) {
+    public String updateCustomerInfo(CustomerEntity obj) {
         try {
             customerDao.save(obj);
-            return Response.ok(obj).header("EntityClass", "R_CustomerInfo").build();
+            return "{\"updateCustomerInfo\":\"true\"}";
         } catch (Exception e) {
-            return Response.serverError().entity(e.getMessage()).build();
+            return "{\"updateCustomerInfo\":\"false\"}";
         }
     }
 
@@ -111,6 +123,8 @@ public class DomainService implements IDomainService {
     //用户登陆post方法
     @Override
     public String login(CustomerEntity obj) {
+        if (obj.getTelephone()==null || obj.getPassword()==null)
+            return "{\"loginstate\":\"null\"}";
         List<CustomerEntity> list = customerDao.getByTel(obj.getTelephone());
         if (list.size() != 0) {
             CustomerEntity customerEntity = list.get(0);

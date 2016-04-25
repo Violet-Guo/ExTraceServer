@@ -51,6 +51,17 @@ public interface IDomainService {
     @Path("/getCustomerInfoById/{id}")
     public CustomerEntity getCustomerInfoById(@PathParam("id") int id);
 
+    /***
+     * 通过用户手机号获得用户信息
+     *
+     * @param tel 用户的tel
+     * @return 返回一个用户的实体
+     */
+    @GET
+    @Produces({MediaType.APPLICATION_JSON + ";charset=UTF-8"})
+    @Path("/getCustomerInfoByTel/{tel}")
+    public CustomerEntity getCustomerInfoByTel(@PathParam("tel") String tel);
+
     /**
      * 用户注册
      * @param obj obj中含有手机号、密码、姓名，一个实体传过来
@@ -62,15 +73,15 @@ public interface IDomainService {
     public String registerByCus(CustomerEntity obj);
 
     /***
-     * 保存或更新用户信息
+     * 更新用户信息
      *
      * @param obj 传入一个json格式的用户实体数据
-     * @return 返回resopnse
+     * @return 返回仿json返回值
      */
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
-    @Path("/saveCustomerInfo")
-    public Response saveCustomerInfo(CustomerEntity obj);
+    @Path("/updateCustomerInfo")
+    public String updateCustomerInfo(CustomerEntity obj);
 
     /***
      * 删除用户

@@ -4,10 +4,6 @@ import com.express.daoImpl.*;
 import com.express.model.*;
 import com.express.serviceInterface.IMiscService;
 
-import javax.ws.rs.core.HttpHeaders;
-import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
-import javax.xml.ws.spi.http.HttpHandler;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -211,27 +207,28 @@ public class MiscService implements IMiscService {
         return lis;
     }
 
-    //增加一个收货地址
+    //增加一个收货地址或发货地址
     @Override
-    public Response newAccAddress(AddressEntity obj) {
+    public String newAddress(AddressEntity obj) {
         try {
             addressDao.save(obj);
-            return Response.ok(obj).header("EntityClass", "R_Address").build();
+            return "{\"newAddstate\":\"true\"}";
         } catch (Exception e) {
-            return Response.serverError().entity(e.getMessage()).build();
+            return "{\"newAddstate\":\"false\"}";
         }
     }
 
-    //增加一个发货地址
+    //修改收货地址或发货地址的信息
     @Override
-    public Response newSendAddress(AddressEntity obj) {
+    public String updateAddress(AddressEntity obj) {
         try {
             addressDao.save(obj);
-            return Response.ok(obj).header("EntityClass", "R_Address").build();
+            return "{\"updateAddstate\":\"true\"}";
         } catch (Exception e) {
-            return Response.serverError().entity(e.getMessage()).build();
+            return "{\"updateAddstate\":\"false\"}";
         }
     }
+
 
     /////////////////////////////region的接口////////////////////////////
 
