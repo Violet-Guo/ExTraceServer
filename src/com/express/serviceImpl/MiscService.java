@@ -71,6 +71,11 @@ public class MiscService implements IMiscService {
     /////////////////////////////位置信息的接口////////////////////////////
 
 
+    @Override
+    public List<ExpressPositionEntity> getExpressPostionInfo(String expressid) {
+        return null;
+    }
+
     /////////////////////////////Address的接口/////////////////////////////
 
     //获得用户所有的收货地址
@@ -218,14 +223,44 @@ public class MiscService implements IMiscService {
         }
     }
 
-    //修改收货地址或发货地址的信息
+    //修改收货地址或发货地址的信息    0代表默认地址，1代表普通地址
     @Override
     public String updateAddress(AddressEntity obj) {
+        List<AddressEntity> list = new ArrayList<>();
+        AddressEntity addressEntity = new AddressEntity();
+
+        int customerid;
+        customerid = obj.getCustomerId();
+
         try {
+            addressEntity = addressDao.get(obj.getId());
+            if (addressEntity.getStatus() != obj.getStatus()){
+                if (obj.getStatus() == 0){     //修改地址时设置了那个地址为默认地址
+                    list = addressDao.findByCusIdAndStatus(customerid, 0);
+                    for (int i = 0; i < list.size(); i++) {
+                        addressEntity = list.get(i);
+                        addressEntity.setStatus(1);
+                        addressDao.update(addressEntity);
+                    }
+                }
+            }
+
             addressDao.save(obj);
             return "{\"updateAddstate\":\"true\"}";
         } catch (Exception e) {
             return "{\"updateAddstate\":\"false\"}";
+        }
+    }
+
+    //删除收货地址、发货地址
+    @Override
+    public String deleteAddress(int aid) {
+        try {
+            addressDao.removeById(aid);
+            return "{\"deleteAddress\":\"true\"}";
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "{\"deleteAddress\":\"false\"}";
         }
     }
 

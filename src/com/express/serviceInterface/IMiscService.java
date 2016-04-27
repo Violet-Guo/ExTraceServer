@@ -16,6 +16,11 @@ public interface IMiscService {
 
     /////////////////////////////位置信息的接口////////////////////////////
 
+    @GET
+    @Produces({MediaType.APPLICATION_JSON + ";charset=UTF-8"})
+    @Path("/getExpressPostionInfoById/{id}")
+    public List<ExpressPositionEntity> getExpressPostionInfo(@PathParam("id")String expressid);
+
     /////////////////////////////Address的接口/////////////////////////////
     ///////////////////////////status = 1代表是自己的地址，2代表是收货人的地址///////////
 
@@ -79,6 +84,15 @@ public interface IMiscService {
     @Path("/updateAddress")
     public String updateAddress(AddressEntity obj);
 
+    /**
+     * 删除收货地址、发货地址
+     * @param aid 地址的id
+     * @return 返回仿的json数据
+     */
+    @GET
+    @Produces({MediaType.APPLICATION_JSON + ";charset=UTF-8"})
+    @Path("/deleteAddress/{aid}")
+    public String deleteAddress(@PathParam("aid")int aid);
 
     /////////////////////////////region的接口/////////////////////////////
 
