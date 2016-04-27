@@ -45,11 +45,11 @@ public class AddressDao extends BaseDao<AddressEntity, Integer> {
     /**
      * 根据用户的id和地址状态查找地址信息
      * @param cusid
-     * @param status
+     * @param rank
      * @return
      */
-    public List<AddressEntity> findByCusIdAndStatus(int cusid, int status){
-        List<AddressEntity> list = findBy("id", true, Restrictions.eq("customerId", cusid), Restrictions.eq("status", status));
+    public List<AddressEntity> findByCusIdAndRank(int cusid, int rank){
+        List<AddressEntity> list = findBy("id", true, Restrictions.eq("customerId", cusid), Restrictions.eq("rank", rank));
         return list;
     }
 

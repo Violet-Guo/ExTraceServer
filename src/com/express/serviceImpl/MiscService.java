@@ -229,23 +229,20 @@ public class MiscService implements IMiscService {
         List<AddressEntity> list = new ArrayList<>();
         AddressEntity addressEntity = new AddressEntity();
 
-        int customerid;
-        customerid = obj.getCustomerId();
-
         try {
-            addressEntity = addressDao.get(obj.getId());
-            if (addressEntity.getStatus() != obj.getStatus()){
-                if (obj.getStatus() == 0){     //修改地址时设置了那个地址为默认地址
-                    list = addressDao.findByCusIdAndStatus(customerid, 0);
-                    for (int i = 0; i < list.size(); i++) {
-                        addressEntity = list.get(i);
-                        addressEntity.setStatus(1);
-                        addressDao.update(addressEntity);
+            addressDao.save(obj);
+
+            if (obj.getRank() == 0){
+                list = addressDao.findByCusIdAndRank(obj.getCustomerId(), 0);
+                for (int i = 0; i < list.size(); i++){
+                    addressEntity = list.get(i);
+                    if (obj.getId() != addressEntity.getId()){
+                        addressEntity.setRank(1);
+                        addressDao.save(addressEntity);
                     }
                 }
             }
 
-            addressDao.save(obj);
             return "{\"updateAddstate\":\"true\"}";
         } catch (Exception e) {
             return "{\"updateAddstate\":\"false\"}";
