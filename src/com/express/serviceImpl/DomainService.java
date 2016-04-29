@@ -371,13 +371,14 @@ public class DomainService implements IDomainService {
     //用户登陆post方法
     @Override
     public String login(CustomerEntity obj) {
+        CustomerEntity customerEntity = new CustomerEntity();
         if (obj.getTelephone()==null || obj.getPassword()==null)
             return "{\"loginstate\":\"null\"}";
         List<CustomerEntity> list = customerDao.getByTel(obj.getTelephone());
         if (list.size() != 0) {
-            CustomerEntity customerEntity = list.get(0);
+            customerEntity = list.get(0);
             if (customerEntity.getPassword().equals(obj.getPassword())) {
-                return "{\"name\":\"" + customerEntity.getName() + "\", \"loginstate\":\"true\"}";
+                return "{\"id\":"+customerEntity.getId()+", \"name\":\"" + customerEntity.getName() + "\", \"loginstate\":\"true\"}";
             }
         }
         return "{\"loginstate\":\"false\"}";
@@ -387,6 +388,52 @@ public class DomainService implements IDomainService {
     @Override
     public void doLogOut(int cid) {
 
+    }
+
+    //修改手机号
+    @Override
+    public String changeTel(String telold, String telnew) {
+        List<CustomerEntity> listold = customerDao.getByTel(telold);
+        List<CustomerEntity> listnew = customerDao.getByTel(telnew);
+        if (listnew.size()!=0){
+            return "{\"changetel\":\"deny1\"}";   //修改的手机号已注册
+        }
+        if (listold.size()!=1){
+            return "{\"changetel\":\"deny2\"}";   //未找到该用户信息
+        }
+
+        CustomerEntity customerEntity = listold.get(0);
+        customerEntity.setTelephone(telnew);
+
+        try {
+            customerDao.save(customerEntity);
+            return "{\"changetel\":\"true\"}";
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "{\"changetel\":\"false\"}";
+        }
+    }
+
+
+    //修改密码
+    @Override
+    public String changePwd(String tel, String pwdold, String pwdnew) {
+        List<CustomerEntity> list = customerDao.getByTel(tel);
+        if (list.size()!=1){
+           return "{\"changepwd\":\"deny1\"}";
+        }
+        CustomerEntity customerEntity = list.get(0);
+        if (customerEntity.getPassword().equals(pwdold)){
+            customerEntity.setPassword(pwdnew);
+            try {
+                customerDao.save(customerEntity);
+                return "{\"changepwd\":\"true\"}";
+            } catch (Exception e) {
+                e.printStackTrace();
+                return "{\"changepwd\":\"deny2\"}";
+            }
+        }
+        return "{\"changepwd\":\"false\"}";
     }
 
     @Override

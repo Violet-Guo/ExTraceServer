@@ -2,6 +2,7 @@ package com.express.model;
 
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
+import java.io.Serializable;
 
 /**
  * Created by violet on 2016/4/11.
@@ -10,7 +11,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Table(name = "address", schema = "", catalog = "express")
 @org.hibernate.annotations.Proxy(lazy = false)
 @XmlRootElement(name = "Address")
-public class AddressEntity {
+public class AddressEntity implements Serializable {
     private int id;
     private int regionId;
     private String address;

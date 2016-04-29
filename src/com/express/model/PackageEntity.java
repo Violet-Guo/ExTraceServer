@@ -2,6 +2,7 @@ package com.express.model;
 
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -11,7 +12,7 @@ import java.util.Date;
 @Table(name = "package", schema = "", catalog = "express")
 @org.hibernate.annotations.Proxy(lazy = false)
 @XmlRootElement(name = "Package")
-public class PackageEntity {
+public class PackageEntity implements Serializable {
     private String id;
     private int employeesId;
     private Date time;

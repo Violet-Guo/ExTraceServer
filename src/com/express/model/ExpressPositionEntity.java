@@ -1,9 +1,11 @@
 package com.express.model;
 
+import java.io.Serializable;
+
 /**
  * Created by violet on 2016/4/27.
  */
-public class ExpressPositionEntity {
+public class ExpressPositionEntity implements Serializable {
     private int id;
     private double x;
     private double y;

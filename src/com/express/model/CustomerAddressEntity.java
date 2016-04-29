@@ -1,13 +1,14 @@
 package com.express.model;
 
 import javax.xml.bind.annotation.XmlRootElement;
+import java.io.Serializable;
 
 /**
  * Created by violet on 2016/4/11.
  */
 @org.hibernate.annotations.Proxy(lazy = false)
 @XmlRootElement(name = "CustomerAddress")
-public class CustomerAddressEntity {
+public class CustomerAddressEntity implements Serializable {
     private int aid;
     private int customerid;
     private String name;

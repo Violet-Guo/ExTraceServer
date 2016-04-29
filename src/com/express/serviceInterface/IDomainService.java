@@ -218,6 +218,26 @@ public interface IDomainService {
     @Path("/doLogOut/{cid}")
     public void doLogOut(@PathParam("cid") int cid);
 
+    /**
+     * 修改手机号
+     * @param telold 手机号
+     * @return 模仿json数据
+     */
+    @GET
+    @Produces({MediaType.APPLICATION_JSON + ";charset=UTF-8"})
+    @Path("/changeTel/old/{telold}/new/{telnew}")
+    public String changeTel(@PathParam("telold") String telold, @PathParam("telnew") String telnew);
+
+    /**
+     * 修改密码
+     * @param pwdold 密码
+     * @return 模仿json数据
+     */
+    @GET
+    @Produces({MediaType.APPLICATION_JSON + ";charset=UTF-8"})
+    @Path("/changePwd/tel/{tel}/{pwdold}/{pwdnew}")
+    public String changePwd(@PathParam("tel") String tel, @PathParam("pwdold") String pwdold, @PathParam("pwdnew") String pwdnew);
+
 
     /**
      * 通过快递单号和用户id创建一个快递信息

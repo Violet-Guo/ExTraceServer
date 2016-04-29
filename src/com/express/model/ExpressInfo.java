@@ -1,10 +1,11 @@
 package com.express.model;
 
+import java.io.Serializable;
+
 /**
  * Created by 黎明 on 2016/4/20.
  */
-public class ExpressInfo
-{
+public class ExpressInfo implements Serializable {
     public String ID;//快递单号
     public String sname;//发件人姓名
     public String stel;//tel
