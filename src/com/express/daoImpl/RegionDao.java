@@ -24,7 +24,7 @@ public class RegionDao extends BaseDao<RegionEntity, Integer> {
 
     //根据市的id拿到市的区域
     public List<RegionEntity> getRegionList(int id) {
-        List<RegionEntity> list = findBy("id", true, Restrictions.eq("cityId", id));
+        List<RegionEntity> list = findBy("id", true, Restrictions.eq("cityid", id));
         return list;
     }
 }
