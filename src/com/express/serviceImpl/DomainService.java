@@ -1,6 +1,7 @@
 package com.express.serviceImpl;
 
 import com.express.daoImpl.*;
+import com.express.info.PackageInfo;
 import com.express.model.*;
 import com.express.serviceInterface.IDomainService;
 import org.hibernate.criterion.Restrictions;
@@ -16,6 +17,8 @@ import java.util.List;
  */
 public class DomainService implements IDomainService {
 
+    private OutletsDao outletsDao;
+    private PackageHistoryDao packageHistoryDao;
     private RegionDao regionDao;
     private CityDao cityDao;
     private ProvinceDao provinceDao;
@@ -27,6 +30,21 @@ public class DomainService implements IDomainService {
     private AddressDao addressDao;
     private CustomerDao customerDao;
 
+    public OutletsDao getOutletsDao() {
+        return outletsDao;
+    }
+
+    public void setOutletsDao(OutletsDao outletsDao) {
+        this.outletsDao = outletsDao;
+    }
+
+    public PackageHistoryDao getPackageHistoryDao() {
+        return packageHistoryDao;
+    }
+
+    public void setPackageHistoryDao(PackageHistoryDao packageHistoryDao) {
+        this.packageHistoryDao = packageHistoryDao;
+    }
 
     public RegionDao getRegionDao() {
         return regionDao;
@@ -111,7 +129,73 @@ public class DomainService implements IDomainService {
     /////////////////////////////公共的接口（用户和工作人员都要用的）////////////////////////////
 
     @Override
-    public String PrepareSendExpress(Integer sendAddressId, Integer recvAddressId) {
+    public Integer PackageLoadIntoPackage(List<String> packageIds) {
+        //获得包裹id
+        String packageId = packageIds.get(0);
+        //遍历剩下的id存入关系表
+        for(int i = 1; i < packageIds.size(); ++i){
+            //存入包裹快递表
+            ExpressandpackageEntity expressandpackageEntity = new ExpressandpackageEntity();
+            expressandpackageEntity.setTime(new Date());
+            expressandpackageEntity.setPackageId(packageId);
+            expressandpackageEntity.setExpressId(packageIds.get(i));
+            expressAndPackageDao.save(expressandpackageEntity);
+
+            //存入快递快递表
+            PackandpackEntity packandpackEntity = new PackandpackEntity();
+            packandpackEntity.setIsHistory(0);
+            packandpackEntity.setPackageId(packageIds.get(i));
+            packandpackEntity.setParentId(packageId);
+            packAndpackDao.save(packandpackEntity);
+        }
+        return 1;
+    }
+
+    @Override
+    public Integer ExpressLoadIntoPackage(List<String> expressIds) {
+        //获得包裹id
+        String packageId = expressIds.get(0);
+        //遍历剩下的id存入关系表
+        for(int i = 1; i < expressIds.size(); ++i){
+            //存入包裹快递表
+            ExpressandpackageEntity expressandpackageEntity = new ExpressandpackageEntity();
+            expressandpackageEntity.setTime(new Date());
+            expressandpackageEntity.setPackageId(packageId);
+            expressandpackageEntity.setExpressId(expressIds.get(i));
+            expressAndPackageDao.save(expressandpackageEntity);
+        }
+        return 1;
+    }
+
+    @Override
+    public PackageInfo getPackageInfo(String packageId) {
+        //创建一个包裹的信息对象
+        PackageInfo packageInfo = new PackageInfo();
+        //获取包裹的对象实体
+        PackageEntity packageEntity = packageDao.get(packageId);
+        //获取包裹历史的对象实体
+        List<PackagehistoryEntity> by = packageHistoryDao.findBy("time", true, Restrictions.eq("packageId", packageEntity.getId()));
+        PackagehistoryEntity packagehistoryEntity = by.get(by.size() - 1);
+        //获取出发和到达站点对象
+        OutletsEntity fromOutletsEntity = outletsDao.get(packagehistoryEntity.getFromOutletsId());
+        OutletsEntity toOutletsEntity = outletsDao.get(packagehistoryEntity.getToOutletsId());
+        //获取用户对象
+
+        EmployeesEntity employeesEntity = employeesDao.get(packageEntity.getEmployeesId());
+
+        //填充数据
+        packageInfo.setId(packageEntity.getId());
+        packageInfo.setPackageFrom(fromOutletsEntity.getName());
+        packageInfo.setPackageTo(toOutletsEntity.getName());
+        packageInfo.setEmployeesName(employeesEntity.getName());
+        packageInfo.setEmployeesID(packageEntity.getEmployeesId());
+        packageInfo.setCloseTime(packageEntity.getTime().toString());
+
+        return packageInfo;
+    }
+
+    @Override
+    public String PrepareSendExpress(Integer customerId, Integer sendAddressId, Integer recvAddressId) {
         ExpressEntity expressEntity = new ExpressEntity();
 
         //获取id 校验是否存在
@@ -125,8 +209,12 @@ public class DomainService implements IDomainService {
         }
 
         //填充实体信息
+        expressEntity.setId(packageId);
         expressEntity.setSendAddressId(sendAddressId);
-        expressEntity.setSendAddressId(recvAddressId);
+        expressEntity.setAccAddressId(recvAddressId);
+
+        //外键约束，必须带用户id
+        expressEntity.setCustomerId(customerId);
 
         expressDao.save(expressEntity);
 
@@ -135,8 +223,10 @@ public class DomainService implements IDomainService {
     }
 
     @Override
-    public PackageEntity CreateAPackage(Integer id) {
+    public PackageInfo CreateAPackage(Integer fromID, Integer toID, Integer employeesID) {
         PackageEntity packageEntity = new PackageEntity();
+        PackagehistoryEntity packagehistoryEntity = new PackagehistoryEntity();
+        PackageInfo packageInfo = new PackageInfo();
 
         //获取id 校验是否存在
         String packageId = Utils.getUUid();
@@ -147,16 +237,31 @@ public class DomainService implements IDomainService {
             else
                 packageId = Utils.getUUid();
         }
+        EmployeesEntity employeesEntity = employeesDao.get(employeesID);
+        RegionEntity fromRegionEntity = regionDao.get(fromID);
+        RegionEntity toRegionEntity = regionDao.get(toID);
 
         //填充实体信息
         packageEntity.setTime(new Date());
         packageEntity.setId(packageId);
-        packageEntity.setEmployeesId(id);
+        packageEntity.setEmployeesId(employeesID);
+
+        packagehistoryEntity.setPackageId(packageId);
+        packagehistoryEntity.setFromOutletsId(fromID);
+        packagehistoryEntity.setToOutletsId(toID);
+        packagehistoryEntity.setTime(new Date());
+
+        packageInfo.setId(packageId);
+        packageInfo.setCloseTime(new Date().toString());
+        packageInfo.setPackageFrom(fromRegionEntity.getArea());
+        packageInfo.setPackageTo(toRegionEntity.getArea());
+        packageInfo.setEmployeesID(employeesID);
+        packageInfo.setEmployeesName(employeesEntity.getName());
 
         packageDao.save(packageEntity);
+        packageHistoryDao.save(packagehistoryEntity);
 
-        //返回实体对象
-        return packageEntity;
+        return packageInfo;
     }
 
     @Override
@@ -241,7 +346,19 @@ public class DomainService implements IDomainService {
         //手机号相关的快递
         List<ExpressEntity> by = expressDao.findBy("CustomerID", true, Restrictions.eq("CustomerID", customer.get(0).getId()));
 
-        for(int i = 0; i < by.size(); ++i){
+        for (int i = 0; i < by.size(); ++i) {
+            ExpressInfo expressInfo = getExpressInfoById(by.get(i).getId());
+            lists.add(expressInfo);
+        }
+        return lists;
+    }
+
+    @Override
+    public List<ExpressInfo> getExpressInfoByCustomerId(Integer CustomerId) {
+        List<ExpressInfo> lists = new ArrayList<>();
+        List<ExpressEntity> by = expressDao.findBy("CustomerID", true, Restrictions.eq("CustomerID", CustomerId));
+
+        for (int i = 0; i < by.size(); ++i) {
             ExpressInfo expressInfo = getExpressInfoById(by.get(i).getId());
             lists.add(expressInfo);
         }

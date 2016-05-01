@@ -1,4 +1,4 @@
-package com.express.model;
+package com.express.info;
 
 import javax.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;

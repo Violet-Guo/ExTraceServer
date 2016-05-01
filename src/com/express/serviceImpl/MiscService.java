@@ -1,6 +1,7 @@
 package com.express.serviceImpl;
 
 import com.express.daoImpl.*;
+import com.express.info.CustomerAddressEntity;
 import com.express.model.*;
 import com.express.serviceInterface.IMiscService;
 

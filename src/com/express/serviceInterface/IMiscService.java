@@ -1,10 +1,10 @@
 package com.express.serviceInterface;
 
+import com.express.info.CustomerAddressEntity;
 import com.express.model.*;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
 import java.util.List;
 
 /**
