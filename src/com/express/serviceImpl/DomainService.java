@@ -9,6 +9,8 @@ import org.hibernate.criterion.Restrictions;
 import utils.Utils;
 
 import javax.ws.rs.core.Response;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -134,7 +136,7 @@ public class DomainService implements IDomainService {
         //获得包裹id
         String packageId = packageIds.get(0);
         //遍历剩下的id存入关系表
-        for(int i = 1; i < packageIds.size(); ++i){
+        for (int i = 1; i < packageIds.size(); ++i) {
             //存入包裹快递表
             ExpressandpackageEntity expressandpackageEntity = new ExpressandpackageEntity();
             expressandpackageEntity.setTime(new Date());
@@ -157,7 +159,7 @@ public class DomainService implements IDomainService {
         //获得包裹id
         String packageId = expressIds.get(0);
         //遍历剩下的id存入关系表
-        for(int i = 1; i < expressIds.size(); ++i){
+        for (int i = 1; i < expressIds.size(); ++i) {
             //存入包裹快递表
             ExpressandpackageEntity expressandpackageEntity = new ExpressandpackageEntity();
             expressandpackageEntity.setTime(new Date());
@@ -239,8 +241,8 @@ public class DomainService implements IDomainService {
                 packageId = Utils.getUUid();
         }
         EmployeesEntity employeesEntity = employeesDao.get(employeesID);
-        RegionEntity fromRegionEntity = regionDao.get(fromID);
-        RegionEntity toRegionEntity = regionDao.get(toID);
+        OutletsEntity fromOutletsEntity = outletsDao.get(fromID);
+        OutletsEntity toOutletsEntity = outletsDao.get(toID);
 
         //填充实体信息
         packageEntity.setTime(new Date());
@@ -254,8 +256,8 @@ public class DomainService implements IDomainService {
 
         packageInfo.setId(packageId);
         packageInfo.setCloseTime(new Date().toString());
-        packageInfo.setPackageFrom(fromRegionEntity.getArea());
-        packageInfo.setPackageTo(toRegionEntity.getArea());
+        packageInfo.setPackageFrom(fromOutletsEntity.getName());
+        packageInfo.setPackageTo(toOutletsEntity.getName());
         packageInfo.setEmployeesID(employeesID);
         packageInfo.setEmployeesName(employeesEntity.getName());
 
@@ -267,16 +269,21 @@ public class DomainService implements IDomainService {
 
     @Override
     public Response LoadIntoPackage(String PackageId, String Id, Integer isPackage) {
-        //如果不是包裹
         try {
-            ExpressandpackageEntity expressandpackageEntity = new ExpressandpackageEntity(PackageId, Id, new Date());
-            expressAndPackageDao.save(expressandpackageEntity);
-            PackandpackEntity packandpackEntity = new PackandpackEntity();
-            if (isPackage == 1) {
-                //如果是包裹还需要存储父包裹表
+            //如果不是包裹
+            if (isPackage == 0) {
+                ExpressandpackageEntity expressandpackageEntity = new ExpressandpackageEntity(Id, PackageId, new Date());
+                expressAndPackageDao.save(expressandpackageEntity);
+            } else if (isPackage == 1) {
+                PackandpackEntity packandpackEntity = new PackandpackEntity();
+                //如果是包裹需要存储父包裹表
+                packandpackEntity.setParentId(PackageId);
+                packandpackEntity.setPackageId(Id);
+                //不是历史
+                packandpackEntity.setIsHistory(0);
                 packAndpackDao.save(packandpackEntity);
             }
-            return Response.ok(packandpackEntity).header("PackandpackClass", "R_PackandpackInfo").build();
+            return Response.ok().header("PackandpackClass", "R_PackandpackInfo").build();
         } catch (Exception e) {
             return Response.serverError().entity(e.getMessage()).build();
         }
@@ -285,13 +292,12 @@ public class DomainService implements IDomainService {
     @Override
     public List<ExpressEntity> searchExpressInPackageById(String PackageId) {
         List<ExpressEntity> lists = new ArrayList<>();
-        //按照条件查找相应的包裹里所有快件和包裹
-        List<ExpressandpackageEntity> all = expressAndPackageDao.findBy("PackageId", true, Restrictions.eq("PackageId", PackageId));
+        //按照条件查找相应的包裹里所有快件
+        List<ExpressandpackageEntity> all = expressAndPackageDao.findBy("packageId", true, Restrictions.eq("packageId", PackageId));
         for (int i = 0; i < all.size(); ++i) {
             String expressId = all.get(i).getExpressId();
-            //如果是快递则存入list中
-            if (packageDao.get(expressId) == null)
-                lists.add(expressDao.get(expressId));
+            //保存快递
+            lists.add(expressDao.get(expressId));
         }
         return lists;
     }
@@ -343,9 +349,9 @@ public class DomainService implements IDomainService {
     public List<ExpressInfo> getExpressInfoByTel(String tel) {
         List<ExpressInfo> lists = new ArrayList<>();
         //用户信息
-        List<CustomerEntity> customer = customerDao.findBy("Telephone", true, Restrictions.eq("Telephone", tel));
+        List<CustomerEntity> customer = customerDao.findBy("telephone", true, Restrictions.eq("telephone", tel));
         //手机号相关的快递
-        List<ExpressEntity> by = expressDao.findBy("CustomerID", true, Restrictions.eq("CustomerID", customer.get(0).getId()));
+        List<ExpressEntity> by = expressDao.findBy("customerId", true, Restrictions.eq("customerId", customer.get(0).getId()));
 
         for (int i = 0; i < by.size(); ++i) {
             ExpressInfo expressInfo = getExpressInfoById(by.get(i).getId());
@@ -357,7 +363,7 @@ public class DomainService implements IDomainService {
     @Override
     public List<ExpressInfo> getExpressInfoByCustomerId(Integer CustomerId) {
         List<ExpressInfo> lists = new ArrayList<>();
-        List<ExpressEntity> by = expressDao.findBy("CustomerID", true, Restrictions.eq("CustomerID", CustomerId));
+        List<ExpressEntity> by = expressDao.findBy("customerId", true, Restrictions.eq("customerId", CustomerId));
 
         for (int i = 0; i < by.size(); ++i) {
             ExpressInfo expressInfo = getExpressInfoById(by.get(i).getId());
@@ -375,12 +381,12 @@ public class DomainService implements IDomainService {
     @Override
     public List<PackageEntity> searchPackageInPackageById(String PackageId) {
         List<PackageEntity> lists = new ArrayList<>();
-        //按照条件查找相应的包裹里所有快件和包裹
-        List<ExpressandpackageEntity> all = expressAndPackageDao.findBy("PackageId", true, Restrictions.eq("PackageId", PackageId));
-        for (int i = 0; i < all.size(); ++i) {
-            String expressId = all.get(i).getExpressId();
-            //如果不是快递则存入list中
-            if (packageDao.get(expressId) != null)
+        //按照条件查找相应的包裹里所有包裹
+        List<PackandpackEntity> by = packAndpackDao.findBy("parentId", true, Restrictions.eq("parentId", PackageId));
+        for (int i = 0; i < by.size(); ++i) {
+            String expressId = by.get(i).getPackageId();
+            //拿出来所有的快递列表
+            if (by.get(i).getIsHistory() == 0)
                 lists.add(packageDao.get(expressId));
         }
         return lists;
@@ -398,14 +404,21 @@ public class DomainService implements IDomainService {
     }
 
     @Override
-    public List<ExpressEntity> getWork(Integer employeeId, Date starttime, Integer days) {
+    public List<ExpressEntity> getWork(Integer employeeId, String starttime, Integer days) {
         //获取时间段
-        Date endtime = (Date) starttime.clone();
-        endtime.setTime(endtime.getTime() + days * 86400);
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        Date startDate = null;
+        try {
+            startDate = sdf.parse(starttime);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        Date endDate = (Date) startDate.clone();
+        endDate.setTime(endDate.getTime() + days * 86400000);
 
         List<ExpressEntity> lists = new ArrayList<>();
         //查找符合条件的包裹
-        List<PackageEntity> by = packageDao.findBy("ID", true, Restrictions.eq("EmployeesID", employeeId), Restrictions.between("time", starttime, endtime));
+        List<PackageEntity> by = packageDao.findBy("id", true, Restrictions.eq("employeesId", employeeId), Restrictions.between("time", startDate, endDate));
 
         //递归查找包裹里的快递并存放到lists中
         for (int i = 0; i < by.size(); ++i) {
@@ -626,12 +639,17 @@ public class DomainService implements IDomainService {
 
     @Override
     public Response savePackage(PackageEntity obj) {
-        return null;
+        try {
+            packageDao.save(obj);
+            return Response.ok(obj).header("EntityClass", "R_PackageInfo").build();
+        } catch (Exception e) {
+            return Response.serverError().entity(e.getMessage()).build();
+        }
     }
 
     @Override
-    public ExpressEntity getPackageById(int pid) {
-        return null;
+    public ExpressEntity getPackageById(String pid) {
+        return expressDao.get(pid);
     }
 
 

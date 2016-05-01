@@ -186,7 +186,7 @@ public interface IDomainService {
     @Produces({MediaType.APPLICATION_JSON + ";charset=UTF-8"})
 
     @Path("/getWork/employeeId/{employeeId}/starttime/{starttime}/days/{days}")
-    public List<ExpressEntity> getWork(@PathParam("employeeId") Integer employeeId,@PathParam("starttime") Date starttime,@PathParam("days") Integer days);
+    public List<ExpressEntity> getWork(@PathParam("employeeId") Integer employeeId,@PathParam("starttime") String starttime,@PathParam("days") Integer days);
 
     /////////////////////////////用户的接口////////////////////////////
 
@@ -377,7 +377,7 @@ public interface IDomainService {
     @GET
     @Produces({MediaType.APPLICATION_JSON + ";charset=UTF-8"})
     @Path("/getPackageById/{id}")
-    public ExpressEntity getPackageById(@PathParam("id") int pid);
+    public ExpressEntity getPackageById(@PathParam("id") String pid);
 
     /////////////////////////////快递员的接口////////////////////////////
 
