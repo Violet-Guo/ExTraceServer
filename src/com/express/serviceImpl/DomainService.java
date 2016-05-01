@@ -1,6 +1,7 @@
 package com.express.serviceImpl;
 
 import com.express.daoImpl.*;
+import com.express.info.ExpressInfo;
 import com.express.info.PackageInfo;
 import com.express.model.*;
 import com.express.serviceInterface.IDomainService;

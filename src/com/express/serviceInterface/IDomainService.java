@@ -1,5 +1,6 @@
 package com.express.serviceInterface;
 
+import com.express.info.ExpressInfo;
 import com.express.info.PackageInfo;
 import com.express.model.*;
 

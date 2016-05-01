@@ -1,4 +1,4 @@
-package com.express.model;
+package com.express.info;
 
 import java.io.Serializable;
 
