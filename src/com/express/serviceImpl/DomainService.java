@@ -204,11 +204,11 @@ public class DomainService implements IDomainService {
         AddressEntity recvAddressEntity = addressDao.get(expressEntity.getAccAddressId());
         //收件人regin
         RegionEntity sendRegionEntity = regionDao.get(sendAddressEntity.getRegionId());
-        CityEntity sendCityEntity = cityDao.get(sendRegionEntity.getCityId());
+        CityEntity sendCityEntity = cityDao.get(sendRegionEntity.getCityid());
         ProvinceEntity sendProvinceEntity = provinceDao.get(sendCityEntity.getPid());
         //发件人regin
         RegionEntity recvRegionEntity = regionDao.get(sendAddressEntity.getRegionId());
-        CityEntity recvCityEntity = cityDao.get(recvRegionEntity.getCityId());
+        CityEntity recvCityEntity = cityDao.get(recvRegionEntity.getCityid());
         ProvinceEntity recvProvinceEntity = provinceDao.get(recvCityEntity.getPid());
 
         //塞数据。。。我日好长、、、
@@ -324,6 +324,8 @@ public class DomainService implements IDomainService {
     //通过用户手机号获得用户信息
     @Override
     public CustomerEntity getCustomerInfoByTel(String tel) {
+        if (tel == null)
+            return null;
         List<CustomerEntity> list = customerDao.getByTel(tel);
         if (list.size()!=0){
             return list.get(0);
@@ -336,11 +338,21 @@ public class DomainService implements IDomainService {
     public String registerByCus(CustomerEntity obj) {
         if (obj.getName()==null || obj.getTelephone()==null || obj.getPassword()==null)
             return "{\"registerstate\":\"null\"}";
-        List<CustomerEntity> list = customerDao.getByTel(obj.getTelephone());
+        List<CustomerEntity> list = null;
+        CustomerEntity customerEntity = new CustomerEntity();
+
+        try {
+            list = customerDao.getByTel(obj.getTelephone());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
         if (list.size() == 0) {
             try {
                 customerDao.save(obj);
-                return "{\"registerstate\":\"true\"}";
+                list = customerDao.getByTel(obj.getTelephone());
+                customerEntity = list.get(0);
+                return "{\"registerstate\":\"true\", \"id\":"+customerEntity.getId()+"}";
             } catch (Exception e) {
                 e.printStackTrace();
                 return "{\"registerstate\":\"false\"}";
@@ -353,6 +365,8 @@ public class DomainService implements IDomainService {
     //更新用户信息
     @Override
     public String updateCustomerInfo(CustomerEntity obj) {
+        if (obj.getName()==null || obj.getPassword()==null || obj.getTelephone()==null)
+            return "{\"updateCustomerInfo\":\"null\"}";
         try {
             customerDao.save(obj);
             return "{\"updateCustomerInfo\":\"true\"}";
@@ -393,6 +407,8 @@ public class DomainService implements IDomainService {
     //修改手机号
     @Override
     public String changeTel(String telold, String telnew) {
+        if (telold == null || telnew == null)
+            return "{\"changetel\":\"null\"}";
         List<CustomerEntity> listold = customerDao.getByTel(telold);
         List<CustomerEntity> listnew = customerDao.getByTel(telnew);
         if (listnew.size()!=0){
@@ -418,6 +434,9 @@ public class DomainService implements IDomainService {
     //修改密码
     @Override
     public String changePwd(String tel, String pwdold, String pwdnew) {
+        if (tel == null || pwdnew == null || pwdold == null)
+            return "{\"changepwd\":\"null\"}";
+
         List<CustomerEntity> list = customerDao.getByTel(tel);
         if (list.size()!=1){
            return "{\"changepwd\":\"deny1\"}";

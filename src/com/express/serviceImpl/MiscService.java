@@ -90,7 +90,7 @@ public class MiscService implements IMiscService {
             CustomerAddressEntity customerAddressEntity = new CustomerAddressEntity();
 
             RegionEntity region = regionDao.get(addressEntity.getRegionId());
-            CityEntity city = cityDao.get(region.getCityId());
+            CityEntity city = cityDao.get(region.getCityid());
             ProvinceEntity province = provinceDao.get(city.getPid());
 
             customerAddressEntity.setAid(i);
@@ -127,7 +127,7 @@ public class MiscService implements IMiscService {
             CustomerAddressEntity customerAddressEntity = new CustomerAddressEntity();
 
             RegionEntity region = regionDao.get(addressEntity.getRegionId());
-            CityEntity city = cityDao.get(region.getCityId());
+            CityEntity city = cityDao.get(region.getCityid());
             ProvinceEntity province = provinceDao.get(city.getPid());
 
             customerAddressEntity.setAid(i);
@@ -158,10 +158,10 @@ public class MiscService implements IMiscService {
             CustomerAddressEntity customerAddressEntity = new CustomerAddressEntity();
 
             RegionEntity region = regionDao.get(addressEntity.getRegionId());
-            CityEntity city = cityDao.get(region.getCityId());
+            CityEntity city = cityDao.get(region.getCityid());
             ProvinceEntity province = provinceDao.get(city.getPid());
 
-            customerAddressEntity.setAid(i);
+            customerAddressEntity.setAid(addressEntity.getId());
             customerAddressEntity.setCustomerid(cid);
             customerAddressEntity.setName(addressEntity.getName());
             customerAddressEntity.setTelephone(addressEntity.getTelephone());
@@ -194,10 +194,10 @@ public class MiscService implements IMiscService {
             CustomerAddressEntity customerAddressEntity = new CustomerAddressEntity();
 
             RegionEntity region = regionDao.get(addressEntity.getRegionId());
-            CityEntity city = cityDao.get(region.getCityId());
+            CityEntity city = cityDao.get(region.getCityid());
             ProvinceEntity province = provinceDao.get(city.getPid());
 
-            customerAddressEntity.setAid(i);
+            customerAddressEntity.setAid(addressEntity.getId());
             customerAddressEntity.setCustomerid(cid);
             customerAddressEntity.setName(addressEntity.getName());
             customerAddressEntity.setTelephone(addressEntity.getTelephone());

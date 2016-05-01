@@ -5,28 +5,28 @@ import javax.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
 
 /**
- * Created by violet on 2016/4/6.
+ * Created by violet on 2016/5/1.
  */
 @Entity
 @Table(name = "region", schema = "", catalog = "express")
 @org.hibernate.annotations.Proxy(lazy = false)
-@XmlRootElement(name = "Region")
+@XmlRootElement(name = "region")
 public class RegionEntity implements Serializable {
     private int id;
     private String area;
-    private Integer cityId;
+    private Integer cityid;
 
     public RegionEntity() {
     }
 
-    public RegionEntity(int id, String area, Integer cityId) {
+    public RegionEntity(int id, String area, Integer cityid) {
         this.id = id;
         this.area = area;
-        this.cityId = cityId;
+        this.cityid = cityid;
     }
 
     @Id
-    @Column(name = "ID", nullable = false, insertable = true, updatable = true)
+    @Column(name = "id", nullable = false, insertable = true, updatable = true)
     public int getId() {
         return id;
     }
@@ -36,7 +36,7 @@ public class RegionEntity implements Serializable {
     }
 
     @Basic
-    @Column(name = "Area", nullable = true, insertable = true, updatable = true, length = 20)
+    @Column(name = "area", nullable = true, insertable = true, updatable = true, length = 20)
     public String getArea() {
         return area;
     }
@@ -46,13 +46,13 @@ public class RegionEntity implements Serializable {
     }
 
     @Basic
-    @Column(name = "CityId", nullable = true, insertable = true, updatable = true)
-    public Integer getCityId() {
-        return cityId;
+    @Column(name = "cityid", nullable = true, insertable = true, updatable = true)
+    public Integer getCityid() {
+        return cityid;
     }
 
-    public void setCityId(Integer cityId) {
-        this.cityId = cityId;
+    public void setCityid(Integer cityid) {
+        this.cityid = cityid;
     }
 
     @Override
@@ -64,7 +64,7 @@ public class RegionEntity implements Serializable {
 
         if (id != that.id) return false;
         if (area != null ? !area.equals(that.area) : that.area != null) return false;
-        if (cityId != null ? !cityId.equals(that.cityId) : that.cityId != null) return false;
+        if (cityid != null ? !cityid.equals(that.cityid) : that.cityid != null) return false;
 
         return true;
     }
@@ -73,7 +73,16 @@ public class RegionEntity implements Serializable {
     public int hashCode() {
         int result = id;
         result = 31 * result + (area != null ? area.hashCode() : 0);
-        result = 31 * result + (cityId != null ? cityId.hashCode() : 0);
+        result = 31 * result + (cityid != null ? cityid.hashCode() : 0);
         return result;
+    }
+
+    @Override
+    public String toString() {
+        return "RegionEntity{" +
+                "id=" + id +
+                ", area='" + area + '\'' +
+                ", cityid=" + cityid +
+                '}';
     }
 }
