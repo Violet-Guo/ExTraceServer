@@ -94,7 +94,7 @@ public class MiscService implements IMiscService {
             CityEntity city = cityDao.get(region.getCityid());
             ProvinceEntity province = provinceDao.get(city.getPid());
 
-            customerAddressEntity.setAid(i);
+            customerAddressEntity.setAid(addressEntity.getId());
             customerAddressEntity.setCustomerid(cid);
             customerAddressEntity.setName(addressEntity.getName());
             customerAddressEntity.setTelephone(addressEntity.getTelephone());
@@ -131,7 +131,7 @@ public class MiscService implements IMiscService {
             CityEntity city = cityDao.get(region.getCityid());
             ProvinceEntity province = provinceDao.get(city.getPid());
 
-            customerAddressEntity.setAid(i);
+            customerAddressEntity.setAid(addressEntity.getId());
             customerAddressEntity.setCustomerid(cid);
             customerAddressEntity.setName(addressEntity.getName());
             customerAddressEntity.setTelephone(addressEntity.getTelephone());
@@ -231,7 +231,7 @@ public class MiscService implements IMiscService {
         AddressEntity addressEntity = new AddressEntity();
 
         try {
-            addressDao.save(obj);
+            addressDao.update(obj);
 
             if (obj.getRank() == 0){
                 list = addressDao.findByCusIdAndRank(obj.getCustomerId(), 0);
@@ -239,7 +239,7 @@ public class MiscService implements IMiscService {
                     addressEntity = list.get(i);
                     if (obj.getId() != addressEntity.getId()){
                         addressEntity.setRank(1);
-                        addressDao.save(addressEntity);
+                        addressDao.update(addressEntity);
                     }
                 }
             }

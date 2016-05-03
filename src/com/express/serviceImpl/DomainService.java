@@ -458,7 +458,7 @@ public class DomainService implements IDomainService {
         if (tel == null)
             return null;
         List<CustomerEntity> list = customerDao.getByTel(tel);
-        if (list.size()!=0){
+        if (list.size() != 0) {
             return list.get(0);
         }
         return null;
@@ -467,7 +467,7 @@ public class DomainService implements IDomainService {
     //注册，并在注册过程中检查手机号是否注册过
     @Override
     public String registerByCus(CustomerEntity obj) {
-        if (obj.getName()==null || obj.getTelephone()==null || obj.getPassword()==null)
+        if (obj.getName() == null || obj.getTelephone() == null || obj.getPassword() == null)
             return "{\"registerstate\":\"null\"}";
         List<CustomerEntity> list = null;
         CustomerEntity customerEntity = new CustomerEntity();
@@ -483,7 +483,7 @@ public class DomainService implements IDomainService {
                 customerDao.save(obj);
                 list = customerDao.getByTel(obj.getTelephone());
                 customerEntity = list.get(0);
-                return "{\"registerstate\":\"true\", \"id\":"+customerEntity.getId()+"}";
+                return "{\"registerstate\":\"true\", \"id\":" + customerEntity.getId() + "}";
             } catch (Exception e) {
                 e.printStackTrace();
                 return "{\"registerstate\":\"false\"}";
@@ -496,7 +496,7 @@ public class DomainService implements IDomainService {
     //更新用户信息
     @Override
     public String updateCustomerInfo(CustomerEntity obj) {
-        if (obj.getName()==null || obj.getPassword()==null || obj.getTelephone()==null)
+        if (obj.getName() == null || obj.getPassword() == null || obj.getTelephone() == null)
             return "{\"updateCustomerInfo\":\"null\"}";
         try {
             customerDao.save(obj);
@@ -517,13 +517,13 @@ public class DomainService implements IDomainService {
     @Override
     public String login(CustomerEntity obj) {
         CustomerEntity customerEntity = new CustomerEntity();
-        if (obj.getTelephone()==null || obj.getPassword()==null)
+        if (obj.getTelephone() == null || obj.getPassword() == null)
             return "{\"loginstate\":\"null\"}";
         List<CustomerEntity> list = customerDao.getByTel(obj.getTelephone());
-        if (list.size() != 0) {
+        if (list.size() == 1) {
             customerEntity = list.get(0);
             if (customerEntity.getPassword().equals(obj.getPassword())) {
-                return "{\"id\":"+customerEntity.getId()+", \"name\":\"" + customerEntity.getName() + "\", \"loginstate\":\"true\"}";
+                return "{\"id\":" + customerEntity.getId() + ", \"name\":\"" + customerEntity.getName() + "\", \"loginstate\":\"true\"}";
             }
         }
         return "{\"loginstate\":\"false\"}";
@@ -542,10 +542,10 @@ public class DomainService implements IDomainService {
             return "{\"changetel\":\"null\"}";
         List<CustomerEntity> listold = customerDao.getByTel(telold);
         List<CustomerEntity> listnew = customerDao.getByTel(telnew);
-        if (listnew.size()!=0){
+        if (listnew.size() != 0) {
             return "{\"changetel\":\"deny1\"}";   //修改的手机号已注册
         }
-        if (listold.size()!=1){
+        if (listold.size() != 1) {
             return "{\"changetel\":\"deny2\"}";   //未找到该用户信息
         }
 
@@ -569,11 +569,11 @@ public class DomainService implements IDomainService {
             return "{\"changepwd\":\"null\"}";
 
         List<CustomerEntity> list = customerDao.getByTel(tel);
-        if (list.size()!=1){
-           return "{\"changepwd\":\"deny1\"}";
+        if (list.size() != 1) {
+            return "{\"changepwd\":\"deny1\"}";
         }
         CustomerEntity customerEntity = list.get(0);
-        if (customerEntity.getPassword().equals(pwdold)){
+        if (customerEntity.getPassword().equals(pwdold)) {
             customerEntity.setPassword(pwdnew);
             try {
                 customerDao.save(customerEntity);
@@ -599,16 +599,30 @@ public class DomainService implements IDomainService {
         return employeesDao.get(id);
     }
 
-    //更新或者是插入一条数据
+    //增加一个新的员工
     @Override
-    public Response saveEmployeeInfo(EmployeesEntity obj) {
+    public String newEmployee(EmployeesEntity obj) {
         try {
             employeesDao.save(obj);
-            return Response.ok(obj).header("EntityClass", "R_EmployeeInfo").build();
+            return "{\"newEmployee\":\"true\"}";
         } catch (Exception e) {
-            return Response.serverError().entity(e.getMessage()).build();
+            e.printStackTrace();
+            return "{\"newEmployee\":\"false\"}";
         }
     }
+
+    //修改员工信息
+    @Override
+    public String changeEmployeeInfo(EmployeesEntity obj) {
+        try {
+            employeesDao.update(obj);
+            return "{\"changeEmployeeInfo\":\"true\"}";
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "{\"changeEmployeeInfo\":\"false\"}";
+        }
+    }
+
 
     //删除员工信息
     @Override
@@ -619,22 +633,83 @@ public class DomainService implements IDomainService {
 
     //员工通过手机号和密码登陆
     @Override
-    public boolean doLoginByEmployee(String tel, String pwd) {
-        List<EmployeesEntity> list = employeesDao.getByTel(tel);
-        EmployeesEntity employeesEntity = new EmployeesEntity();
-        if (list.size() != 0) {
-            employeesEntity = list.get(0);
-            if (employeesEntity.getPassword().equals(pwd)) {
-                return true;
+    public String doLoginByEmployee(EmployeesEntity obj) {
+        if (obj.getTelephone() == null || obj.getPassword() == null) {
+            return "{\"loginstate\":\"null\"}";
+        }
+
+        List<EmployeesEntity> list = employeesDao.getByTel(obj.getTelephone());
+        EmployeesEntity ee = new EmployeesEntity();
+
+        if (list.size() == 1) {
+            ee = list.get(0);
+            if (ee.getPassword().equals(obj.getPassword())){
+                return "{\"loginstate\":\"ture\", " +
+                        "\"id\":\"" + ee.getId() + "\", " +
+                        "\"name\":\"" + ee.getName() + "\", " +
+                        "\"job\":\"" + ee.getJob() +"\", " +
+                        "\"jobText\":\"" + ee.getJobText() + "\", " +
+                        "\"status\":\"" + ee.getStatus() + "\"" +
+                        "\"outletsId\":\"" + ee.getOutletsId() + "\"}";
             }
         }
-        return false;
+        return "{\"loginstate\":\"false\"}";
     }
 
     //员工注销登陆
     @Override
     public void doLogOutByEmployee(int id) {
 
+    }
+
+    //员工修改手机号
+    @Override
+    public String changeTelByEmp(String telold, String telnew) {
+        if (telold == null || telnew == null)
+            return "{\"changetel\":\"null\"}";
+        List<EmployeesEntity> listold = employeesDao.getByTel(telold);
+        List<EmployeesEntity> listnew = employeesDao.getByTel(telnew);
+        if (listnew.size() != 0) {
+            return "{\"changetel\":\"deny1\"}";   //修改的手机号已注册
+        }
+        if (listold.size() != 1) {
+            return "{\"changetel\":\"deny2\"}";   //未找到该用户信息
+        }
+
+        EmployeesEntity employeesEntity = listold.get(0);
+        employeesEntity.setTelephone(telnew);
+
+        try {
+            employeesDao.update(employeesEntity);
+            return "{\"changetel\":\"true\"}";
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "{\"changetel\":\"false\"}";
+        }
+    }
+
+    //员工修改密码
+    @Override
+    public String changePwdByEmp(String tel, String pwdold, String pwdnew) {
+        if (tel == null || pwdnew == null || pwdold == null)
+            return "{\"changepwd\":\"null\"}";
+
+        List<EmployeesEntity> list = employeesDao.getByTel(tel);
+        if (list.size() != 1) {
+            return "{\"changepwd\":\"deny1\"}";
+        }
+        EmployeesEntity employeesEntity = list.get(0);
+        if (employeesEntity.getPassword().equals(pwdold)) {
+            employeesEntity.setPassword(pwdnew);
+            try {
+                employeesDao.update(employeesEntity);
+                return "{\"changepwd\":\"true\"}";
+            } catch (Exception e) {
+                e.printStackTrace();
+                return "{\"changepwd\":\"deny2\"}";
+            }
+        }
+        return "{\"changepwd\":\"false\"}";
     }
 
     @Override
@@ -651,7 +726,6 @@ public class DomainService implements IDomainService {
     public ExpressEntity getPackageById(String pid) {
         return expressDao.get(pid);
     }
-
 
 
     /////////////////////////////快递员的接口////////////////////////////

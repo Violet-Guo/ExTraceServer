@@ -17,9 +17,14 @@ public class AddressDao extends BaseDao<AddressEntity, Integer> {
 
     //////////////////status=1代表是自己的地址，status=2代表是收件人的地址////////////
 
-    //更新或者插入一条新的数据
+    //插入一条新的数据
     public void save(AddressEntity addressEntity) {
         super.save(addressEntity);
+    }
+
+    //更新一条新的数据
+    public void update(AddressEntity addressEntity){
+        super.update(addressEntity);
     }
 
     /**

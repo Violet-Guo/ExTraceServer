@@ -31,4 +31,8 @@ public class EmployeesDao extends BaseDao<EmployeesEntity, Integer> {
         return findBy("id", true, Restrictions.eq("telephone", tel));
     }
 
+    //更新员工信息
+    public void update(EmployeesEntity employeesEntity){
+        super.update(employeesEntity);
+    }
 }

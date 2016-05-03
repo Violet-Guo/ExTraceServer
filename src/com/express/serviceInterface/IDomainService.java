@@ -313,15 +313,24 @@ public interface IDomainService {
     public EmployeesEntity getEmployeeInfoById(@PathParam("id") int id);
 
     /**
-     * 保存工作人员信息
-     *
-     * @param obj json格式的工作人员信息实体
-     * @return 返回Resopnse
+     * 增加一个新的员工
+     * @param obj  员工实体
+     * @return 拼装的json返回数据
      */
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
-    @Path("/saveEmployeeInfo")
-    public Response saveEmployeeInfo(EmployeesEntity obj);
+    @Path("/newEmployee")
+    public String newEmployee(EmployeesEntity obj);
+
+    /**
+     * 修改员工信息
+     * @param obj 员工实体信息
+     * @return 拼装的json返回数据
+     */
+    @POST
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Path("/changeEmployeeInfo")
+    public String changeEmployeeInfo(EmployeesEntity obj);
 
 
     /**
@@ -338,14 +347,12 @@ public interface IDomainService {
     /**
      * 员工通过手机号和密码登陆
      *
-     * @param tel 11位的手机号
-     * @param pwd 密码
      * @return 手机号和密码验证成功返回true，验证不成功返回false
      */
-    @GET
-    @Produces({MediaType.APPLICATION_JSON + ";charset=UTF-8"})
-    @Path("/doLoginByEmployee/{tel}/{pwd}")
-    public boolean doLoginByEmployee(@PathParam("tel") String tel, @PathParam("pwd") String pwd);
+    @POST
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Path("/loginByEmployee")
+    public String doLoginByEmployee(EmployeesEntity obj);
 
     /**
      * 注销登陆
@@ -356,6 +363,27 @@ public interface IDomainService {
     @Produces({MediaType.APPLICATION_JSON + ";charset=UTF-8"})
     @Path("/doLogOutByEmployee/{id}")
     public void doLogOutByEmployee(@PathParam("id") int id);
+
+    /**
+     * 修改手机号
+     * @param telold 手机号
+     * @return 模仿json数据
+     */
+    @GET
+    @Produces({MediaType.APPLICATION_JSON + ";charset=UTF-8"})
+    @Path("/changeTelByEmp/old/{telold}/new/{telnew}")
+    public String changeTelByEmp(@PathParam("telold") String telold, @PathParam("telnew") String telnew);
+
+    /**
+     * 修改密码
+     * @param pwdold 密码
+     * @return 模仿json数据
+     */
+    @GET
+    @Produces({MediaType.APPLICATION_JSON + ";charset=UTF-8"})
+    @Path("/changePwdByEmp/tel/{tel}/{pwdold}/{pwdnew}")
+    public String changePwdByEmp(@PathParam("tel") String tel, @PathParam("pwdold") String pwdold, @PathParam("pwdnew") String pwdnew);
+
 
     /**
      * 保存包裹信息

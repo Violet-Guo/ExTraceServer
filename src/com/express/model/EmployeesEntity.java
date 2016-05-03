@@ -5,12 +5,12 @@ import javax.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
 
 /**
- * Created by violet on 2016/4/6.
+ * Created by violet on 2016/5/3.
  */
 @Entity
 @Table(name = "employees", schema = "", catalog = "express")
 @org.hibernate.annotations.Proxy(lazy = false)
-@XmlRootElement(name = "Employees")
+@XmlRootElement(name = "employees")
 public class EmployeesEntity implements Serializable {
     private int id;
     private String name;
@@ -20,11 +20,13 @@ public class EmployeesEntity implements Serializable {
     private String jobText;
     private Integer status;
     private int outletsId;
+    private String sendPackageId;
+    private String recvPackageId;
 
     public EmployeesEntity() {
     }
 
-    public EmployeesEntity(int id, String name, String password, String telephone, Integer job, String jobText, Integer status, int outletsId) {
+    public EmployeesEntity(int id, String name, String password, String telephone, Integer job, String jobText, Integer status, int outletsId, String sendPackageId, String recvPackageId) {
         this.id = id;
         this.name = name;
         this.password = password;
@@ -33,6 +35,8 @@ public class EmployeesEntity implements Serializable {
         this.jobText = jobText;
         this.status = status;
         this.outletsId = outletsId;
+        this.sendPackageId = sendPackageId;
+        this.recvPackageId = recvPackageId;
     }
 
     @Id
@@ -115,6 +119,26 @@ public class EmployeesEntity implements Serializable {
         this.outletsId = outletsId;
     }
 
+    @Basic
+    @Column(name = "SendPackageID", nullable = true, insertable = true, updatable = true, length = 24)
+    public String getSendPackageId() {
+        return sendPackageId;
+    }
+
+    public void setSendPackageId(String sendPackageId) {
+        this.sendPackageId = sendPackageId;
+    }
+
+    @Basic
+    @Column(name = "RecvPackageID", nullable = true, insertable = true, updatable = true, length = 24)
+    public String getRecvPackageId() {
+        return recvPackageId;
+    }
+
+    public void setRecvPackageId(String recvPackageId) {
+        this.recvPackageId = recvPackageId;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -130,6 +154,10 @@ public class EmployeesEntity implements Serializable {
         if (job != null ? !job.equals(that.job) : that.job != null) return false;
         if (jobText != null ? !jobText.equals(that.jobText) : that.jobText != null) return false;
         if (status != null ? !status.equals(that.status) : that.status != null) return false;
+        if (sendPackageId != null ? !sendPackageId.equals(that.sendPackageId) : that.sendPackageId != null)
+            return false;
+        if (recvPackageId != null ? !recvPackageId.equals(that.recvPackageId) : that.recvPackageId != null)
+            return false;
 
         return true;
     }
@@ -144,6 +172,24 @@ public class EmployeesEntity implements Serializable {
         result = 31 * result + (jobText != null ? jobText.hashCode() : 0);
         result = 31 * result + (status != null ? status.hashCode() : 0);
         result = 31 * result + outletsId;
+        result = 31 * result + (sendPackageId != null ? sendPackageId.hashCode() : 0);
+        result = 31 * result + (recvPackageId != null ? recvPackageId.hashCode() : 0);
         return result;
+    }
+
+    @Override
+    public String toString() {
+        return "EmployeesEntity{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", password='" + password + '\'' +
+                ", telephone='" + telephone + '\'' +
+                ", job=" + job +
+                ", jobText='" + jobText + '\'' +
+                ", status=" + status +
+                ", outletsId=" + outletsId +
+                ", sendPackageId='" + sendPackageId + '\'' +
+                ", recvPackageId='" + recvPackageId + '\'' +
+                '}';
     }
 }
