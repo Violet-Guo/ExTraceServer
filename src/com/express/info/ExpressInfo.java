@@ -1,10 +1,13 @@
 package com.express.info;
 
+import javax.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
 
 /**
  * Created by 黎明 on 2016/4/20.
  */
+@org.hibernate.annotations.Proxy(lazy = false)
+@XmlRootElement(name = "ExpressInfo")
 public class ExpressInfo implements Serializable {
     public String ID;//快递单号
     public String sname;//发件人姓名

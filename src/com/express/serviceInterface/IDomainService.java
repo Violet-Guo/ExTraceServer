@@ -1,6 +1,7 @@
 package com.express.serviceInterface;
 
 import com.express.info.ExpressInfo;
+import com.express.info.ExpresslogisticsInfo;
 import com.express.info.PackageInfo;
 import com.express.model.*;
 
@@ -17,6 +18,17 @@ import java.util.List;
 public interface IDomainService {
 
     /////////////////////////////公共的接口（用户和工作人员都要用的）////////////////////////////
+
+    /**
+     * 通过快递单号获得快递的物流信息
+     * @param expressId 快递的单号
+     * @return
+     */
+    @GET
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces({MediaType.APPLICATION_JSON + ";charset=UTF-8"})
+    @Path("/getExpresslogisticsInfosByExpressId/{expressId}")
+    public List<ExpresslogisticsInfo> getExpresslogisticsInfosByExpressId(@PathParam("expressId") String expressId);
 
     /**
      *  向包裹中存入包裹
@@ -54,7 +66,8 @@ public interface IDomainService {
 
 
     /**
-     *  通过发送地址和收货地址id获取快递id 寄件
+     * 通过发送地址和收货地址id获取快递id 寄件
+     * @param customerId     用户id
      * @param sendAddressId 发送地址id
      * @param recAddressId  收货地址id
      * @return                  快递id
@@ -70,13 +83,14 @@ public interface IDomainService {
      * @param fromID 出发站点id
      * @param toID   到达站点id
      * @param employeesID 员工id
+     * @Param isSorter 是否是分拣员
      * @return
      */
     @GET
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces({MediaType.APPLICATION_JSON + ";charset=UTF-8"})
-    @Path("/createPackage/fromId/{fromID}/toID/{toID}/employeesID/{employeesID}")
-    public PackageInfo CreateAPackage(@PathParam("fromID") Integer fromID, @PathParam("toID") Integer toID, @PathParam("employeesID") Integer employeesID);
+    @Path("/createPackage/fromId/{fromID}/toID/{toID}/employeesID/{employeesID}/isSorter/{isSorter}")
+    public PackageInfo CreateAPackage(@PathParam("fromID") Integer fromID, @PathParam("toID") Integer toID, @PathParam("employeesID") Integer employeesID, @PathParam("isSorter") Integer isSorter);
 
     /**
      * 快递装入包裹的操作
@@ -129,15 +143,37 @@ public interface IDomainService {
     public List<ExpressInfo> getExpressInfoByTel(@PathParam("tel") String tel);
 
     /**
-     *  按照用户的id查询快递信息
+     * 按照用户的id查询用户寄出快递信息
      * @param CustomerId
      * @return
      */
     @GET
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces({MediaType.APPLICATION_JSON + ";charset=UTF-8"})
-    @Path("/getExpressInfoByCustomerId/{CustomerId}")
-    public List<ExpressInfo> getExpressInfoByCustomerId(@PathParam("CustomerId") Integer CustomerId);
+    @Path("/getSendExpressInfoByCustomerId/{CustomerId}")
+    public List<ExpressInfo> getSendExpressInfoByCustomerId(@PathParam("CustomerId") Integer CustomerId);
+
+    /**
+     *  按照用户的id查询用户接收快递信息（未收）
+     * @param CustomerId
+     * @return
+     */
+    @GET
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces({MediaType.APPLICATION_JSON + ";charset=UTF-8"})
+    @Path("/getDncRercvExpressInfoByCustomerId/{CustomerId}")
+    public List<ExpressInfo> getDncRercvExpressInfoByCustomerId(@PathParam("CustomerId") Integer CustomerId);
+
+    /**
+     *  按照用户的id查询用户接收快递信息(已收)
+     * @param CustomerId
+     * @return
+     */
+    @GET
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces({MediaType.APPLICATION_JSON + ";charset=UTF-8"})
+    @Path("/getAccRercvExpressInfoByCustomerId/{CustomerId}")
+    public List<ExpressInfo> getAccRercvExpressInfoByCustomerId(@PathParam("CustomerId") Integer CustomerId);
 
     /**
      * 通过包裹id查找包裹
@@ -175,7 +211,7 @@ public interface IDomainService {
     public Response saveExpress(ExpressEntity obj);
 
     /**
-     *查询工作量
+     * 查询工作量
      * @param employeeId 员工id
      * @param starttime 开始时间
      * @param days 查询总天数
