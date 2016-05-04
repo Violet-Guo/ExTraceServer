@@ -1,34 +1,29 @@
 package com.express.model;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Id;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
-import java.util.Date;
 
 /**
  * Created by violet on 2016/5/5.
  */
-@Entity
-@Table(name = "expressandpackage", schema = "", catalog = "express")
 @org.hibernate.annotations.Proxy(lazy = false)
-@XmlRootElement(name = "expressandpackage")
-@IdClass(ExpressandpackageEntityPK.class)
-public class ExpressandpackageEntity implements Serializable {
+@XmlRootElement(name = "ExpressandpackageEntityPK")
+public class ExpressandpackageEntityPK implements Serializable {
     private String expressId;
     private String packageId;
-    private Date time;
 
-    public ExpressandpackageEntity() {
+    public ExpressandpackageEntityPK() {
     }
 
-    public ExpressandpackageEntity(String expressId, String packageId, Date time) {
+    public ExpressandpackageEntityPK(String expressId, String packageId) {
         this.expressId = expressId;
         this.packageId = packageId;
-        this.time = time;
     }
 
-    @Id
     @Column(name = "ExpressID", nullable = false, insertable = true, updatable = true, length = 24)
+    @Id
     public String getExpressId() {
         return expressId;
     }
@@ -37,8 +32,8 @@ public class ExpressandpackageEntity implements Serializable {
         this.expressId = expressId;
     }
 
-    @Id
     @Column(name = "PackageID", nullable = false, insertable = true, updatable = true, length = 24)
+    @Id
     public String getPackageId() {
         return packageId;
     }
@@ -47,26 +42,15 @@ public class ExpressandpackageEntity implements Serializable {
         this.packageId = packageId;
     }
 
-    @Basic
-    @Column(name = "Time", nullable = true, insertable = true, updatable = true)
-    public Date getTime() {
-        return time;
-    }
-
-    public void setTime(Date time) {
-        this.time = time;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        ExpressandpackageEntity that = (ExpressandpackageEntity) o;
+        ExpressandpackageEntityPK that = (ExpressandpackageEntityPK) o;
 
         if (expressId != null ? !expressId.equals(that.expressId) : that.expressId != null) return false;
         if (packageId != null ? !packageId.equals(that.packageId) : that.packageId != null) return false;
-        if (time != null ? !time.equals(that.time) : that.time != null) return false;
 
         return true;
     }
@@ -75,7 +59,6 @@ public class ExpressandpackageEntity implements Serializable {
     public int hashCode() {
         int result = expressId != null ? expressId.hashCode() : 0;
         result = 31 * result + (packageId != null ? packageId.hashCode() : 0);
-        result = 31 * result + (time != null ? time.hashCode() : 0);
         return result;
     }
 }

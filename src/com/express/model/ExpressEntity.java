@@ -3,7 +3,7 @@ package com.express.model;
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
-import java.sql.Timestamp;
+import java.util.Date;
 
 /**
  * Created by violet on 2016/4/11.
@@ -19,8 +19,8 @@ public class ExpressEntity implements Serializable {
     private Float weight;
     private int sendAddressId;
     private int accAddressId;
-    private Timestamp getTime;
-    private Timestamp outTime;
+    private Date getTime;
+    private Date outTime;
     private Float tranFee;
     private Float insuFee;
     private String acc1;
@@ -29,7 +29,7 @@ public class ExpressEntity implements Serializable {
     public ExpressEntity() {
     }
 
-    public ExpressEntity(String id, int customerId, Integer isPackage, Float weight, int sendAddressId, int accAddressId, Timestamp getTime, Timestamp outTime, Float tranFee, Float insuFee, String acc1, String acc2) {
+    public ExpressEntity(String id, int customerId, Integer isPackage, Float weight, int sendAddressId, int accAddressId, Date getTime, Date outTime, Float tranFee, Float insuFee, String acc1, String acc2) {
         this.id = id;
         this.customerId = customerId;
         this.isPackage = isPackage;
@@ -106,21 +106,21 @@ public class ExpressEntity implements Serializable {
 
     @Basic
     @Column(name = "GetTime", nullable = true, insertable = true, updatable = true)
-    public Timestamp getGetTime() {
+    public Date getGetTime() {
         return getTime;
     }
 
-    public void setGetTime(Timestamp getTime) {
+    public void setGetTime(Date getTime) {
         this.getTime = getTime;
     }
 
     @Basic
     @Column(name = "OutTime", nullable = true, insertable = true, updatable = true)
-    public Timestamp getOutTime() {
+    public Date getOutTime() {
         return outTime;
     }
 
-    public void setOutTime(Timestamp outTime) {
+    public void setOutTime(Date outTime) {
         this.outTime = outTime;
     }
 
