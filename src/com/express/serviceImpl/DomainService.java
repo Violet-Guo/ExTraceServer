@@ -21,6 +21,7 @@ import java.util.List;
  */
 public class DomainService implements IDomainService {
 
+    private WordDao wordDao;
     private OutletsDao outletsDao;
     private PackageHistoryDao packageHistoryDao;
     private RegionDao regionDao;
@@ -33,6 +34,14 @@ public class DomainService implements IDomainService {
     private EmployeesDao employeesDao;
     private AddressDao addressDao;
     private CustomerDao customerDao;
+
+    public WordDao getWordDao() {
+        return wordDao;
+    }
+
+    public void setWordDao(WordDao wordDao) {
+        this.wordDao = wordDao;
+    }
 
     public OutletsDao getOutletsDao() {
         return outletsDao;
@@ -133,62 +142,87 @@ public class DomainService implements IDomainService {
     /////////////////////////////公共的接口（用户和工作人员都要用的）////////////////////////////
 
     @Override
+    public String updateExpressFree(ExpressEntity expressEntity) {
+        try {
+            //获取快递实体对象
+            ExpressEntity entity = expressDao.get(expressEntity.getId());
+            entity.setWeight(expressEntity.getWeight());
+            entity.setTranFee(expressEntity.getTranFee());
+            entity.setInsuFee(expressEntity.getInsuFee());
+            expressDao.update(entity);
+            return "{\"state\":\"" + 0 + "\"}";
+        } catch (Exception e) {
+            return "{\"state\":\"" + 1 + "\"}";
+        }
+    }
+
+    @Override
     public List<ExpresslogisticsInfo> getExpresslogisticsInfosByExpressId(String expressId) {
+        List<WordEntity> allWord = wordDao.getAll();
         List<ExpresslogisticsInfo> lists = new ArrayList<>();
 
-        //
+        //获得快递实体
         ExpressEntity expressEntity = expressDao.get(expressId);
         //如果不是包裹
         if (expressEntity.getIsPackage() == 0) {
             ExpresslogisticsInfo expresslogisticsInfo = new ExpresslogisticsInfo();
-            expresslogisticsInfo.setState("未揽收");
-            expresslogisticsInfo.setInfo("暂时没有物流信息。。。");
+            expresslogisticsInfo.setState(1);
+            expresslogisticsInfo.setInfo(wordDao.get(2).getValue());
             lists.add(expresslogisticsInfo);
         } else if (expressEntity.getIsPackage() == 1) {
             //获取包裹路程中的物流信息
-            List<ExpressandpackageEntity> by = expressAndPackageDao.findBy("time", true, Restrictions.eq("expressId", expressId));
+            List<ExpressandpackageEntity> by = expressAndPackageDao.findBy("expressId", true, Restrictions.eq("expressId", expressId));
             //获取揽收状态
-            PackageEntity firstPackageEntity = packageDao.get(by.get(by.size()).getPackageId());
-            CustomerEntity firstCustomerEntity = customerDao.get(firstPackageEntity.getEmployeesId());
+            PackageEntity firstPackageEntity = packageDao.get(by.get(0).getPackageId());
+            EmployeesEntity firstEmployeesEntity = employeesDao.get(firstPackageEntity.getEmployeesId());
             //设置揽收信息
             ExpresslogisticsInfo expresslogisticsInfo = new ExpresslogisticsInfo();
-            expresslogisticsInfo.setState("已揽收");
-            expresslogisticsInfo.setInfo("快件已被快件员 " + firstCustomerEntity.getName() + " 揽收");
-            expresslogisticsInfo.setTime(expressEntity.getGetTime());
+            expresslogisticsInfo.setState(2);
+            expresslogisticsInfo.setInfo(wordDao.get(4).getValue() + firstEmployeesEntity.getName() + wordDao.get(5).getValue());
+            expresslogisticsInfo.setTime(Utils.dateToString(expressEntity.getGetTime()));
             lists.add(expresslogisticsInfo);
 
             //获取包裹的信息。判断是否已经结束了。
             ExpresslogisticsInfo lastExpressInfo = null;
-            PackageEntity lastPackageEntity = packageDao.get(by.get(by.size()).getPackageId());
-            EmployeesEntity employeesEntity = employeesDao.get(lastPackageEntity.getEmployeesId());
-            CustomerEntity lastCustomerEntity = customerDao.get(lastPackageEntity.getEmployeesId());
             int last = by.size();
-            if (employeesEntity.getSendPackageId() == lastPackageEntity.getId()) {
-                //相等说明是派送的
-                lastExpressInfo = new ExpresslogisticsInfo();
-                lastExpressInfo.setTime(by.get(last).getTime());
-                lastExpressInfo.setState("派送");
-                lastExpressInfo.setInfo(lastCustomerEntity.getName() + " 正在为您派送。。。");
-                //减去最后一个包裹信息
-                --last;
+            if (last > 1) {
+                PackageEntity lastPackageEntity = packageDao.get(by.get(last - 1).getPackageId());
+                EmployeesEntity lastEmployeesEntity = employeesDao.get(lastPackageEntity.getEmployeesId());
+//                CustomerEntity lastCustomerEntity = customerDao.get(lastPackageEntity.getEmployeesId());
+                if (lastEmployeesEntity.getSendPackageId().equals(lastPackageEntity.getId())) {
+                    //相等说明是派送的
+                    lastExpressInfo = new ExpresslogisticsInfo();
+                    lastExpressInfo.setTime(Utils.dateToString(by.get(last - 1).getTime()));
+                    lastExpressInfo.setState(3);
+                    lastExpressInfo.setInfo(lastEmployeesEntity.getName() + wordDao.get(7).getValue());
+                    //减去最后一个包裹信息
+                    --last;
+                }
+                for (int i = 1; i < last; ++i) {
+                    //要判断最后的包裹是不是发送的包裹
+                    ExpresslogisticsInfo express = new ExpresslogisticsInfo();
+
+                    List<PackagehistoryEntity> hisBy = packageHistoryDao.findBy("time", true, Restrictions.eq("packageId", by.get(i).getPackageId()));
+                    List<OutletsEntity> fromOutLetBy = outletsDao.findBy("id", true, Restrictions.eq("id", hisBy.get(0).getFromOutletsId()));
+                    List<OutletsEntity> toOutLetBy = outletsDao.findBy("id", true, Restrictions.eq("id", hisBy.get(0).getToOutletsId()));
+                    //添加包裹信息
+                    express.setTime(Utils.dateToString(by.get(i).getTime()));
+                    express.setState(4);
+                    express.setInfo(wordDao.get(9).getValue() + fromOutLetBy.get(0).getName() + wordDao.get(10).getValue() + toOutLetBy.get(0).getName());
+
+                    lists.add(express);
+                }
             }
-            for (int i = 1; i < last; ++i) {
-                //要判断最后的包裹是不是发送的包裹
-                ExpresslogisticsInfo express = new ExpresslogisticsInfo();
-
-                List<PackagehistoryEntity> hisBy = packageHistoryDao.findBy("time", true, Restrictions.eq("packageId", by.get(i).getPackageId()));
-                List<OutletsEntity> fromOutLetBy = outletsDao.findBy("id", true, Restrictions.eq("id", hisBy.get(0).getFromOutletsId()));
-                List<OutletsEntity> toOutLetBy = outletsDao.findBy("id", true, Restrictions.eq("id", hisBy.get(0).getToOutletsId()));
-                //添加包裹信息
-                express.setTime(by.get(i).getTime());
-                express.setState("寄送中");
-                express.setInfo("快递正从 " + fromOutLetBy.get(0).getName() + " 发往 " + toOutLetBy.get(0).getName());
-
-                lists.add(express);
-            }
-
-            if(lastExpressInfo != null)
+            if (lastExpressInfo != null)
                 lists.add(lastExpressInfo);
+            //判断快递是否已经被签收
+            if (expressEntity.getOutTime() != null) {
+                ExpresslogisticsInfo recvExpress = new ExpresslogisticsInfo();
+                recvExpress.setTime(Utils.dateToString(expressEntity.getOutTime()));
+                recvExpress.setState(5);
+                recvExpress.setInfo(wordDao.get(12).getValue());
+                lists.add(recvExpress);
+            }
         }
 
         return lists;
@@ -285,7 +319,6 @@ public class DomainService implements IDomainService {
     public PackageInfo CreateAPackage(Integer fromID, Integer toID, Integer employeesID, Integer isSorter) {
         PackageEntity packageEntity = new PackageEntity();
         PackageInfo packageInfo = new PackageInfo();
-        PackagehistoryEntity packagehistoryEntity = new PackagehistoryEntity();
 
         //获取id 校验是否存在
         String packageId = Utils.getUUid();
@@ -304,6 +337,7 @@ public class DomainService implements IDomainService {
         packageEntity.setTime(new Date());
         packageEntity.setId(packageId);
         packageEntity.setEmployeesId(employeesID);
+        packageEntity.setIsHistory(0);
         packageDao.save(packageEntity);
 
         packageInfo.setId(packageId);
@@ -319,12 +353,43 @@ public class DomainService implements IDomainService {
             packageInfo.setPackageFrom(fromOutletsEntity.getName());
             packageInfo.setPackageTo(toOutletsEntity.getName());
 
+            PackagehistoryEntity packagehistoryEntity = new PackagehistoryEntity();
             packagehistoryEntity.setPackageId(packageId);
             packagehistoryEntity.setFromOutletsId(fromID);
             packagehistoryEntity.setToOutletsId(toID);
             packagehistoryEntity.setTime(new Date());
 
             packageHistoryDao.save(packagehistoryEntity);
+        } else if (isSorter == 0) {
+            //快递员
+            if (fromID == 1) {
+                //派送包
+                PackagehistoryEntity packagehistoryEntity = new PackagehistoryEntity();
+                packagehistoryEntity.setPackageId(packageId);
+                packagehistoryEntity.setFromOutletsId(-1);//表示是派送包
+                packagehistoryEntity.setTime(new Date());
+
+                packageHistoryDao.save(packagehistoryEntity);
+
+                if (employeesEntity.getSendPackageId() == null) {
+                    employeesEntity.setSendPackageId(packageId);
+                } else {
+                    //如果以前有包则将以前的包设为历史
+                    PackageEntity prePackage = packageDao.get(employeesEntity.getSendPackageId());
+                    prePackage.setIsHistory(1);
+                    packageDao.update(prePackage);
+                }
+            } else if (fromID == 0) {
+                //揽收包
+                if (employeesEntity.getSendPackageId() == null) {
+                    employeesEntity.setRecvPackageId(packageId);
+                } else {
+                    //如果以前有包则将以前的包设为历史
+                    PackageEntity prePackage = packageDao.get(employeesEntity.getRecvPackageId());
+                    prePackage.setIsHistory(1);
+                    packageDao.save(prePackage);
+                }
+            }
         }
 
         return packageInfo;
@@ -532,6 +597,7 @@ public class DomainService implements IDomainService {
     }
 
     //递归方法
+
     public void findAllWork(List<ExpressEntity> lists, String PackageId) {
         //获得包裹中的快递和包裹
         List<ExpressEntity> expressEntities = searchExpressInPackageById(PackageId);
@@ -746,11 +812,11 @@ public class DomainService implements IDomainService {
 
         if (list.size() == 1) {
             ee = list.get(0);
-            if (ee.getPassword().equals(obj.getPassword())){
+            if (ee.getPassword().equals(obj.getPassword())) {
                 return "{\"loginstate\":\"ture\", " +
                         "\"id\":\"" + ee.getId() + "\", " +
                         "\"name\":\"" + ee.getName() + "\", " +
-                        "\"job\":\"" + ee.getJob() +"\", " +
+                        "\"job\":\"" + ee.getJob() + "\", " +
                         "\"jobText\":\"" + ee.getJobText() + "\", " +
                         "\"status\":\"" + ee.getStatus() + "\"" +
                         "\"outletsId\":\"" + ee.getOutletsId() + "\"}";

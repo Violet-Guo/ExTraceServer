@@ -153,7 +153,7 @@ public class MiscService implements IMiscService {
         List<CustomerAddressEntity> list = new ArrayList<>();
         List<AddressEntity> addressEntityList = addressDao.getSendAddress(cid);
 
-        for (int i = 0; i < addressEntityList.size(); i++){
+        for (int i = 0; i < addressEntityList.size(); i++) {
 
             AddressEntity addressEntity = addressEntityList.get(i);
             CustomerAddressEntity customerAddressEntity = new CustomerAddressEntity();
@@ -233,11 +233,11 @@ public class MiscService implements IMiscService {
         try {
             addressDao.update(obj);
 
-            if (obj.getRank() == 0){
+            if (obj.getRank() == 0) {
                 list = addressDao.findByCusIdAndRank(obj.getCustomerId(), 0);
-                for (int i = 0; i < list.size(); i++){
+                for (int i = 0; i < list.size(); i++) {
                     addressEntity = list.get(i);
-                    if (obj.getId() != addressEntity.getId()){
+                    if (obj.getId() != addressEntity.getId()) {
                         addressEntity.setRank(1);
                         addressDao.update(addressEntity);
                     }

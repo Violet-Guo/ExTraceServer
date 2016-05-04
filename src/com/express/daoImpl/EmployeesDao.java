@@ -27,12 +27,12 @@ public class EmployeesDao extends BaseDao<EmployeesEntity, Integer> {
     }
 
     //根据员工的手机号找到员工信息
-    public List<EmployeesEntity> getByTel(String tel){
+    public List<EmployeesEntity> getByTel(String tel) {
         return findBy("id", true, Restrictions.eq("telephone", tel));
     }
 
     //更新员工信息
-    public void update(EmployeesEntity employeesEntity){
+    public void update(EmployeesEntity employeesEntity) {
         super.update(employeesEntity);
     }
 }

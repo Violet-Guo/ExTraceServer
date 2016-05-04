@@ -6,53 +6,59 @@ import java.util.Date;
 
 /**
  * Created by Nvpiao on 2016/5/3 0003.
+ * <p>
+ * 1 未揽收
+ * 2 揽收
+ * 3 派送
+ * 4 寄送
+ * 5 签收
  */
 @org.hibernate.annotations.Proxy(lazy = false)
 @XmlRootElement(name = "newExpresslogisticsInfo")
 public class ExpresslogisticsInfo implements Serializable {
-    private Date time;
-    private String Info;
-    private String State;
+    private String time;
+    private String info;
+    private Integer state;
 
     public ExpresslogisticsInfo() {
     }
 
-    public ExpresslogisticsInfo(Date time, String info, String state) {
+    public ExpresslogisticsInfo(String time, String info, Integer state) {
         this.time = time;
-        Info = info;
-        State = state;
+        this.info = info;
+        this.state = state;
     }
 
-    public Date getTime() {
+    public String getTime() {
         return time;
     }
 
-    public void setTime(Date time) {
+    public void setTime(String time) {
         this.time = time;
     }
 
     public String getInfo() {
-        return Info;
+        return info;
     }
 
     public void setInfo(String info) {
-        Info = info;
+        this.info = info;
     }
 
-    public String getState() {
-        return State;
+    public Integer getState() {
+        return state;
     }
 
-    public void setState(String state) {
-        State = state;
+    public void setState(Integer state) {
+        this.state = state;
     }
 
     @Override
     public String toString() {
         return "ExpresslogisticsInfo{" +
-                "time=" + time +
-                ", Info='" + Info + '\'' +
-                ", State='" + State + '\'' +
+                "time='" + time + '\'' +
+                ", info='" + info + '\'' +
+                ", state=" + state +
                 '}';
     }
 }

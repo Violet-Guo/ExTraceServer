@@ -23,37 +23,40 @@ public class AddressDao extends BaseDao<AddressEntity, Integer> {
     }
 
     //更新一条新的数据
-    public void update(AddressEntity addressEntity){
+    public void update(AddressEntity addressEntity) {
         super.update(addressEntity);
     }
 
     /**
      * 获得一个用户的所有收件人地址
+     *
      * @param cid 用户的id
      * @return Address实体
      */
-    public List<AddressEntity> getAccAddress(int cid){
-        List<AddressEntity> list = findBy("id", true, Restrictions.eq("customerId", cid), Restrictions.eq("status",2));
+    public List<AddressEntity> getAccAddress(int cid) {
+        List<AddressEntity> list = findBy("id", true, Restrictions.eq("customerId", cid), Restrictions.eq("status", 2));
         return list;
     }
 
     /**
      * 获得一个用户的所有发件人地址
+     *
      * @param cid 用户的id
      * @return Address实体
      */
-    public List<AddressEntity> getSendAddress(int cid){
+    public List<AddressEntity> getSendAddress(int cid) {
         List<AddressEntity> list = findBy("id", true, Restrictions.eq("customerId", cid), Restrictions.eq("status", 1));
         return list;
     }
 
     /**
      * 根据用户的id和地址状态查找地址信息
+     *
      * @param cusid
      * @param rank
      * @return
      */
-    public List<AddressEntity> findByCusIdAndRank(int cusid, int rank){
+    public List<AddressEntity> findByCusIdAndRank(int cusid, int rank) {
         List<AddressEntity> list = findBy("id", true, Restrictions.eq("customerId", cusid), Restrictions.eq("rank", rank));
         return list;
     }

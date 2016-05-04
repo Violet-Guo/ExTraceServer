@@ -27,6 +27,8 @@
                 </prop>
                 <prop key="hibernate.show_sql">true</prop>
                 <prop key="hibernate.format_sql">true</prop>
+                <prop key="hibernate.connection.url">jdbc:mysql://localhost:3306/express</prop>
+                <prop key="hibernate.connection.driver_class">com.mysql.jdbc.Driver</prop>
                 <!--prop key="hibernate.current_session_context_class">org.springframework.orm.hibernate4.SpringSessionContext</prop -->
             </props>
         </property>
@@ -87,6 +89,9 @@
     <bean id="PackageHistoryDao" class="com.express.daoImpl.PackageHistoryDao">
         <property name="sessionFactory" ref="sessionFactory"></property>
     </bean>
+    <bean id="WordDao" class="com.express.daoImpl.WordDao">
+        <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
 
     <!--自己加的-->
     <tx:advice id="txAdvice" transaction-manager="transactionManager">
@@ -134,6 +139,7 @@
                 <property name="ProvinceDao" ref="ProvinceDao"></property>
                 <property name="PackageHistoryDao" ref="PackageHistoryDao"></property>
                 <property name="OutletsDao" ref="OutletsDao"></property>
+                <property name="WordDao" ref="WordDao"></property>
             </bean>
         </jaxrs:serviceBeans>
 

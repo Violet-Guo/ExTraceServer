@@ -26,7 +26,8 @@ public class ExpressInfo implements Serializable {
     public String Acc1;
     public String Acc2;
 
-    public ExpressInfo(){}
+    public ExpressInfo() {
+    }
 
     public float getWeight() {
         return weight;
