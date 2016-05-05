@@ -4,6 +4,7 @@ import com.express.daoImpl.*;
 import com.express.info.CustomerAddressEntity;
 import com.express.model.*;
 import com.express.serviceInterface.IMiscService;
+import utils.Authentication;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -268,38 +269,56 @@ public class MiscService implements IMiscService {
 
     //获得所有的省份
     @Override
-    public List<ProvinceEntity> getAllProvince() {
-        return provinceDao.getAllProvince();
+    public List<ProvinceEntity> getAllProvince(String token) {
+        Authentication au = Authentication.getInstance();
+        if (au.verify(token))
+            return provinceDao.getAllProvince();
+        return null;
     }
 
     //根据省的id拿到所有的市
     @Override
-    public List<CityEntity> getCityList(int pid) {
-        return cityDao.getCityList(pid);
+    public List<CityEntity> getCityList(int pid, String token) {
+        Authentication au = Authentication.getInstance();
+        if (au.verify(token))
+            return cityDao.getCityList(pid);
+        return null;
     }
 
     //根据市的id拿到所有的区域
     @Override
-    public List<RegionEntity> getRegionList(int cid) {
-        return regionDao.getRegionList(cid);
+    public List<RegionEntity> getRegionList(int cid, String token) {
+        Authentication au = Authentication.getInstance();
+        if (au.verify(token))
+            return regionDao.getRegionList(cid);
+        return null;
     }
 
     //根据id查找省
     @Override
-    public ProvinceEntity getProvinceById(int id) {
-        return provinceDao.get(id);
+    public ProvinceEntity getProvinceById(int id, String token) {
+        Authentication au = Authentication.getInstance();
+        if (au.verify(token))
+            return provinceDao.get(id);
+        return null;
     }
 
     //根据id查找市
     @Override
-    public CityEntity getCityById(int id) {
-        return cityDao.get(id);
+    public CityEntity getCityById(int id, String token) {
+        Authentication au = Authentication.getInstance();
+        if (au.verify(token))
+            return cityDao.get(id);
+        return null;
     }
 
     //根据id查找区域
     @Override
-    public RegionEntity getRegionById(int id) {
-        return regionDao.get(id);
+    public RegionEntity getRegionById(int id, String token) {
+        Authentication au = Authentication.getInstance();
+        if (au.verify(token))
+            return regionDao.get(id);
+        return null;
     }
 
 

@@ -7,6 +7,7 @@ import com.express.info.PackageInfo;
 import com.express.model.*;
 import com.express.serviceInterface.IDomainService;
 import org.hibernate.criterion.Restrictions;
+import utils.Authentication;
 import utils.Utils;
 
 import javax.ws.rs.core.Response;
@@ -638,6 +639,7 @@ public class DomainService implements IDomainService {
     public String registerByCus(CustomerEntity obj) {
         if (obj.getName() == null || obj.getTelephone() == null || obj.getPassword() == null)
             return "{\"registerstate\":\"null\"}";
+
         List<CustomerEntity> list = null;
         CustomerEntity customerEntity = new CustomerEntity();
 
@@ -652,7 +654,9 @@ public class DomainService implements IDomainService {
                 customerDao.save(obj);
                 list = customerDao.getByTel(obj.getTelephone());
                 customerEntity = list.get(0);
-                return "{\"registerstate\":\"true\", \"id\":" + customerEntity.getId() + "}";
+                Authentication au = Authentication.getInstance();
+                String token = au.addToken(obj.getTelephone());
+                return "{\"registerstate\":\"true\", \"id\":" + customerEntity.getId() + ", \"token\":\"" + token + "\"}";
             } catch (Exception e) {
                 e.printStackTrace();
                 return "{\"registerstate\":\"false\"}";
@@ -692,7 +696,9 @@ public class DomainService implements IDomainService {
         if (list.size() == 1) {
             customerEntity = list.get(0);
             if (customerEntity.getPassword().equals(obj.getPassword())) {
-                return "{\"id\":" + customerEntity.getId() + ", \"name\":\"" + customerEntity.getName() + "\", \"loginstate\":\"true\"}";
+                Authentication au = Authentication.getInstance();
+                String token = au.addToken(obj.getTelephone());
+                return "{\"id\":" + customerEntity.getId() + ", \"name\":\"" + customerEntity.getName() + "\", \"loginstate\":\"true\", \"token\":\"" + token + "\"}";
             }
         }
         return "{\"loginstate\":\"false\"}";
@@ -700,8 +706,9 @@ public class DomainService implements IDomainService {
 
     //注销登陆
     @Override
-    public void doLogOut(int cid) {
-
+    public void doLogOut(String token) {
+        Authentication au = Authentication.getInstance();
+        au.removeToken(token);
     }
 
     //修改手机号

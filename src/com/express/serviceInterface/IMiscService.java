@@ -111,8 +111,8 @@ public interface IMiscService {
      */
     @GET
     @Produces({MediaType.APPLICATION_JSON + ";charset=UTF-8"})
-    @Path("/getAllProvince")
-    public List<ProvinceEntity> getAllProvince();
+    @Path("/getAllProvince/{token}")
+    public List<ProvinceEntity> getAllProvince(@PathParam("token")String token);
 
     /**
      * 获得对应省下所有的市
@@ -122,8 +122,8 @@ public interface IMiscService {
      */
     @GET
     @Produces({MediaType.APPLICATION_JSON + ";charset=UTF-8"})
-    @Path("/getCityList/{pid}")
-    public List<CityEntity> getCityList(@PathParam("pid") int pid);
+    @Path("/getCityList/{pid}/{token}")
+    public List<CityEntity> getCityList(@PathParam("pid") int pid, @PathParam("token") String token);
 
 
     /**
@@ -134,8 +134,8 @@ public interface IMiscService {
      */
     @GET
     @Produces({MediaType.APPLICATION_JSON + ";charset=UTF-8"})
-    @Path("/getRegionList/{cid}")
-    public List<RegionEntity> getRegionList(@PathParam("cid") int cid);
+    @Path("/getRegionList/{cid}/{token}")
+    public List<RegionEntity> getRegionList(@PathParam("cid") int cid, @PathParam("token") String token);
 
     /**
      * 根据id查找省
@@ -145,8 +145,8 @@ public interface IMiscService {
      */
     @GET
     @Produces({MediaType.APPLICATION_JSON + ";charset=UTF-8"})
-    @Path("/getProvinceById/{id}")
-    public ProvinceEntity getProvinceById(@PathParam("id") int id);
+    @Path("/getProvinceById/{id}/{token}")
+    public ProvinceEntity getProvinceById(@PathParam("id") int id, @PathParam("token") String token);
 
     /**
      * 根据id查找市
@@ -156,8 +156,8 @@ public interface IMiscService {
      */
     @GET
     @Produces({MediaType.APPLICATION_JSON + ";charset=UTF-8"})
-    @Path("/getCityById/{id}")
-    public CityEntity getCityById(@PathParam("id") int id);
+    @Path("/getCityById/{id}/{token}")
+    public CityEntity getCityById(@PathParam("id") int id, @PathParam("token") String token);
 
     /**
      * 根据id查找区
@@ -167,8 +167,8 @@ public interface IMiscService {
      */
     @GET
     @Produces({MediaType.APPLICATION_JSON + ";charset=UTF-8"})
-    @Path("/getRegionById/{id}")
-    public RegionEntity getRegionById(@PathParam("id") int id);
+    @Path("/getRegionById/{id}/{token}")
+    public RegionEntity getRegionById(@PathParam("id") int id, @PathParam("token") String token);
 
     /////////////////////////////////营业网点、分拣中心相关接口///////////////////////////////////
     ////////////////////////////营业网点type = 1， 分拣中心type = 2//////////////////////////////

@@ -314,12 +314,12 @@ public interface IDomainService {
     /***
      * 注销登陆
      *
-     * @param cid 用户id
+     * @param token 用户手机号
      */
     @GET
     @Produces({MediaType.APPLICATION_JSON + ";charset=UTF-8"})
-    @Path("/doLogOut/{cid}")
-    public void doLogOut(@PathParam("cid") int cid);
+    @Path("/doLogOut/{token}")
+    public void doLogOut(@PathParam("token") String token);
 
     /**
      * 修改手机号
