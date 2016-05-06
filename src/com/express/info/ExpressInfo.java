@@ -9,22 +9,22 @@ import java.io.Serializable;
 @org.hibernate.annotations.Proxy(lazy = false)
 @XmlRootElement(name = "ExpressInfo")
 public class ExpressInfo implements Serializable {
-    public String ID;//快递单号
-    public String sname;//发件人姓名
-    public String stel;//tel
-    public String sadd;//省市区
-    public String saddinfo;//街道
-    public String rname;//收件人姓名
-    public String rtel;
-    public String radd;
-    public String raddinfo;
-    public String GetTime;
-    public String OutTime;
-    public float weight;
-    public float TranFee;
-    public float InsuFee;
-    public String Acc1;
-    public String Acc2;
+    private String ID;//快递单号
+    private String sname;//发件人姓名
+    private String stel;//tel
+    private String sadd;//省市区
+    private String saddinfo;//街道
+    private String rname;//收件人姓名
+    private String rtel;
+    private String radd;
+    private String raddinfo;
+    private String GetTime;
+    private String OutTime;
+    private float weight;
+    private float TranFee;
+    private float InsuFee;
+    private String Acc1;
+    private String Acc2;
 
     public ExpressInfo() {
     }

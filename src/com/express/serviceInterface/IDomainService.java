@@ -19,6 +19,16 @@ public interface IDomainService {
 
     /////////////////////////////公共的接口（用户和工作人员都要用的）////////////////////////////
 
+    /**
+     *  拆包，就是置为history
+     * @param packageId 包裹id
+     * @return
+     */
+    @GET
+    @Produces({MediaType.APPLICATION_JSON + ";charset=UTF-8"})
+    @Path("/openPackageByPackageId/{packageId}")
+    public String openPackageByPackageId(@PathParam("packageId") String packageId);
+
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces({MediaType.APPLICATION_JSON + ";charset=UTF-8"})
@@ -116,7 +126,7 @@ public interface IDomainService {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces({MediaType.APPLICATION_JSON + ";charset=UTF-8"})
     @Path("/loadIntoPackage/packageId/{packageId}/id/{id}/isPackage/{isPackage}")
-    public Response LoadIntoPackage(@PathParam("packageId") String PackageId, @PathParam("id") String Id, @PathParam("isPackage") Integer isPackage);
+    public String LoadIntoPackage(@PathParam("packageId") String PackageId, @PathParam("id") String Id, @PathParam("isPackage") Integer isPackage);
 
     /**
      * 查询包裹中的快件实体列表
@@ -226,7 +236,7 @@ public interface IDomainService {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces({MediaType.APPLICATION_JSON + ";charset=UTF-8"})
     @Path("/saveExpress")
-    public Response saveExpress(ExpressEntity obj);
+    public String saveExpress(ExpressEntity obj);
 
     /**
      * 查询工作量
@@ -457,7 +467,7 @@ public interface IDomainService {
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Path("/savePackage")
-    public Response savePackage(PackageEntity obj);
+    public String savePackage(PackageEntity obj);
 
     /**
      * 通过包裹ID查找包裹

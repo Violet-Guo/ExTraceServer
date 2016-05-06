@@ -144,6 +144,19 @@ public class DomainService implements IDomainService {
     /////////////////////////////公共的接口（用户和工作人员都要用的）////////////////////////////
 
     @Override
+    public String openPackageByPackageId(String packageId) {
+        try {
+            //获取包裹实体对象
+            PackageEntity packageEntity = packageDao.get(packageId);
+            packageEntity.setIsHistory(1);
+            packageDao.update(packageEntity);
+            return "{\"state\":\"" + 1 + "\"}";
+        } catch (Exception e) {
+            return "{\"state\":\"" + 0 + "\"}";
+        }
+    }
+
+    @Override
     public String updateExpressFree(ExpressEntity expressEntity) {
         try {
             //获取快递实体对象
@@ -152,9 +165,9 @@ public class DomainService implements IDomainService {
             entity.setTranFee(expressEntity.getTranFee());
             entity.setInsuFee(expressEntity.getInsuFee());
             expressDao.update(entity);
-            return "{\"state\":\"" + 0 + "\"}";
-        } catch (Exception e) {
             return "{\"state\":\"" + 1 + "\"}";
+        } catch (Exception e) {
+            return "{\"state\":\"" + 0 + "\"}";
         }
     }
 
@@ -366,12 +379,12 @@ public class DomainService implements IDomainService {
             //快递员
             if (fromID == 1) {
                 //派送包
-                PackagehistoryEntity packagehistoryEntity = new PackagehistoryEntity();
-                packagehistoryEntity.setPackageId(packageId);
-                packagehistoryEntity.setFromOutletsId(-1);//表示是派送包
-                packagehistoryEntity.setTime(new Date());
+//                PackagehistoryEntity packagehistoryEntity = new PackagehistoryEntity();
+//                packagehistoryEntity.setPackageId(packageId);
+//                packagehistoryEntity.setFromOutletsId(-1);//表示是派送包
+//                packagehistoryEntity.setTime(new Date());
 
-                packageHistoryDao.save(packagehistoryEntity);
+//                packageHistoryDao.save(packagehistoryEntity);
 
                 if (employeesEntity.getSendPackageId() == null) {
                     employeesEntity.setSendPackageId(packageId);
@@ -392,13 +405,14 @@ public class DomainService implements IDomainService {
                     packageDao.save(prePackage);
                 }
             }
+            employeesDao.update(employeesEntity);
         }
 
         return packageInfo;
     }
 
     @Override
-    public Response LoadIntoPackage(String PackageId, String Id, Integer isPackage) {
+    public String LoadIntoPackage(String PackageId, String Id, Integer isPackage) {
         try {
             //如果不是包裹
             if (isPackage == 0) {
@@ -416,9 +430,9 @@ public class DomainService implements IDomainService {
                 packandpackEntity.setIsHistory(0);
                 packAndpackDao.save(packandpackEntity);
             }
-            return Response.ok().header("PackandpackClass", "R_PackandpackInfo").build();
+            return "{\"state\":\"" + 1 + "\"}";
         } catch (Exception e) {
-            return Response.serverError().entity(e.getMessage()).build();
+            return "{\"state\":\"" + 0 + "\"}";
         }
     }
 
@@ -554,23 +568,25 @@ public class DomainService implements IDomainService {
         List<PackageEntity> lists = new ArrayList<>();
         //按照条件查找相应的包裹里所有包裹
         List<PackandpackEntity> by = packAndpackDao.findBy("parentId", true, Restrictions.eq("parentId", PackageId));
-        for (int i = 0; i < by.size(); ++i) {
-            String expressId = by.get(i).getPackageId();
-            //拿出来所有的快递列表
-            if (by.get(i).getIsHistory() == 0)
-                lists.add(packageDao.get(expressId));
+        if (by != null) {
+            for (int i = 0; i < by.size(); ++i) {
+                String expressId = by.get(i).getPackageId();
+                //拿出来所有的快递列表
+                if (by.get(i).getIsHistory() == 0)
+                    lists.add(packageDao.get(expressId));
+            }
         }
         return lists;
     }
 
     @Override
-    public Response saveExpress(ExpressEntity obj) {
+    public String saveExpress(ExpressEntity obj) {
         try {
             //保存快递并返回状态
             expressDao.save(obj);
-            return Response.ok(obj).header("ExpressClass", "R_ExpressInfo").build();
+            return "{\"state\":\"" + 1 + "\"}";
         } catch (Exception e) {
-            return Response.serverError().entity(e.getMessage()).build();
+            return "{\"state\":\"" + 0 + "\"}";
         }
     }
 
@@ -597,6 +613,7 @@ public class DomainService implements IDomainService {
         }
         return lists;
     }
+
 
     //递归方法
 
@@ -913,12 +930,12 @@ public class DomainService implements IDomainService {
     }
 
     @Override
-    public Response savePackage(PackageEntity obj) {
+    public String savePackage(PackageEntity obj) {
         try {
             packageDao.save(obj);
-            return Response.ok(obj).header("EntityClass", "R_PackageInfo").build();
+            return "{\"state\":\"" + 1 + "\"}";
         } catch (Exception e) {
-            return Response.serverError().entity(e.getMessage()).build();
+            return "{\"state\":\"" + 0 + "\"}";
         }
     }
 
