@@ -35,6 +35,7 @@ public class DomainService implements IDomainService {
     private EmployeesDao employeesDao;
     private AddressDao addressDao;
     private CustomerDao customerDao;
+    private Authentication au = Authentication.getInstance();
 
     public WordDao getWordDao() {
         return wordDao;
@@ -618,13 +619,18 @@ public class DomainService implements IDomainService {
 
     //通过用户id获得用户信息
     @Override
-    public CustomerEntity getCustomerInfoById(int id) {
+    public CustomerEntity getCustomerInfoById(int id, String token) {
+        if (!au.verify(token))
+            return null;
         return customerDao.get(id);
     }
 
     //通过用户手机号获得用户信息
     @Override
-    public CustomerEntity getCustomerInfoByTel(String tel) {
+    public CustomerEntity getCustomerInfoByTel(String tel, String token) {
+        if (!au.verify(token))
+            return null;
+
         if (tel == null)
             return null;
         List<CustomerEntity> list = customerDao.getByTel(tel);
@@ -681,7 +687,10 @@ public class DomainService implements IDomainService {
 
     //根据用户id删除用户信息
     @Override
-    public Response deleteCustomerInfo(int id) {
+    public Response deleteCustomerInfo(int id, String token) {
+        if (!au.verify(token))
+            return null;
+
         customerDao.removeById(id);
         return Response.ok("Deleted").header("EntityClass", "D_CustomerInfo").build();
     }
@@ -707,13 +716,15 @@ public class DomainService implements IDomainService {
     //注销登陆
     @Override
     public void doLogOut(String token) {
-        Authentication au = Authentication.getInstance();
         au.removeToken(token);
     }
 
     //修改手机号
     @Override
-    public String changeTel(String telold, String telnew) {
+    public String changeTel(String telold, String telnew, String token) {
+        if (!au.verify(token))
+            return "{\"changetel\":\"authen_false\"}";
+
         if (telold == null || telnew == null)
             return "{\"changetel\":\"null\"}";
         List<CustomerEntity> listold = customerDao.getByTel(telold);
@@ -740,7 +751,10 @@ public class DomainService implements IDomainService {
 
     //修改密码
     @Override
-    public String changePwd(String tel, String pwdold, String pwdnew) {
+    public String changePwd(String tel, String pwdold, String pwdnew, String token) {
+        if (!au.verify(token))
+            return "{\"changepwd\":\"authen_false\"}";     //返回认证失败的消息
+
         if (tel == null || pwdnew == null || pwdold == null)
             return "{\"changepwd\":\"null\"}";
 
@@ -771,7 +785,9 @@ public class DomainService implements IDomainService {
 
     //通过工作人员id查找工作人员信息
     @Override
-    public EmployeesEntity getEmployeeInfoById(int id) {
+    public EmployeesEntity getEmployeeInfoById(int id, String token) {
+        if (!au.verify(token))
+            return null;
         return employeesDao.get(id);
     }
 
@@ -802,7 +818,9 @@ public class DomainService implements IDomainService {
 
     //删除员工信息
     @Override
-    public Response deleteEmployee(int id) {
+    public Response deleteEmployee(int id, String token) {
+        if (!au.verify(token))
+            return null;
         employeesDao.removeById(id);
         return Response.ok("Deleted").header("EntityClass", "D_Employee").build();
     }
@@ -834,13 +852,16 @@ public class DomainService implements IDomainService {
 
     //员工注销登陆
     @Override
-    public void doLogOutByEmployee(int id) {
+    public void doLogOutByEmployee(int id, String token) {
 
     }
 
     //员工修改手机号
     @Override
-    public String changeTelByEmp(String telold, String telnew) {
+    public String changeTelByEmp(String telold, String telnew, String token) {
+        if (!au.verify(token))
+            return "{\"changetel\":\"authen_false\"}";
+
         if (telold == null || telnew == null)
             return "{\"changetel\":\"null\"}";
         List<EmployeesEntity> listold = employeesDao.getByTel(telold);
@@ -866,7 +887,10 @@ public class DomainService implements IDomainService {
 
     //员工修改密码
     @Override
-    public String changePwdByEmp(String tel, String pwdold, String pwdnew) {
+    public String changePwdByEmp(String tel, String pwdold, String pwdnew, String token) {
+        if (!au.verify(token))
+            return "{\"changetel\":\"authen_false\"}";     //返回认证失败的消息
+
         if (tel == null || pwdnew == null || pwdold == null)
             return "{\"changepwd\":\"null\"}";
 
@@ -899,7 +923,9 @@ public class DomainService implements IDomainService {
     }
 
     @Override
-    public ExpressEntity getPackageById(String pid) {
+    public ExpressEntity getPackageById(String pid, String token) {
+        if (!au.verify(token))
+            return null;
         return expressDao.get(pid);
     }
 

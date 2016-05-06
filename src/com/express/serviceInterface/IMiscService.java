@@ -28,35 +28,13 @@ public interface IMiscService {
     /**
      * 获得用户所有的收货地址
      *
-     * @param cid 用户的id
-     * @return 地址的实体list
-     */
-    @GET
-    @Produces({MediaType.APPLICATION_JSON + ";charset=UTF-8"})
-    @Path("/getAccAddress/customerid/{cid}")
-    public List<CustomerAddressEntity> getAccAddress(@PathParam("cid") int cid);
-
-    /**
-     * 获得用户所有的收货地址
-     *
      * @param tel 用户的手机号
      * @return 地址的实体list
      */
     @GET
     @Produces({MediaType.APPLICATION_JSON + ";charset=UTF-8"})
-    @Path("/getAccAddress/customertel/{tel}")
-    public List<CustomerAddressEntity> getAccAddress(@PathParam("tel") String tel);
-
-    /**
-     * 获得用户所有的发货地址
-     *
-     * @param cid 用户的id
-     * @return 地址的实体list
-     */
-    @GET
-    @Produces({MediaType.APPLICATION_JSON + ";charset=UTF-8"})
-    @Path("/getSendAddress/customerid/{cid}")
-    public List<CustomerAddressEntity> getSendAddress(@PathParam("cid") int cid);
+    @Path("/getAccAddress/customertel/{tel}/{token}")
+    public List<CustomerAddressEntity> getAccAddress(@PathParam("tel") String tel, @PathParam("token") String token);
 
     /**
      * 获得用户所有的发货地址
@@ -66,8 +44,8 @@ public interface IMiscService {
      */
     @GET
     @Produces({MediaType.APPLICATION_JSON + ";charset=UTF-8"})
-    @Path("/getSendAddress/customertel/{tel}")
-    public List<CustomerAddressEntity> getSendAddress(@PathParam("tel") String tel);
+    @Path("/getSendAddress/customertel/{tel}/{token}")
+    public List<CustomerAddressEntity> getSendAddress(@PathParam("tel") String tel, @PathParam("token") String token);
 
     /**
      * 增加一个新的收货地址或发货地址
@@ -99,8 +77,8 @@ public interface IMiscService {
      */
     @GET
     @Produces({MediaType.APPLICATION_JSON + ";charset=UTF-8"})
-    @Path("/deleteAddress/{aid}")
-    public String deleteAddress(@PathParam("aid") int aid);
+    @Path("/deleteAddress/{aid}/{token}")
+    public String deleteAddress(@PathParam("aid") int aid, @PathParam("token") String token);
 
     /////////////////////////////region的接口/////////////////////////////
 
@@ -181,8 +159,8 @@ public interface IMiscService {
      */
     @GET
     @Produces({MediaType.APPLICATION_JSON + ";charset=UTF-8"})
-    @Path("/getBranchById/{id}")
-    public OutletsEntity getBranchById(int id);
+    @Path("/getBranchById/{id}/{token}")
+    public OutletsEntity getBranchById(@PathParam("id")int id, @PathParam("token") String token);
 
     /**
      * 根据id获得分拣中心的信息
@@ -192,8 +170,8 @@ public interface IMiscService {
      */
     @GET
     @Produces({MediaType.APPLICATION_JSON + ";charset=UTF-8"})
-    @Path("/getSortingCenterById/{id}")
-    public OutletsEntity getSortingCenterById(int id);
+    @Path("/getSortingCenterById/{id}/{token}")
+    public OutletsEntity getSortingCenterById(@PathParam("id")int id, @PathParam("token") String token);
 
     /**
      * 获得某一区域的所有营业网点信息
@@ -203,8 +181,8 @@ public interface IMiscService {
      */
     @GET
     @Produces({MediaType.APPLICATION_JSON + ";charset=UTF-8"})
-    @Path("/getAllBranchByRegionId/{id}")
-    public List<OutletsEntity> getAllBranchByRegionId(int id);
+    @Path("/getAllBranchByRegionId/{id}/{token}")
+    public List<OutletsEntity> getAllBranchByRegionId(@PathParam("id") int id, @PathParam("token") String token);
 
     /**
      * 获得某一区域的所有分拣中心信息
@@ -214,8 +192,8 @@ public interface IMiscService {
      */
     @GET
     @Produces({MediaType.APPLICATION_JSON + ";charset=UTF-8"})
-    @Path("/getAllSCenterByRegionId/{id}")
-    public List<OutletsEntity> getAllSCenterByRegionId(int id);
+    @Path("/getAllSCenterByRegionId/{id}/{token}")
+    public List<OutletsEntity> getAllSCenterByRegionId(@PathParam("id") int id, @PathParam("token") String token);
 
     /**
      * 获得所有的营业网点的信息
@@ -224,8 +202,8 @@ public interface IMiscService {
      */
     @GET
     @Produces({MediaType.APPLICATION_JSON + ";charset=UTF-8"})
-    @Path("/getAllBranch")
-    public List<OutletsEntity> getAllBranch();
+    @Path("/getAllBranch/{token}")
+    public List<OutletsEntity> getAllBranch(@PathParam("token") String token);
 
     /**
      * 获得所有的分拣中心的信息
@@ -234,8 +212,8 @@ public interface IMiscService {
      */
     @GET
     @Produces({MediaType.APPLICATION_JSON + ";charset=UTF-8"})
-    @Path("/getAllSortCenter")
-    public List<OutletsEntity> getAllSortCenter();
+    @Path("/getAllSortCenter/{token}")
+    public List<OutletsEntity> getAllSortCenter(@PathParam("token") String token);
 
     /**
      * 获得所有的分拣中心+营业网点的信息
@@ -244,8 +222,8 @@ public interface IMiscService {
      */
     @GET
     @Produces({MediaType.APPLICATION_JSON + ";charset=UTF-8"})
-    @Path("/getAllOutlets")
-    public List<OutletsEntity> getAllOutlets();
+    @Path("/getAllOutlets/{token}")
+    public List<OutletsEntity> getAllOutlets(@PathParam("token") String token);
 
 
     /////////////////////////////工具类的接口////////////////////////////

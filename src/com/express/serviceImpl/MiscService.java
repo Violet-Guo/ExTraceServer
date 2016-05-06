@@ -21,6 +21,7 @@ public class MiscService implements IMiscService {
     private OutletsDao outletsDao;
     private CustomerDao customerDao;
     private AddressDao addressDao;
+    private Authentication au = Authentication.getInstance();
 
     public AddressDao getAddressDao() {
         return addressDao;
@@ -80,40 +81,12 @@ public class MiscService implements IMiscService {
 
     /////////////////////////////Address的接口/////////////////////////////
 
-    //获得用户所有的收货地址
-    @Override
-    public List<CustomerAddressEntity> getAccAddress(int cid) {
-        List<CustomerAddressEntity> list = new ArrayList<>();
-        List<AddressEntity> addresslist = addressDao.getAccAddress(cid);
-
-        for (int i = 0; i < addresslist.size(); i++) {
-
-            AddressEntity addressEntity = addresslist.get(i);
-            CustomerAddressEntity customerAddressEntity = new CustomerAddressEntity();
-
-            RegionEntity region = regionDao.get(addressEntity.getRegionId());
-            CityEntity city = cityDao.get(region.getCityid());
-            ProvinceEntity province = provinceDao.get(city.getPid());
-
-            customerAddressEntity.setAid(addressEntity.getId());
-            customerAddressEntity.setCustomerid(cid);
-            customerAddressEntity.setName(addressEntity.getName());
-            customerAddressEntity.setTelephone(addressEntity.getTelephone());
-            customerAddressEntity.setProvince(province.getPname());
-            customerAddressEntity.setCity(city.getCname());
-            customerAddressEntity.setRegion(region.getArea());
-            customerAddressEntity.setAddress(addressEntity.getAddress());
-            customerAddressEntity.setRank(addressEntity.getRank());
-
-            list.add(customerAddressEntity);
-        }
-
-        return list;
-    }
-
     //通过手机号查用户的所有收货地址
     @Override
-    public List<CustomerAddressEntity> getAccAddress(String tel) {
+    public List<CustomerAddressEntity> getAccAddress(String tel, String token) {
+
+        if (!au.verify(token))
+            return null;
 
         //获得用户的id
         List<CustomerEntity> list = customerDao.getByTel(tel);
@@ -148,40 +121,13 @@ public class MiscService implements IMiscService {
         return lis;
     }
 
-    //通过用户id获得用户所有的发货地址
-    @Override
-    public List<CustomerAddressEntity> getSendAddress(int cid) {
-        List<CustomerAddressEntity> list = new ArrayList<>();
-        List<AddressEntity> addressEntityList = addressDao.getSendAddress(cid);
-
-        for (int i = 0; i < addressEntityList.size(); i++) {
-
-            AddressEntity addressEntity = addressEntityList.get(i);
-            CustomerAddressEntity customerAddressEntity = new CustomerAddressEntity();
-
-            RegionEntity region = regionDao.get(addressEntity.getRegionId());
-            CityEntity city = cityDao.get(region.getCityid());
-            ProvinceEntity province = provinceDao.get(city.getPid());
-
-            customerAddressEntity.setAid(addressEntity.getId());
-            customerAddressEntity.setCustomerid(cid);
-            customerAddressEntity.setName(addressEntity.getName());
-            customerAddressEntity.setTelephone(addressEntity.getTelephone());
-            customerAddressEntity.setProvince(province.getPname());
-            customerAddressEntity.setCity(city.getCname());
-            customerAddressEntity.setRegion(region.getArea());
-            customerAddressEntity.setAddress(addressEntity.getAddress());
-            customerAddressEntity.setRank(addressEntity.getRank());
-
-            list.add(customerAddressEntity);
-        }
-
-        return list;
-    }
-
     //通过用户手机号获得用户所有的发货地址
     @Override
-    public List<CustomerAddressEntity> getSendAddress(String tel) {
+    public List<CustomerAddressEntity> getSendAddress(String tel, String token) {
+
+        if (!au.verify(token))
+            return null;
+
         //获得用户的id
         List<CustomerEntity> list = customerDao.getByTel(tel);
         int cid = list.get(0).getId();
@@ -253,7 +199,10 @@ public class MiscService implements IMiscService {
 
     //删除收货地址、发货地址
     @Override
-    public String deleteAddress(int aid) {
+    public String deleteAddress(int aid, String token) {
+        if (!au.verify(token))
+            return "{\"deleteAddress\":\"null\"}";
+
         try {
             addressDao.removeById(aid);
             return "{\"deleteAddress\":\"true\"}";
@@ -270,7 +219,6 @@ public class MiscService implements IMiscService {
     //获得所有的省份
     @Override
     public List<ProvinceEntity> getAllProvince(String token) {
-        Authentication au = Authentication.getInstance();
         if (au.verify(token))
             return provinceDao.getAllProvince();
         return null;
@@ -279,7 +227,6 @@ public class MiscService implements IMiscService {
     //根据省的id拿到所有的市
     @Override
     public List<CityEntity> getCityList(int pid, String token) {
-        Authentication au = Authentication.getInstance();
         if (au.verify(token))
             return cityDao.getCityList(pid);
         return null;
@@ -288,7 +235,6 @@ public class MiscService implements IMiscService {
     //根据市的id拿到所有的区域
     @Override
     public List<RegionEntity> getRegionList(int cid, String token) {
-        Authentication au = Authentication.getInstance();
         if (au.verify(token))
             return regionDao.getRegionList(cid);
         return null;
@@ -297,7 +243,6 @@ public class MiscService implements IMiscService {
     //根据id查找省
     @Override
     public ProvinceEntity getProvinceById(int id, String token) {
-        Authentication au = Authentication.getInstance();
         if (au.verify(token))
             return provinceDao.get(id);
         return null;
@@ -306,7 +251,6 @@ public class MiscService implements IMiscService {
     //根据id查找市
     @Override
     public CityEntity getCityById(int id, String token) {
-        Authentication au = Authentication.getInstance();
         if (au.verify(token))
             return cityDao.get(id);
         return null;
@@ -315,7 +259,6 @@ public class MiscService implements IMiscService {
     //根据id查找区域
     @Override
     public RegionEntity getRegionById(int id, String token) {
-        Authentication au = Authentication.getInstance();
         if (au.verify(token))
             return regionDao.get(id);
         return null;
@@ -327,44 +270,58 @@ public class MiscService implements IMiscService {
 
     //根据id获得营业网点的信息
     @Override
-    public OutletsEntity getBranchById(int id) {
-        return outletsDao.getBranchById(id);
+    public OutletsEntity getBranchById(int id, String token) {
+        if (au.verify(token))
+            return outletsDao.getBranchById(id);
+        return null;
     }
 
     //根据id获得分拣中心的信息
     @Override
-    public OutletsEntity getSortingCenterById(int id) {
-        return outletsDao.getSortingCenterById(id);
+    public OutletsEntity getSortingCenterById(int id, String token) {
+        if (au.verify(token))
+            return outletsDao.getSortingCenterById(id);
+        return null;
     }
 
     //获得某一区域的所有营业网点信息
     @Override
-    public List<OutletsEntity> getAllBranchByRegionId(int id) {
-        return outletsDao.getAllBranchByRegionId(id);
+    public List<OutletsEntity> getAllBranchByRegionId(int id, String token) {
+        if (au.verify(token))
+            return outletsDao.getAllBranchByRegionId(id);
+        return null;
     }
 
     //获得某一区域的所有分拣中心信息
     @Override
-    public List<OutletsEntity> getAllSCenterByRegionId(int id) {
-        return outletsDao.getAllSCenterByRegionId(id);
+    public List<OutletsEntity> getAllSCenterByRegionId(int id, String token) {
+        if (au.verify(token))
+            return outletsDao.getAllSCenterByRegionId(id);
+        return null;
     }
 
     //获得所有的营业网点的信息
     @Override
-    public List<OutletsEntity> getAllBranch() {
-        return outletsDao.getAllBranch();
+    public List<OutletsEntity> getAllBranch(String token) {
+        if (au.verify(token))
+            return outletsDao.getAllBranch();
+        return null;
     }
 
     //获得所有的分拣中心的信息
     @Override
-    public List<OutletsEntity> getAllSortCenter() {
-        return outletsDao.getAllSortCenter();
+    public List<OutletsEntity> getAllSortCenter(String token) {
+        if (au.verify(token))
+            return outletsDao.getAllSortCenter();
+        return null;
     }
 
     //获得所有的分拣中心+营业网点的信息
     @Override
-    public List<OutletsEntity> getAllOutlets() {
-        return outletsDao.getAllOutlets();
+    public List<OutletsEntity> getAllOutlets(String token) {
+        if (au.verify(token))
+            return outletsDao.getAllOutlets();
+        return null;
     }
 
 

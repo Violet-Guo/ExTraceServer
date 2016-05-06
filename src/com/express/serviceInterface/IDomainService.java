@@ -253,8 +253,8 @@ public interface IDomainService {
      */
     @GET
     @Produces({MediaType.APPLICATION_JSON + ";charset=UTF-8"})
-    @Path("/getCustomerInfoById/{id}")
-    public CustomerEntity getCustomerInfoById(@PathParam("id") int id);
+    @Path("/getCustomerInfoById/{id}/{token}")
+    public CustomerEntity getCustomerInfoById(@PathParam("id") int id, @PathParam("token") String token);
 
     /***
      * 通过用户手机号获得用户信息
@@ -264,8 +264,8 @@ public interface IDomainService {
      */
     @GET
     @Produces({MediaType.APPLICATION_JSON + ";charset=UTF-8"})
-    @Path("/getCustomerInfoByTel/{tel}")
-    public CustomerEntity getCustomerInfoByTel(@PathParam("tel") String tel);
+    @Path("/getCustomerInfoByTel/{tel}/{token}")
+    public CustomerEntity getCustomerInfoByTel(@PathParam("tel") String tel, @PathParam("token") String token);
 
     /**
      * 用户注册
@@ -297,8 +297,8 @@ public interface IDomainService {
      */
     @GET
     @Produces({MediaType.APPLICATION_JSON + ";charset=UTF-8"})
-    @Path("/deleteCustomerInfo/{id}")
-    public Response deleteCustomerInfo(@PathParam("id") int id);
+    @Path("/deleteCustomerInfo/{id}/{token}")
+    public Response deleteCustomerInfo(@PathParam("id") int id, @PathParam("token") String token);
 
     /**
      * post请求登陆
@@ -329,8 +329,8 @@ public interface IDomainService {
      */
     @GET
     @Produces({MediaType.APPLICATION_JSON + ";charset=UTF-8"})
-    @Path("/changeTel/old/{telold}/new/{telnew}")
-    public String changeTel(@PathParam("telold") String telold, @PathParam("telnew") String telnew);
+    @Path("/changeTel/old/{telold}/new/{telnew}/{token}")
+    public String changeTel(@PathParam("telold") String telold, @PathParam("telnew") String telnew, @PathParam("token") String token);
 
     /**
      * 修改密码
@@ -340,8 +340,8 @@ public interface IDomainService {
      */
     @GET
     @Produces({MediaType.APPLICATION_JSON + ";charset=UTF-8"})
-    @Path("/changePwd/tel/{tel}/{pwdold}/{pwdnew}")
-    public String changePwd(@PathParam("tel") String tel, @PathParam("pwdold") String pwdold, @PathParam("pwdnew") String pwdnew);
+    @Path("/changePwd/tel/{tel}/{pwdold}/{pwdnew}/{token}")
+    public String changePwd(@PathParam("tel") String tel, @PathParam("pwdold") String pwdold, @PathParam("pwdnew") String pwdnew, @PathParam("token") String token);
 
 
     /**
@@ -368,8 +368,8 @@ public interface IDomainService {
      */
     @GET
     @Produces({MediaType.APPLICATION_JSON + ";charset=UTF-8"})
-    @Path("/getEmployeeInfoById/{id}")
-    public EmployeesEntity getEmployeeInfoById(@PathParam("id") int id);
+    @Path("/getEmployeeInfoById/{id}/{token}")
+    public EmployeesEntity getEmployeeInfoById(@PathParam("id") int id, @PathParam("token") String token);
 
     /**
      * 增加一个新的员工
@@ -402,8 +402,8 @@ public interface IDomainService {
      */
     @GET
     @Produces({MediaType.APPLICATION_JSON + ";charset=UTF-8"})
-    @Path("/deleteEmployee/{id}")
-    public Response deleteEmployee(@PathParam("id") int id);
+    @Path("/deleteEmployee/{id}/{token}")
+    public Response deleteEmployee(@PathParam("id") int id, @PathParam("token") String token);
 
     /**
      * 员工通过手机号和密码登陆
@@ -422,8 +422,8 @@ public interface IDomainService {
      */
     @GET
     @Produces({MediaType.APPLICATION_JSON + ";charset=UTF-8"})
-    @Path("/doLogOutByEmployee/{id}")
-    public void doLogOutByEmployee(@PathParam("id") int id);
+    @Path("/doLogOutByEmployee/{id}/{token}")
+    public void doLogOutByEmployee(@PathParam("id") int id, @PathParam("token") String token);
 
     /**
      * 修改手机号
@@ -433,8 +433,8 @@ public interface IDomainService {
      */
     @GET
     @Produces({MediaType.APPLICATION_JSON + ";charset=UTF-8"})
-    @Path("/changeTelByEmp/old/{telold}/new/{telnew}")
-    public String changeTelByEmp(@PathParam("telold") String telold, @PathParam("telnew") String telnew);
+    @Path("/changeTelByEmp/old/{telold}/new/{telnew}/{token}")
+    public String changeTelByEmp(@PathParam("telold") String telold, @PathParam("telnew") String telnew, @PathParam("token") String token);
 
     /**
      * 修改密码
@@ -444,8 +444,8 @@ public interface IDomainService {
      */
     @GET
     @Produces({MediaType.APPLICATION_JSON + ";charset=UTF-8"})
-    @Path("/changePwdByEmp/tel/{tel}/{pwdold}/{pwdnew}")
-    public String changePwdByEmp(@PathParam("tel") String tel, @PathParam("pwdold") String pwdold, @PathParam("pwdnew") String pwdnew);
+    @Path("/changePwdByEmp/tel/{tel}/{pwdold}/{pwdnew}/{token}")
+    public String changePwdByEmp(@PathParam("tel") String tel, @PathParam("pwdold") String pwdold, @PathParam("pwdnew") String pwdnew, @PathParam("token") String token);
 
 
     /**
@@ -467,8 +467,8 @@ public interface IDomainService {
      */
     @GET
     @Produces({MediaType.APPLICATION_JSON + ";charset=UTF-8"})
-    @Path("/getPackageById/{id}")
-    public ExpressEntity getPackageById(@PathParam("id") String pid);
+    @Path("/getPackageById/{id}/{token}")
+    public ExpressEntity getPackageById(@PathParam("id") String pid, @PathParam("token") String token);
 
     /////////////////////////////快递员的接口////////////////////////////
 
