@@ -163,8 +163,34 @@ public class MiscService implements IMiscService {
     //增加一个收货地址或发货地址
     @Override
     public String newAddress(AddressEntity obj) {
+        List<AddressEntity> list = new ArrayList<>();
+        AddressEntity addressEntity = new AddressEntity();
+
         try {
             addressDao.save(obj);
+
+            if (obj.getRank() == 0) {
+                if (obj.getStatus() == 1){
+                    list = addressDao.findByCusIdAndRankAndStatus(obj.getCustomerId(), 0, 1);
+                    for (int i = 0; i < list.size(); i++) {
+                        addressEntity = list.get(i);
+                        if (obj.getId() != addressEntity.getId()) {
+                            addressEntity.setRank(1);
+                            addressDao.update(addressEntity);
+                        }
+                    }
+                } else if (obj.getStatus() == 2){
+                    list = addressDao.findByCusIdAndRankAndStatus(obj.getCustomerId(), 0, 2);
+                    for (int i = 0; i < list.size(); i++) {
+                        addressEntity = list.get(i);
+                        if (obj.getId() != addressEntity.getId()) {
+                            addressEntity.setRank(1);
+                            addressDao.update(addressEntity);
+                        }
+                    }
+                }
+            }
+
             return "{\"newAddstate\":\"true\"}";
         } catch (Exception e) {
             return "{\"newAddstate\":\"false\"}";
@@ -172,6 +198,7 @@ public class MiscService implements IMiscService {
     }
 
     //修改收货地址或发货地址的信息    0代表默认地址，1代表普通地址
+    //status = 1代表是自己的地址，2代表是收货人的地址
     @Override
     public String updateAddress(AddressEntity obj) {
         List<AddressEntity> list = new ArrayList<>();
@@ -181,12 +208,23 @@ public class MiscService implements IMiscService {
             addressDao.update(obj);
 
             if (obj.getRank() == 0) {
-                list = addressDao.findByCusIdAndRank(obj.getCustomerId(), 0);
-                for (int i = 0; i < list.size(); i++) {
-                    addressEntity = list.get(i);
-                    if (obj.getId() != addressEntity.getId()) {
-                        addressEntity.setRank(1);
-                        addressDao.update(addressEntity);
+                if (obj.getStatus() == 1){
+                    list = addressDao.findByCusIdAndRankAndStatus(obj.getCustomerId(), 0, 1);
+                    for (int i = 0; i < list.size(); i++) {
+                        addressEntity = list.get(i);
+                        if (obj.getId() != addressEntity.getId()) {
+                            addressEntity.setRank(1);
+                            addressDao.update(addressEntity);
+                        }
+                    }
+                } else if (obj.getStatus() == 2){
+                    list = addressDao.findByCusIdAndRankAndStatus(obj.getCustomerId(), 0, 2);
+                    for (int i = 0; i < list.size(); i++) {
+                        addressEntity = list.get(i);
+                        if (obj.getId() != addressEntity.getId()) {
+                            addressEntity.setRank(1);
+                            addressDao.update(addressEntity);
+                        }
                     }
                 }
             }
@@ -201,7 +239,7 @@ public class MiscService implements IMiscService {
     @Override
     public String deleteAddress(int aid, String token) {
         if (!au.verify(token))
-            return "{\"deleteAddress\":\"null\"}";
+            return "{\"deleteAddress\":\"authen_false\"}";
 
         try {
             addressDao.removeById(aid);

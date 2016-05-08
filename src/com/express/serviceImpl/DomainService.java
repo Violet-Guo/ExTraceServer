@@ -144,7 +144,9 @@ public class DomainService implements IDomainService {
     /////////////////////////////公共的接口（用户和工作人员都要用的）////////////////////////////
 
     @Override
-    public String openPackageByPackageId(String packageId) {
+    public String openPackageByPackageId(String packageId, String token) {
+        if (!au.verify(token))
+            return null;
         try {
             //获取包裹实体对象
             PackageEntity packageEntity = packageDao.get(packageId);
@@ -172,7 +174,9 @@ public class DomainService implements IDomainService {
     }
 
     @Override
-    public List<ExpresslogisticsInfo> getExpresslogisticsInfosByExpressId(String expressId) {
+    public List<ExpresslogisticsInfo> getExpresslogisticsInfosByExpressId(String expressId, String token) {
+        if (!au.verify(token))
+            return null;
         List<WordEntity> allWord = wordDao.getAll();
         List<ExpresslogisticsInfo> lists = new ArrayList<>();
 
@@ -276,7 +280,9 @@ public class DomainService implements IDomainService {
     }
 
     @Override
-    public PackageInfo getPackageInfo(String packageId) {
+    public PackageInfo getPackageInfo(String packageId, String token) {
+        if (!au.verify(token))
+            return null;
         //创建一个包裹的信息对象
         PackageInfo packageInfo = new PackageInfo();
         //获取包裹的对象实体
@@ -303,7 +309,9 @@ public class DomainService implements IDomainService {
     }
 
     @Override
-    public String PrepareSendExpress(Integer customerId, Integer sendAddressId, Integer recvAddressId) {
+    public String PrepareSendExpress(Integer customerId, Integer sendAddressId, Integer recvAddressId, String token) {
+        if (!au.verify(token))
+            return null;
         ExpressEntity expressEntity = new ExpressEntity();
 
         //获取id 校验是否存在
@@ -331,7 +339,9 @@ public class DomainService implements IDomainService {
     }
 
     @Override
-    public PackageInfo CreateAPackage(Integer fromID, Integer toID, Integer employeesID, Integer isSorter) {
+    public PackageInfo CreateAPackage(Integer fromID, Integer toID, Integer employeesID, Integer isSorter, String token) {
+        if (!au.verify(token))
+            return null;
         PackageEntity packageEntity = new PackageEntity();
         PackageInfo packageInfo = new PackageInfo();
 
@@ -412,7 +422,9 @@ public class DomainService implements IDomainService {
     }
 
     @Override
-    public String LoadIntoPackage(String PackageId, String Id, Integer isPackage) {
+    public String LoadIntoPackage(String PackageId, String Id, Integer isPackage, String token) {
+        if (!au.verify(token))
+            return null;
         try {
             //如果不是包裹
             if (isPackage == 0) {
@@ -437,20 +449,24 @@ public class DomainService implements IDomainService {
     }
 
     @Override
-    public List<ExpressEntity> searchExpressInPackageById(String PackageId) {
-        List<ExpressEntity> lists = new ArrayList<>();
+    public List<ExpressInfo> searchExpressInPackageById(String PackageId, String token) {
+        if (!au.verify(token))
+            return null;
+        List<ExpressInfo> lists = new ArrayList<>();
         //按照条件查找相应的包裹里所有快件
         List<ExpressandpackageEntity> all = expressAndPackageDao.findBy("packageId", true, Restrictions.eq("packageId", PackageId));
         for (int i = 0; i < all.size(); ++i) {
             String expressId = all.get(i).getExpressId();
             //保存快递
-            lists.add(expressDao.get(expressId));
+            lists.add(getExpressInfoById(expressId, token));
         }
         return lists;
     }
 
     @Override
-    public ExpressInfo getExpressInfoById(String id) {
+    public ExpressInfo getExpressInfoById(String id, String token) {
+        if (!au.verify(token))
+            return null;
         //返回快递对象实体
         ExpressInfo expressInfo = new ExpressInfo();
         //获取快递信息
@@ -491,7 +507,9 @@ public class DomainService implements IDomainService {
     }
 
     @Override
-    public List<ExpressInfo> getExpressInfoByTel(String tel) {
+    public List<ExpressInfo> getExpressInfoByTel(String tel, String token) {
+        if (!au.verify(token))
+            return null;
         List<ExpressInfo> lists = new ArrayList<>();
         //用户信息
         List<CustomerEntity> customer = customerDao.findBy("telephone", true, Restrictions.eq("telephone", tel));
@@ -499,26 +517,30 @@ public class DomainService implements IDomainService {
         List<ExpressEntity> by = expressDao.findBy("customerId", true, Restrictions.eq("customerId", customer.get(0).getId()));
 
         for (int i = 0; i < by.size(); ++i) {
-            ExpressInfo expressInfo = getExpressInfoById(by.get(i).getId());
+            ExpressInfo expressInfo = getExpressInfoById(by.get(i).getId(), token);
             lists.add(expressInfo);
         }
         return lists;
     }
 
     @Override
-    public List<ExpressInfo> getSendExpressInfoByCustomerId(Integer CustomerId) {
+    public List<ExpressInfo> getSendExpressInfoByCustomerId(Integer CustomerId, String token) {
+        if (!au.verify(token))
+            return null;
         List<ExpressInfo> lists = new ArrayList<>();
         List<ExpressEntity> by = expressDao.findBy("customerId", true, Restrictions.eq("customerId", CustomerId));
 
         for (int i = 0; i < by.size(); ++i) {
-            ExpressInfo expressInfo = getExpressInfoById(by.get(i).getId());
+            ExpressInfo expressInfo = getExpressInfoById(by.get(i).getId(), token);
             lists.add(expressInfo);
         }
         return lists;
     }
 
     @Override
-    public List<ExpressInfo> getDncRercvExpressInfoByCustomerId(Integer CustomerId) {
+    public List<ExpressInfo> getDncRercvExpressInfoByCustomerId(Integer CustomerId, String token) {
+        if (!au.verify(token))
+            return null;
         List<ExpressInfo> lists = new ArrayList<>();
 
         //相同的电话默认为同一个用户
@@ -529,7 +551,7 @@ public class DomainService implements IDomainService {
             //获取同一个地点的用户的快递
             List<ExpressEntity> by = expressDao.findBy("accAddressId", true, Restrictions.eq("accAddressId", addrBy.get(i).getId()));
             for (int j = 0; j < by.size(); ++j) {
-                ExpressInfo expressInfo = getExpressInfoById(by.get(i).getId());
+                ExpressInfo expressInfo = getExpressInfoById(by.get(i).getId(), token);
                 if (expressInfo.getGetTime() == null)
                     lists.add(expressInfo);
             }
@@ -538,7 +560,9 @@ public class DomainService implements IDomainService {
     }
 
     @Override
-    public List<ExpressInfo> getAccRercvExpressInfoByCustomerId(Integer CustomerId) {
+    public List<ExpressInfo> getAccRercvExpressInfoByCustomerId(Integer CustomerId, String token) {
+        if (!au.verify(token))
+            return null;
         List<ExpressInfo> lists = new ArrayList<>();
 
         //相同的电话默认为同一个用户
@@ -549,7 +573,7 @@ public class DomainService implements IDomainService {
             //获取同一个地点的用户的快递
             List<ExpressEntity> by = expressDao.findBy("accAddressId", true, Restrictions.eq("accAddressId", addrBy.get(i).getId()));
             for (int j = 0; j < by.size(); ++j) {
-                ExpressInfo expressInfo = getExpressInfoById(by.get(i).getId());
+                ExpressInfo expressInfo = getExpressInfoById(by.get(i).getId(), token);
                 if (expressInfo.getGetTime() != null)
                     lists.add(expressInfo);
             }
@@ -558,13 +582,17 @@ public class DomainService implements IDomainService {
     }
 
     @Override
-    public PackageEntity findAPackageById(String PackageId) {
+    public PackageEntity findAPackageById(String PackageId, String token) {
+        if (!au.verify(token))
+            return null;
         //直接返回包裹对象实体
         return packageDao.get(PackageId);
     }
 
     @Override
-    public List<PackageEntity> searchPackageInPackageById(String PackageId) {
+    public List<PackageEntity> searchPackageInPackageById(String PackageId, String token) {
+        if (!au.verify(token))
+            return null;
         List<PackageEntity> lists = new ArrayList<>();
         //按照条件查找相应的包裹里所有包裹
         List<PackandpackEntity> by = packAndpackDao.findBy("parentId", true, Restrictions.eq("parentId", PackageId));
@@ -591,7 +619,9 @@ public class DomainService implements IDomainService {
     }
 
     @Override
-    public List<ExpressEntity> getWork(Integer employeeId, String starttime, Integer days) {
+    public List<ExpressEntity> getWork(Integer employeeId, String starttime, Integer days, String token) {
+        if (!au.verify(token))
+            return null;
         //获取时间段
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         Date startDate = null;
@@ -609,7 +639,7 @@ public class DomainService implements IDomainService {
 
         //递归查找包裹里的快递并存放到lists中
         for (int i = 0; i < by.size(); ++i) {
-            findAllWork(lists, by.get(i).getId());
+            findAllWork(lists, by.get(i).getId(), token);
         }
         return lists;
     }
@@ -617,18 +647,23 @@ public class DomainService implements IDomainService {
 
     //递归方法
 
-    public void findAllWork(List<ExpressEntity> lists, String PackageId) {
-        //获得包裹中的快递和包裹
-        List<ExpressEntity> expressEntities = searchExpressInPackageById(PackageId);
-        List<PackageEntity> packageEntities = searchPackageInPackageById(PackageId);
-        if (expressEntities != null) {
-            //快递直接加入工作量lists
-            lists.addAll(expressEntities);
+    public void findAllWork(List<ExpressEntity> lists, String PackageId, String token) {
+
+        //获得包裹中的快递
+        List<ExpressEntity> expressEntities = new ArrayList<>();
+        //按照条件查找相应的包裹里所有快件
+        List<ExpressandpackageEntity> all = expressAndPackageDao.findBy("packageId", true, Restrictions.eq("packageId", PackageId));
+        for (int i = 0; i < all.size(); ++i) {
+            String expressId = all.get(i).getExpressId();
+            //保存快递
+            lists.add(expressDao.get(expressId));
         }
+        //包裹
+        List<PackageEntity> packageEntities = searchPackageInPackageById(PackageId, token);
         if (packageEntities != null) {
             //如果存在包裹则遍历包裹再进行一遍查询包裹中包裹和快递的操作
             for (int i = 0; i < packageEntities.size(); ++i)
-                findAllWork(lists, packageEntities.get(i).getId());
+                findAllWork(lists, packageEntities.get(i).getId(), token);
         }
     }
 
