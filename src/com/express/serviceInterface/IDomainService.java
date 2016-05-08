@@ -249,7 +249,6 @@ public interface IDomainService {
     @GET
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces({MediaType.APPLICATION_JSON + ";charset=UTF-8"})
-
     @Path("/getWork/employeeId/{employeeId}/starttime/{starttime}/days/{days}/{token}")
     public List<ExpressEntity> getWork(@PathParam("employeeId") Integer employeeId, @PathParam("starttime") String starttime, @PathParam("days") Integer days, @PathParam("token") String token);
 

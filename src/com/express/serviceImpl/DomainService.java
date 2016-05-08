@@ -465,8 +465,8 @@ public class DomainService implements IDomainService {
 
     @Override
     public ExpressInfo getExpressInfoById(String id, String token) {
-        if (!au.verify(token))
-            return null;
+//        if (!au.verify(token))
+//            return null;
         //返回快递对象实体
         ExpressInfo expressInfo = new ExpressInfo();
         //获取快递信息
@@ -525,8 +525,8 @@ public class DomainService implements IDomainService {
 
     @Override
     public List<ExpressInfo> getSendExpressInfoByCustomerId(Integer CustomerId, String token) {
-        if (!au.verify(token))
-            return null;
+//        if (!au.verify(token))
+//            return null;
         List<ExpressInfo> lists = new ArrayList<>();
         List<ExpressEntity> by = expressDao.findBy("customerId", true, Restrictions.eq("customerId", CustomerId));
 
