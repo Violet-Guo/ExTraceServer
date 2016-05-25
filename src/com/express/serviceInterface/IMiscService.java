@@ -19,7 +19,7 @@ public interface IMiscService {
     @GET
     @Produces({MediaType.APPLICATION_JSON + ";charset=UTF-8"})
     @Path("/getExpressPostionInfoById/{id}")
-    public List<ExpressPositionEntity> getExpressPostionInfo(@PathParam("id") String expressid);
+    public List<ExpressPositionEntity> getExpressEmployeeList(@PathParam("id") String expressid);
 
     /////////////////////////////Address的接口/////////////////////////////
     ///////////////////////////status = 1代表是自己的地址，2代表是收货人的地址///////////

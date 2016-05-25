@@ -1,5 +1,6 @@
 package com.express.serviceInterface;
 
+import com.express.info.EmployeeInfo;
 import com.express.info.ExpressInfo;
 import com.express.info.ExpresslogisticsInfo;
 import com.express.info.PackageInfo;
@@ -18,6 +19,30 @@ import java.util.List;
 public interface IDomainService {
 
     /////////////////////////////公共的接口（用户和工作人员都要用的）////////////////////////////
+
+//    public String ImageUpload()
+
+    /**
+     *  获得快递经手的人的id
+     * @param expressId 快递id
+     * @param token
+     * @return
+     */
+    @GET
+    @Produces({MediaType.APPLICATION_JSON + ";charset=UTF-8"})
+    @Path("/getSendEmployeesInfos/{expressId}/{token}")
+    public List<EmployeeInfo> getSendEmployeesInfos(@PathParam("expressId") String expressId, @PathParam("token") String token);
+
+    /**
+     *  司机扫码获得包裹
+     * @param employeeId 司机id
+     * @param packageId 包裹id
+     * @return
+     */
+    @GET
+    @Produces({MediaType.APPLICATION_JSON + ";charset=UTF-8"})
+    @Path("/setDriverPackage/employeeId/{employeeId}/packageId/{packageId}/{token}")
+    public String setDriverPackage(@PathParam("employeeId") Integer employeeId, @PathParam("packageId") String packageId, @PathParam("token") String token);
 
     /**
      *  拆包，就是置为history
@@ -478,11 +503,5 @@ public interface IDomainService {
     @Produces({MediaType.APPLICATION_JSON + ";charset=UTF-8"})
     @Path("/getPackageById/{id}/{token}")
     public ExpressEntity getPackageById(@PathParam("id") String pid, @PathParam("token") String token);
-
-    /////////////////////////////快递员的接口////////////////////////////
-
-
-    /////////////////////////////分拣员的接口////////////////////////////
-
 
 }
