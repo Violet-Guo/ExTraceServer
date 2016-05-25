@@ -1025,7 +1025,7 @@ public class DomainService implements IDomainService {
             ee = list.get(0);
             if (ee.getPassword().equals(obj.getPassword())) {
                 String token = au.addToken(obj.getTelephone());
-                return "{\"loginstate\":\"ture\", " +
+                return "{\"loginstate\":\"true\", " +
                         "\"id\":\"" + ee.getId() + "\", " +
                         "\"name\":\"" + ee.getName() + "\", " +
                         "\"job\":\"" + ee.getJob() + "\", " +
