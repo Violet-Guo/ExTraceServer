@@ -712,7 +712,6 @@ public class DomainService implements IDomainService {
                 customerDao.save(obj);
                 list = customerDao.getByTel(obj.getTelephone());
                 customerEntity = list.get(0);
-                Authentication au = Authentication.getInstance();
                 String token = au.addToken(obj.getTelephone());
                 return "{\"registerstate\":\"true\", \"id\":" + customerEntity.getId() + ", \"token\":\"" + token + "\"}";
             } catch (Exception e) {
@@ -848,7 +847,8 @@ public class DomainService implements IDomainService {
     public String newEmployee(EmployeesEntity obj) {
         try {
             employeesDao.save(obj);
-            return "{\"newEmployee\":\"true\"}";
+            String token = au.addToken(obj.getTelephone());
+            return "{\"newEmployee\":\"true\", \"token\":\"" + token + "\"}";
         } catch (Exception e) {
             e.printStackTrace();
             return "{\"newEmployee\":\"false\"}";
@@ -890,13 +890,15 @@ public class DomainService implements IDomainService {
         if (list.size() == 1) {
             ee = list.get(0);
             if (ee.getPassword().equals(obj.getPassword())) {
+                String token = au.addToken(obj.getTelephone());
                 return "{\"loginstate\":\"ture\", " +
                         "\"id\":\"" + ee.getId() + "\", " +
                         "\"name\":\"" + ee.getName() + "\", " +
                         "\"job\":\"" + ee.getJob() + "\", " +
                         "\"jobText\":\"" + ee.getJobText() + "\", " +
-                        "\"status\":\"" + ee.getStatus() + "\"" +
-                        "\"outletsId\":\"" + ee.getOutletsId() + "\"}";
+                        "\"status\":\"" + ee.getStatus() + "\", " +
+                        "\"outletsId\":\"" + ee.getOutletsId() + "\", " +
+                        "\"token\":\"" + token + "\"}";
             }
         }
         return "{\"loginstate\":\"false\"}";
@@ -904,8 +906,8 @@ public class DomainService implements IDomainService {
 
     //员工注销登陆
     @Override
-    public void doLogOutByEmployee(int id, String token) {
-
+    public void doLogOutByEmployee(String token) {
+        au.removeToken(token);
     }
 
     //员工修改手机号
@@ -918,6 +920,7 @@ public class DomainService implements IDomainService {
             return "{\"changetel\":\"null\"}";
         List<EmployeesEntity> listold = employeesDao.getByTel(telold);
         List<EmployeesEntity> listnew = employeesDao.getByTel(telnew);
+
         if (listnew.size() != 0) {
             return "{\"changetel\":\"deny1\"}";   //修改的手机号已注册
         }

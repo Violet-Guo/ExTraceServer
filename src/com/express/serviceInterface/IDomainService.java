@@ -427,12 +427,12 @@ public interface IDomainService {
     /**
      * 注销登陆
      *
-     * @param id 员工的id
+     * @param token 员工的token
      */
     @GET
     @Produces({MediaType.APPLICATION_JSON + ";charset=UTF-8"})
-    @Path("/doLogOutByEmployee/{id}/{token}")
-    public void doLogOutByEmployee(@PathParam("id") int id, @PathParam("token") String token);
+    @Path("/doLogOutByEmployee/{token}")
+    public void doLogOutByEmployee(@PathParam("token") String token);
 
     /**
      * 修改手机号
