@@ -71,14 +71,6 @@ public class MiscService implements IMiscService {
         this.customerDao = customerDao;
     }
 
-    /////////////////////////////位置信息的接口////////////////////////////
-
-
-    @Override
-    public List<ExpressPositionEntity> getExpressPostionInfo(String expressid) {
-        return null;
-    }
-
     /////////////////////////////Address的接口/////////////////////////////
 
     //通过手机号查用户的所有收货地址

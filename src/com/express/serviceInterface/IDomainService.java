@@ -332,7 +332,7 @@ public interface IDomainService {
     @GET
     @Produces({MediaType.APPLICATION_JSON + ";charset=UTF-8"})
     @Path("/deleteCustomerInfo/{id}/{token}")
-    public Response deleteCustomerInfo(@PathParam("id") int id, @PathParam("token") String token);
+    public String deleteCustomerInfo(@PathParam("id") int id, @PathParam("token") String token);
 
     /**
      * post请求登陆
@@ -437,7 +437,7 @@ public interface IDomainService {
     @GET
     @Produces({MediaType.APPLICATION_JSON + ";charset=UTF-8"})
     @Path("/deleteEmployee/{id}/{token}")
-    public Response deleteEmployee(@PathParam("id") int id, @PathParam("token") String token);
+    public String deleteEmployee(@PathParam("id") int id, @PathParam("token") String token);
 
     /**
      * 员工通过手机号和密码登陆

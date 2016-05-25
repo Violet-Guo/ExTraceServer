@@ -14,13 +14,6 @@ import java.util.List;
 @Path("/Misc")
 public interface IMiscService {
 
-    /////////////////////////////位置信息的接口////////////////////////////
-
-    @GET
-    @Produces({MediaType.APPLICATION_JSON + ";charset=UTF-8"})
-    @Path("/getExpressPostionInfoById/{id}")
-    public List<ExpressPositionEntity> getExpressEmployeeList(@PathParam("id") String expressid);
-
     /////////////////////////////Address的接口/////////////////////////////
     ///////////////////////////status = 1代表是自己的地址，2代表是收货人的地址///////////
     ///////////////////////////rank = 0 是默认地址，rank = 1是普通地址/////////////////
