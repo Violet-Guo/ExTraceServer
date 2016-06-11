@@ -12,7 +12,7 @@ import java.util.Date;
 @Table(name = "express", schema = "", catalog = "express")
 @org.hibernate.annotations.Proxy(lazy = false)
 @XmlRootElement(name = "Express")
-public class ExpressEntity implements Serializable {
+public class ExpressEntity implements Serializable{
     private String id;
     private int customerId;
     private Integer isPackage;
@@ -42,6 +42,20 @@ public class ExpressEntity implements Serializable {
         this.insuFee = insuFee;
         this.acc1 = acc1;
         this.acc2 = acc2;
+    }
+    public ExpressEntity(ExpressEntity e) {
+        this.id = e.id;
+        this.customerId = e.customerId;
+        this.isPackage = e.isPackage;
+        this.weight = e.weight;
+        this.sendAddressId = e.sendAddressId;
+        this.accAddressId = e.accAddressId;
+        this.getTime = e.getTime;
+        this.outTime = e.outTime;
+        this.tranFee = e.tranFee;
+        this.insuFee = e.insuFee;
+        this.acc1 = e.acc1;
+        this.acc2 = e.acc2;
     }
 
     @Id

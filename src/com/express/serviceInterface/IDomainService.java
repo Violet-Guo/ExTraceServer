@@ -1,9 +1,6 @@
 package com.express.serviceInterface;
 
-import com.express.info.EmployeeInfo;
-import com.express.info.ExpressInfo;
-import com.express.info.ExpresslogisticsInfo;
-import com.express.info.PackageInfo;
+import com.express.info.*;
 import com.express.model.*;
 
 import javax.ws.rs.*;
@@ -20,7 +17,38 @@ public interface IDomainService {
 
     /////////////////////////////公共的接口（用户和工作人员都要用的）////////////////////////////
 
-//    public String ImageUpload()
+    /**
+     *  下载照片
+     * @param token
+     * @return
+     */
+    @GET
+    @Produces({MediaType.APPLICATION_JSON + ";charset=UTF-8"})
+    @Path("/downLoadPicture/expressId/{expressId}/whichOne/{whichOne}/{token}")
+    public PictureInfo downLoadPicture(@PathParam("expressId") String expressId, @PathParam("whichOne") Integer whichOne, @PathParam("token") String token);
+
+    /**
+     *  上传照片
+     * @param pictureInfo
+     * @return
+     */
+    @POST
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces({MediaType.APPLICATION_JSON + ";charset=UTF-8"})
+    @Path("/upLoadPicture")
+    public String upLoadPicture(PictureInfo pictureInfo);
+
+    /**
+     * 签收
+     * @param expressId
+     * @param outTime
+     * @param token
+     * @return
+     */
+    @GET
+    @Produces({MediaType.APPLICATION_JSON + ";charset=UTF-8"})
+    @Path("/qiSiWoLeDeQianShou/expressId/{expressId}/outTime/{outTime}/{token}")
+    public String qiSiWoLeDeQianShou(@PathParam("expressId") String expressId, @PathParam("outTime") String outTime,@PathParam("token") String token);
 
     /**
      *  获得快递经手的人的id
@@ -54,6 +82,11 @@ public interface IDomainService {
     @Path("/openPackageByPackageId/{packageId}/{token}")
     public String openPackageByPackageId(@PathParam("packageId") String packageId, @PathParam("token") String token);
 
+    /**
+     * 更新快递价格
+     * @param expressEntity
+     * @return
+     */
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces({MediaType.APPLICATION_JSON + ";charset=UTF-8"})
@@ -191,6 +224,18 @@ public interface IDomainService {
     public List<ExpressInfo> getExpressInfoByTel(@PathParam("tel") String tel, @PathParam("token") String token);
 
     /**
+     * 按照用户的id查询用户寄出快递信息（已收）
+     *
+     * @param CustomerId
+     * @return
+     */
+    @GET
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces({MediaType.APPLICATION_JSON + ";charset=UTF-8"})
+    @Path("/getAccSendExpressInfoByCustomerId/{CustomerId}/{token}")
+    public List<ExpressInfo> getAccSendExpressInfoByCustomerId(@PathParam("CustomerId") Integer CustomerId, @PathParam("token") String token);
+
+    /**
      * 按照用户的id查询用户寄出快递信息
      *
      * @param CustomerId
@@ -201,6 +246,30 @@ public interface IDomainService {
     @Produces({MediaType.APPLICATION_JSON + ";charset=UTF-8"})
     @Path("/getSendExpressInfoByCustomerId/{CustomerId}/{token}")
     public List<ExpressInfo> getSendExpressInfoByCustomerId(@PathParam("CustomerId") Integer CustomerId, @PathParam("token") String token);
+
+    /**
+     * 按照用户的id查询用户寄出快递信息（未收）
+     *
+     * @param CustomerId
+     * @return
+     */
+    @GET
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces({MediaType.APPLICATION_JSON + ";charset=UTF-8"})
+    @Path("/getDncSendExpressInfoByCustomerId/{CustomerId}/{token}")
+    public List<ExpressInfo> getDncSendExpressInfoByCustomerId(@PathParam("CustomerId") Integer CustomerId, @PathParam("token") String token);
+
+    /**
+     * 按照用户的id查询用户接收快递信息
+     *
+     * @param CustomerId
+     * @return
+     */
+    @GET
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces({MediaType.APPLICATION_JSON + ";charset=UTF-8"})
+    @Path("/getRercvExpressInfoByCustomerId/{CustomerId}/{token}")
+    public List<ExpressInfo> getRercvExpressInfoByCustomerId(@PathParam("CustomerId") Integer CustomerId, @PathParam("token") String token);
 
     /**
      * 按照用户的id查询用户接收快递信息（未收）
