@@ -71,6 +71,14 @@ public class MiscService implements IMiscService {
         this.customerDao = customerDao;
     }
 
+    /////////////////////////////位置信息的接口////////////////////////////
+
+
+    @Override
+    public List<ExpressPositionEntity> getExpressPostionInfo(String expressid) {
+        return null;
+    }
+
     /////////////////////////////Address的接口/////////////////////////////
 
     //通过手机号查用户的所有收货地址
@@ -256,7 +264,7 @@ public class MiscService implements IMiscService {
 
     //根据省的id拿到所有的市
     @Override
-    public List<CityEntity> getCityList(int pid, String token) {
+    public List<CityEntity> getCityList(int pid, String token)  {
         if (au.verify(token))
             return cityDao.getCityList(pid);
         return null;

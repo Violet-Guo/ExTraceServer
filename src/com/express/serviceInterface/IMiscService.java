@@ -2,6 +2,7 @@ package com.express.serviceInterface;
 
 import com.express.info.CustomerAddressEntity;
 import com.express.model.*;
+import org.apache.cxf.rs.security.cors.CrossOriginResourceSharing;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -10,9 +11,22 @@ import java.util.List;
 /**
  * Created by violet on 2016/3/28.
  */
-
+//@CrossOriginResourceSharing(
+//        allowOrigins = {
+//                "http://localhost"
+//        },
+//        allowCredentials = true,
+//        maxAge = 1
+//)
 @Path("/Misc")
 public interface IMiscService {
+
+    /////////////////////////////位置信息的接口////////////////////////////
+
+    @GET
+    @Produces({MediaType.APPLICATION_JSON + ";charset=UTF-8"})
+    @Path("/getExpressPostionInfoById/{id}")
+    public List<ExpressPositionEntity> getExpressPostionInfo(@PathParam("id") String expressid);
 
     /////////////////////////////Address的接口/////////////////////////////
     ///////////////////////////status = 1代表是自己的地址，2代表是收货人的地址///////////

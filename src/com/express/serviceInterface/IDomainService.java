@@ -2,6 +2,7 @@ package com.express.serviceInterface;
 
 import com.express.info.*;
 import com.express.model.*;
+import org.apache.cxf.rs.security.cors.CrossOriginResourceSharing;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -12,10 +13,23 @@ import java.util.List;
 /**
  * Created by violet on 2016/4/6.
  */
+//@CrossOriginResourceSharing(
+//        allowOrigins = {
+//                "http://localhost"
+//        },
+//        allowCredentials = true,
+//        maxAge = 1
+//)
 @Path("/Domain")   //业务操作
 public interface IDomainService {
 
     /////////////////////////////公共的接口（用户和工作人员都要用的）////////////////////////////
+
+    @GET
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces({MediaType.APPLICATION_JSON + ";charset=UTF-8"})
+    @Path("/checkExpressIfExisit/{expressId}/{token}")
+    public String checkExpressIfExisit(@PathParam("expressId") String expressId, @PathParam("token") String token);
 
     /**
      *  下载照片
@@ -114,7 +128,7 @@ public interface IDomainService {
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces({MediaType.APPLICATION_JSON + ";charset=UTF-8"})
-    @Path("/PackageLoadIntoPackage")
+    @Path("/packageLoadIntoPackage")
     public Integer PackageLoadIntoPackage(List<String> packageIds);
 
     /**
@@ -126,7 +140,7 @@ public interface IDomainService {
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces({MediaType.APPLICATION_JSON + ";charset=UTF-8"})
-    @Path("/PackageLoadIntoPackage")
+    @Path("/expressLoadIntoPackage")
     public Integer ExpressLoadIntoPackage(List<String> expressIds);
 
 
@@ -185,6 +199,19 @@ public interface IDomainService {
     @Produces({MediaType.APPLICATION_JSON + ";charset=UTF-8"})
     @Path("/loadIntoPackage/packageId/{packageId}/id/{id}/isPackage/{isPackage}/{token}")
     public String LoadIntoPackage(@PathParam("packageId") String PackageId, @PathParam("id") String Id, @PathParam("isPackage") Integer isPackage, @PathParam("token") String token);
+
+    /**
+     *  从包裹中删除快递
+     * @param PackageId 包裹id
+     * @param expressId 快递id
+     * @param token
+     * @return
+     */
+    @GET
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces({MediaType.APPLICATION_JSON + ";charset=UTF-8"})
+    @Path("/deleteFromPackage/packageId/{packageId}/expressId/{expressId}/{token}")
+    public String deleteFromPackage(@PathParam("packageId") String PackageId, @PathParam("expressId") String expressId, @PathParam("token") String token);
 
     /**
      * 查询包裹中的快件实体列表
@@ -345,6 +372,32 @@ public interface IDomainService {
     @Produces({MediaType.APPLICATION_JSON + ";charset=UTF-8"})
     @Path("/getWork/employeeId/{employeeId}/starttime/{starttime}/days/{days}/{token}")
     public List<ExpressEntity> getWork(@PathParam("employeeId") Integer employeeId, @PathParam("starttime") String starttime, @PathParam("days") Integer days, @PathParam("token") String token);
+
+    /**
+     *  按照站点查询工作量
+     * @param outletId 站点id
+     * @param starttime 开始时间
+     * @param days       查询总天数
+     * @return 返回一个快件列表
+     * @return
+     */
+    @GET
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces({MediaType.APPLICATION_JSON + ";charset=UTF-8"})
+    @Path("/getWorkOfOutlets/outletId/{outletId}/starttime/{starttime}/days/{days}/{token}")
+    public List<ExpressEntity> getWorkOfOutlets(@PathParam("outletId") Integer outletId, @PathParam("starttime") String starttime, @PathParam("days") Integer days, @PathParam("token") String token);
+
+    /**
+     *  按照站点Id查询员工
+     * @param outletId
+     * @param token
+     * @return
+     */
+    @GET
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces({MediaType.APPLICATION_JSON + ";charset=UTF-8"})
+    @Path("/findEmployeesInfoByOutletsId/{outletId}/{token}")
+    public List<EmployeesEntity> findEmployeesInfoByOutletsId(@PathParam("outletId") Integer outletId, @PathParam("token") String token);
 
     /////////////////////////////用户的接口////////////////////////////
 
